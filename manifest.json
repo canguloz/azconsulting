@@ -1,0 +1,15 @@
+{
+"name":"TechConsulting",
+"short_name":"TechTI",
+"start_url":"/",
+"display":"standalone",
+"background_color":"#081120",
+"theme_color":"#0066ff",
+"icons":[
+{
+"src":"assets/img/icon.png",
+"sizes":"512x512",
+"type":"image/png"
+}
+]
+}
