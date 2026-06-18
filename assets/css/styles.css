@@ -34,8 +34,8 @@ body{
     }
 
     .custom-navbar{
-        min-height:85px;
-        padding: 10px;
+       min-height:80px;
+        padding: 8px 0;
     }
 
     .navbar-toggler{
@@ -116,6 +116,7 @@ body{
 .hero-buttons .btn{
 
     width:100%;
+    padding:18px;
 
 }
 
@@ -180,20 +181,20 @@ body{
 }
 
 .hero-card{
-    margin-top:40px;
-    padding:25px;
+    margin-top:30px;
+    padding:30px;
 }
 
 .hero-card h3{
 
-    font-size:1.8rem;
+    font-size:2rem;
 
 }
 
 .hero-list li{
 
     font-size:1rem;
-    margin-bottom:10px;
+    margin-bottom:12px;
 
 }
 .hero-stats{
@@ -239,7 +240,8 @@ body{
 }
 
 .section-title{
-    font-size:2.7rem;
+    font-size:2.4rem;
+    line-height:1.2; 
     font-weight:800;
     margin:15px 0;
 }
@@ -281,8 +283,9 @@ body{
 .service-card{
     background:white;
     border-radius:20px;
-    padding:35px;
-    margin-bottom:30px;
+    padding:30px 20px;
+    min-height:auto;
+    margin-bottom:20px;
     text-align:center;
     transition:.4s;
     box-shadow:
@@ -744,7 +747,7 @@ display:block;
 /* ========================= */
 
 .logo-header{
-    width: 250px;
+    width:180px;
     height:auto;
     object-fit:contain;
     transition:.3s ease;
@@ -760,7 +763,7 @@ display:block;
 
 .logo-footer{
 
-    width:250px;
+    width:180px;
     height:auto;
     object-fit:contain;
     margin-bottom:15px;
@@ -786,7 +789,7 @@ display:block;
 .hero{
 
     min-height:auto;
-    padding-top:140px;
+    padding-top:40px;
     padding-bottom:60px;
 
 }
@@ -800,16 +803,42 @@ display:block;
 .hero h1{
 
     font-size:2.1rem !important;
-    line-height:1.2;
+    line-height:1.15;
     margin-bottom:20px;
+    text-align:center;
 
 }
 
 .hero p{
 
-    font-size:1.1rem;
-    line-height:1.7;
+    font-size:1.2rem;
+    line-height:1.8;
+    text-align:center;
 
 }
+
+}
+
+.row{
+    margin-bottom:0;
+}
+
+section{
+    margin-bottom:0;
+}
+
+img{
+
+    max-width:100%;
+    height:auto;
+    display:block;
+
+}
+
+html,
+body{
+
+    overflow-x:hidden;
+    width:100%;
 
 }
