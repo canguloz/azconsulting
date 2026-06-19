@@ -806,6 +806,10 @@ display:block;
 
 .hero-content{
 
+     max-width:900px;
+
+    margin:auto;
+
     text-align:center;
 
 }
@@ -873,10 +877,17 @@ body{
 
 .btn-primary:hover{
 
-    background:#EA580C !important;
-    border-color:#EA580C !important;
+    background:rgba(11,31,58,.95) !important;
 
-    transform:translateY(-3px);
+    border-color:rgba(255,255,255,.25) !important;
+
+    color:#fff !important;
+
+    transform:translateY(-5px);
+
+    box-shadow:
+        0 15px 40px rgba(11,31,58,.45);
+
 
 }
 
@@ -897,5 +908,177 @@ body{
     background:#38BDF8 !important;
 
     color:#FFFFFF !important;
+
+}
+
+/* ================================= */
+/* CTA FLOTANTE */
+/* ================================= */
+
+.floating-consulting{
+
+    position:fixed;
+
+    left:50%;
+    bottom:30px;
+
+    transform:translateX(-50%);
+
+    background:#FF7A00;
+
+    color:white;
+
+    text-decoration:none;
+
+    padding:14px 30px;
+
+    min-width:260px;
+
+    text-align:center;
+
+    border-radius:50px;
+
+    font-weight:700;
+
+    z-index:9999;
+
+    box-shadow:
+    0 10px 25px rgba(0,0,0,.20);
+
+    transition:all .3s ease;
+
+    animation:pulseCTA 2.5s infinite;
+
+}
+
+.floating-consulting:hover{
+
+    background:#0B1F3A;
+
+    color:white;
+
+    transform:
+        translateX(-50%)
+        translateY(-4px);
+
+}
+
+@keyframes pulseCTA{
+
+    0%{
+        box-shadow:
+        0 0 0 0 rgba(255,122,0,.50);
+    }
+
+    70%{
+        box-shadow:
+        0 0 0 15px rgba(255,122,0,0);
+    }
+
+    100%{
+        box-shadow:
+        0 0 0 0 rgba(255,122,0,0);
+    }
+
+}
+
+@media(max-width:768px){
+
+    .floating-consulting{
+
+        width:85%;
+
+        text-align:center;
+
+        padding:15px;
+
+        font-size:.95rem;
+
+        bottom:20px;
+
+    }
+
+}
+
+/* =================================
+   CTA HERO PREMIUM
+================================= */
+
+.btn-primary{
+
+    background:rgba(255,122,0,.85) !important;
+
+    position:relative;
+
+    overflow:hidden;
+
+    backdrop-filter:blur(12px);
+
+    border:1px solid rgba(255,255,255,.15) !important;
+
+    color:#fff !important;
+
+    font-weight:700;
+
+    padding:18px 40px;
+
+    border-radius:60px;
+
+    box-shadow:
+        0 8px 30px rgba(255,122,0,.35);
+
+    transition:all .4s ease;
+
+    animation:floatButton 3s ease-in-out infinite;
+
+}
+
+.btn-primary::before{
+
+    content:'';
+
+    position:absolute;
+
+    top:0;
+    left:-100%;
+
+    width:100%;
+    height:100%;
+
+    background:
+    linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.25),
+        transparent
+    );
+
+    transition:.8s;
+
+}
+
+.btn-primary:hover::before{
+
+    left:100%;
+
+}
+
+/* ================================= */
+/* ANIMACION CTA */
+/* ================================= */
+
+@keyframes floatButton{
+
+    0%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-6px);
+    }
+
+    100%{
+        transform:translateY(0);
+    }
 
 }
