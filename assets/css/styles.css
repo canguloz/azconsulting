@@ -310,6 +310,15 @@ body{
     font-size:3rem;
     color:var(--secondary);
     margin-bottom:20px;
+    transition:.3s;
+}
+
+.service-card:hover i{
+
+    color:var(--primary);
+
+    transform:scale(1.1);
+
 }
 
 .section-header{
@@ -1080,5 +1089,62 @@ body{
     100%{
         transform:translateY(0);
     }
+
+}
+
+/* ================================= */
+/* ABOUT CARDS */
+/* ================================= */
+
+.about-card{
+
+    background:#FFFFFF;
+
+    padding:25px;
+
+    border-radius:18px;
+
+    text-align:center;
+
+    min-height:240px;
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,.08);
+
+    transition:.3s;
+
+}
+
+.about-card:hover{
+
+    transform:translateY(-8px);
+
+}
+
+.about-card i{
+
+    font-size:3rem;
+
+    color:#FF7A00;
+
+    margin-bottom:20px;
+
+}
+
+.about-card h3{
+
+    color:#0B1F3A;
+
+    margin-bottom:15px;
+
+    font-size:1.4rem;
+
+}
+
+.about-card p{
+
+    color:#1E293B;
+
+    margin-bottom:0;
 
 }
