@@ -1,11 +1,17 @@
 :root{
-    --primary:#0B1F3A;
-    --secondary:#00B8FF;
-    --accent:#FF7A00;
+
+    /* ================================= */
+    /* AZ CONSULTING CORPORATE COLORS */
+    /* ================================= */
+
+    --primary:#0D1630;      /* Azul corporativo */
+    --accent:#F59E0B;       /* Naranja */
+
+    --light:#F5F7FA;        /* Gris claro */
     --white:#FFFFFF;
-    --light:#F5F7FA;
-    --text:#1E293B;
-    --dark:#111827;
+
+    --text:#1F2937;
+    --text-light:#6B7280;
 
 }
 
@@ -15,19 +21,52 @@
     box-sizing:border-box;
 }
 
+/* ================================= */
+/* MENU PRINCIPAL */
+/* ================================= */
+
+.navbar-nav .nav-link{
+
+    color:var(--primary);
+
+    font-weight:600;
+
+    padding:10px 15px;
+
+    border-radius:8px;
+
+    transition:.3s ease;
+
+}
+
+.navbar-nav .nav-link:hover{
+
+    background:var(--primary);
+
+    color:var(--white) !important;
+
+}
+
 body{
+
+    background:var(--light);
+
+    color:var(--text);
+
     font-family:'Segoe UI',sans-serif;
+
     overflow-x:hidden;
+
 }
 
 .custom-navbar{
-    background:
-    rgba(8,17,32,.95);
 
-    border-bottom:
-    1px solid rgba(255,255,255,.08);
+    background:var(--light);
+
+    border-bottom:1px solid rgba(13,22,48,.08);
 
     backdrop-filter:blur(20px);
+
 }
 
 @media(max-width:768px){
@@ -35,6 +74,7 @@ body{
     .logo-header{
         width:180px;
         height:auto;
+        transition:.3s ease;
     }
 
     .custom-navbar{
@@ -60,13 +100,13 @@ body{
 }
 
 .social-icons a{
-    color:white;
+    color:var(--primary);
     margin-left:15px;
     transition:.3s;
 }
 
 .social-icons a:hover{
-    color:var(--secondary);
+    color:var(--accent);
 }
 
 .hero{
@@ -83,15 +123,19 @@ body{
 }
 
 .overlay{
+
     position:absolute;
+
     width:100%;
     height:100%;
+
     background:
     linear-gradient(
-    120deg,
-    rgba(2,12,27,.92),
-    rgba(0,70,170,.75)
+        135deg,
+        rgba(13,22,48,.85),
+        rgba(13,22,48,.55)
     );
+
 }
 
 .hero-content{
@@ -244,7 +288,7 @@ body{
 }
 
 .section-badge{
-    color:var(--secondary);
+    color:var(--accent);
     font-weight:700;
     letter-spacing:2px;
 }
@@ -308,7 +352,7 @@ body{
 
 .service-card i{
     font-size:3rem;
-    color:var(--secondary);
+    color:var(--accent);
     margin-bottom:20px;
     transition:.3s;
 }
@@ -580,7 +624,7 @@ border:none;
 /* FOOTER */
 
 footer{
-background:#081120;
+background:var(--primary);
 color:white;
 padding:80px 0 30px;
 }
@@ -761,20 +805,21 @@ max-width:100%;
 display:block;
 }
 
-/* ========================= */
+/* ================================= */
 /* LOGO HEADER */
-/* ========================= */
+/* ================================= */
 
 .logo-header{
-    width:180px;
+
+    width:220px;
+
     height:auto;
-    object-fit:contain;
+
     transition:.3s ease;
+
 }
 
-.logo-header:hover{
-    transform:scale(1.03);
-}
+
 
 /* ========================= */
 /* LOGO FOOTER */
@@ -782,10 +827,22 @@ display:block;
 
 .logo-footer{
 
+    display:block;
     width:180px;
+    max-width:100%;
     height:auto;
     object-fit:contain;
     margin-bottom:15px;
+
+}
+
+.logo-footer img{
+
+    width:180px;
+
+    max-width:100%;
+
+    height:auto;
 
 }
 
@@ -867,36 +924,34 @@ body{
 }
 
 /* ================================= */
-/* BOTONES AZ CONSULTING */
+/* BOTON PRINCIPAL */
 /* ================================= */
 
 .btn-primary{
 
-    background:#F97316 !important;
-    border-color:#F97316 !important;
+    background:var(--accent) !important;
 
-    color:#FFFFFF !important;
+    color:white !important;
 
-    font-weight:600;
-    border-radius:12px;
+    border:none !important;
 
-    transition:all .3s ease;
+    border-radius:50px;
+
+    font-weight:700;
+
+    padding:16px 35px;
+
+    transition:.3s;
 
 }
 
 .btn-primary:hover{
 
-    background:rgba(11,31,58,.95) !important;
+    background:var(--primary) !important;
 
-    border-color:rgba(255,255,255,.25) !important;
+    color:white !important;
 
-    color:#fff !important;
-
-    transform:translateY(-5px);
-
-    box-shadow:
-        0 15px 40px rgba(11,31,58,.45);
-
+    transform:translateY(-3px);
 
 }
 
@@ -1009,68 +1064,6 @@ body{
 
 }
 
-/* =================================
-   CTA HERO PREMIUM
-================================= */
-
-.btn-primary{
-
-    background:rgba(255,122,0,.85) !important;
-
-    position:relative;
-
-    overflow:hidden;
-
-    backdrop-filter:blur(12px);
-
-    border:1px solid rgba(255,255,255,.15) !important;
-
-    color:#fff !important;
-
-    font-weight:700;
-
-    padding:18px 40px;
-
-    border-radius:60px;
-
-    box-shadow:
-        0 8px 30px rgba(255,122,0,.35);
-
-    transition:all .4s ease;
-
-    animation:floatButton 3s ease-in-out infinite;
-
-}
-
-.btn-primary::before{
-
-    content:'';
-
-    position:absolute;
-
-    top:0;
-    left:-100%;
-
-    width:100%;
-    height:100%;
-
-    background:
-    linear-gradient(
-        90deg,
-        transparent,
-        rgba(255,255,255,.25),
-        transparent
-    );
-
-    transition:.8s;
-
-}
-
-.btn-primary:hover::before{
-
-    left:100%;
-
-}
 
 /* ================================= */
 /* ANIMACION CTA */
@@ -1125,7 +1118,7 @@ body{
 
     font-size:3rem;
 
-    color:#FF7A00;
+    color:var(--accent);
 
     margin-bottom:20px;
 
@@ -1146,5 +1139,237 @@ body{
     color:#1E293B;
 
     margin-bottom:0;
+
+}
+
+/* ================================= */
+/* FOOTER RESPONSIVE */
+/* ================================= */
+
+.footer-brand{
+
+    text-align:center;
+
+}
+
+.footer-text{
+
+    color:#94A3B8;
+
+    font-size:14px;
+
+    margin-top:10px;
+
+}
+
+.logo-footer{
+
+    width:220px;
+
+    height:auto;
+
+    display:block;
+
+    margin:0 auto 15px;
+
+}
+
+
+@media (max-width:768px){
+
+    footer .row{
+
+        text-align:center;
+
+    }
+
+    footer .col-lg-4,
+    footer .col-lg-3,
+    footer .col-lg-2{
+
+        margin-bottom:30px;
+
+    }
+
+    .logo-footer{
+
+        width:180px;
+
+        margin:auto;
+
+    }
+
+    .footer-social{
+
+        display:flex;
+
+        justify-content:center;
+
+        gap:15px;
+
+    }
+
+}
+
+/* ================================= */
+/* HEADER MOBILE PREMIUM */
+/* ================================= */
+
+@media (max-width:991px){
+
+    .custom-navbar{
+
+        background:#F5F7FA !important;
+
+         border-bottom:1px solid rgba(13,22,48,.08);
+
+        padding:10px 0;
+
+    }
+
+    /* Contenedor */
+
+    .custom-navbar .container{
+
+        position:relative;
+
+        display:flex;
+
+        align-items:center;
+
+        position:relative;
+
+    }
+
+/* Logo centrado */
+
+.navbar-brand{
+
+    position:absolute;
+
+    left:50%;
+
+    top:10px;
+
+    transform:translateX(-50%);
+
+    margin:0;
+
+}
+
+    /* Logo */
+
+    .logo-header{
+
+        width:220px;
+
+        max-width:65vw;
+
+        height:auto;
+
+        display:block;
+
+    }
+
+    /* Botón hamburguesa */
+
+    .navbar-toggler{
+
+        position:absolute;
+
+        left:0;
+
+        top:20px;    
+
+        border:none;
+
+        background:transparent;
+
+        box-shadow:none;
+
+    }
+
+.navbar-toggler-icon{
+
+    opacity:1;
+
+}
+
+    .navbar-toggler:focus{
+
+        box-shadow:none;
+
+    }
+
+    /* Menú desplegable */
+
+    .navbar-collapse{
+
+        margin-top:20px;
+
+        background:#FFFFFF;
+
+        border-radius:16px;
+
+        padding:20px;
+
+        box-shadow:
+        0 15px 40px rgba(0,0,0,.08);
+
+    }
+
+    /* Menús */
+
+    .navbar-nav{
+
+        text-align:left;
+
+    }
+
+    .navbar-nav .nav-item{
+
+        margin-bottom:5px;
+
+    }
+
+    .navbar-nav .nav-link{
+
+        color:var(--primary);
+
+        font-weight:600;
+
+        padding:12px 15px;
+
+        border-radius:10px;
+
+        transition:.3s;
+
+    }
+
+    .navbar-nav .nav-link:hover{
+
+        background:var(--primary);
+
+        color:white !important;
+
+    }
+
+    /* Redes sociales */
+
+    .social-icons{
+
+        display:flex;
+
+        justify-content:flex-start;
+
+        gap:15px;
+
+        margin-top:20px;
+
+        padding-top:20px;
+
+        border-top:1px solid #E5E7EB;
+
+    }
 
 }
