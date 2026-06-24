@@ -3,20 +3,24 @@ AOS.init({
     once:true
 });
 
+/* ================================= */
+/* NAVBAR SCROLL EFFECT */
+/* ================================= */
+
 window.addEventListener("scroll",()=>{
 
     const navbar =
     document.querySelector(".custom-navbar");
 
-    if(window.scrollY > 80){
+    if(window.scrollY > 50){
 
-        navbar.style.background =
-        "#081120";
+        navbar.style.boxShadow =
+        "0 4px 15px rgba(0,0,0,.08)";
 
     }else{
 
-        navbar.style.background =
-        "rgba(0,0,0,.35)";
+        navbar.style.boxShadow =
+        "none";
 
     }
 

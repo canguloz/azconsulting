@@ -21,31 +21,7 @@
     box-sizing:border-box;
 }
 
-/* ================================= */
-/* MENU PRINCIPAL */
-/* ================================= */
 
-.navbar-nav .nav-link{
-
-    color:var(--primary);
-
-    font-weight:600;
-
-    padding:10px 15px;
-
-    border-radius:8px;
-
-    transition:.3s ease;
-
-}
-
-.navbar-nav .nav-link:hover{
-
-    background:var(--primary);
-
-    color:var(--white) !important;
-
-}
 
 body{
 
@@ -99,14 +75,50 @@ body{
     color:var(--secondary);
 }
 
+/* ================================= */
+/* REDES SOCIALES */
+/* ================================= */
+
 .social-icons a{
+
     color:var(--primary);
+
     margin-left:15px;
-    transition:.3s;
+
+    transition:all .3s ease;
+
 }
 
 .social-icons a:hover{
+
     color:var(--accent);
+
+    transform:translateY(-2px);
+
+}
+
+/* ================================= */
+/* MENU PRINCIPAL */
+/* ================================= */
+
+.navbar-nav .nav-link{
+
+    color:var(--primary) !important;
+
+    font-weight:600;
+
+    padding:10px 15px;
+
+    transition:all .3s ease;
+
+}
+
+.navbar-nav .nav-link:hover{
+
+    color:var(--accent) !important;
+
+    transform:translateY(-2px);
+
 }
 
 .hero{
@@ -629,6 +641,36 @@ color:white;
 padding:80px 0 30px;
 }
 
+/* TITULOS DEL FOOTER */
+
+footer h5{
+
+    color:#FFFFFF;
+
+    font-weight:700;
+
+    margin-bottom:20px;
+
+    font-size:1.1rem;
+
+}
+
+footer .nav-link{
+
+    color:#CBD5E1 !important;
+
+    text-decoration:none;
+
+    transition:.3s ease;
+
+}
+
+footer .nav-link:hover{
+
+    color:var(--accent) !important;
+
+}
+
 footer ul{
 list-style:none;
 padding:0;
@@ -646,6 +688,61 @@ margin-right:15px;
 .copyright{
 text-align:center;
 }
+
+/* ================================= */
+/* FOOTER SOCIAL */
+/* ================================= */
+
+.footer-brand{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:flex-start;
+
+}
+
+.footer-right{
+
+    display:flex;
+
+    justify-content:flex-end;
+
+    align-items:center;
+
+}
+
+.footer-social{
+
+    display:flex;
+
+    justify-content:flex-end;
+
+    align-items:center;
+
+    gap:22px;
+
+}
+
+.footer-social a{
+
+    color:#FFFFFF;
+
+    font-size:24px;
+
+    transition:all .3s ease;
+
+}
+
+.footer-social a:hover{
+
+    color:var(--accent);
+
+    transform:translateY(-3px);
+
+}
+
 
 /* BTN TOP */
 
@@ -809,51 +906,58 @@ display:block;
 /* LOGO HEADER */
 /* ================================= */
 
+/* Desktop */
+
 .logo-header{
 
-    width:220px;
+    width:280px;
+
+    max-width:100%;
 
     height:auto;
+
+    display:block;
 
     transition:.3s ease;
 
 }
 
+.logo-header:hover{
 
-
-/* ========================= */
-/* LOGO FOOTER */
-/* ========================= */
-
-.logo-footer{
-
-    display:block;
-    width:180px;
-    max-width:100%;
-    height:auto;
-    object-fit:contain;
-    margin-bottom:15px;
+    transform:scale(1.02);
 
 }
 
-.logo-footer img{
+/* Tablet */
 
-    width:180px;
+@media (max-width:991px){
 
-    max-width:100%;
+    .logo-header{
 
-    height:auto;
+        width:240px;
+
+        max-width:70vw;
+
+        height:auto;
+
+    }
 
 }
 
-.hero-list{
-    list-style:none;
-    padding:0;
-}
+/* Mobile */
 
-.hero-list li{
-    margin-bottom:12px;
-    font-size:1rem;
+@media (max-width:768px){
+
+    .logo-header{
+
+        width:220px;
+
+        max-width:75vw;
+
+        height:auto;
+
+    }
+
 }
 
 /* ===================================== */
@@ -872,7 +976,7 @@ display:block;
 
 .hero-content{
 
-     max-width:900px;
+    max-width:900px;
 
     margin:auto;
 
@@ -1146,15 +1250,11 @@ body{
 /* FOOTER RESPONSIVE */
 /* ================================= */
 
-.footer-brand{
 
-    text-align:center;
-
-}
 
 .footer-text{
 
-    color:#94A3B8;
+    color:#CBD5E1;
 
     font-size:14px;
 
@@ -1162,9 +1262,17 @@ body{
 
 }
 
+
+
+/* ================================= */
+/* LOGO FOOTER */
+/* ================================= */
+
 .logo-footer{
 
-    width:220px;
+    width:270px;
+
+    max-width:100%;
 
     height:auto;
 
@@ -1172,30 +1280,53 @@ body{
 
     margin:0 auto 15px;
 
+    transition:.3s ease;
+
 }
 
+/* ================================= */
+/* FOOTER MOBILE */
+/* ================================= */
 
 @media (max-width:768px){
 
-    footer .row{
+    footer{
 
         text-align:center;
 
     }
 
-    footer .col-lg-4,
-    footer .col-lg-3,
-    footer .col-lg-2{
+    .footer-brand{
 
-        margin-bottom:30px;
+        display:flex;
+
+        justify-content:center;
+
+        align-items:center;
+
+        margin-bottom:25px;
 
     }
 
     .logo-footer{
 
-        width:180px;
+        width:200px;
 
-        margin:auto;
+        max-width:85%;
+
+        margin:0 auto;
+
+    }
+
+    .footer-right{
+
+        display:flex;
+
+        justify-content:center;
+
+        align-items:center;
+
+        margin-top:10px;
 
     }
 
@@ -1205,7 +1336,41 @@ body{
 
         justify-content:center;
 
-        gap:15px;
+        align-items:center;
+
+        gap:22px;
+
+        width:100%;
+
+    }
+
+    .copyright{
+
+        margin-top:25px;
+
+        font-size:14px;
+
+    }
+
+}
+
+/* ================================= */
+/* HEADER DESKTOP */
+/* ================================= */
+
+@media (min-width:992px){
+
+    .navbar-brand{
+
+        position:relative;
+
+        left:auto;
+
+        top:auto;
+
+        transform:none;
+
+        margin-right:20px;
 
     }
 
@@ -1221,13 +1386,29 @@ body{
 
         background:#F5F7FA !important;
 
-         border-bottom:1px solid rgba(13,22,48,.08);
+        border-bottom:1px solid rgba(13,22,48,.08);
 
         padding:10px 0;
 
     }
 
-    /* Contenedor */
+    /* MENU MOVIL */
+
+    .navbar-nav{
+
+        text-align:left;
+
+    }
+
+    .navbar-nav .nav-link{
+
+        padding:12px 15px;
+
+        border-radius:10px;
+
+    }
+
+    /* CONTENEDOR */
 
     .custom-navbar .container{
 
@@ -1237,27 +1418,25 @@ body{
 
         align-items:center;
 
-        position:relative;
+    }
+
+    /* LOGO CENTRADO SOLO EN MOVIL */
+
+    .navbar-brand{
+
+        position:absolute;
+
+        left:50%;
+
+        top:10px;
+
+        transform:translateX(-50%);
+
+        margin:0;
 
     }
 
-/* Logo centrado */
-
-.navbar-brand{
-
-    position:absolute;
-
-    left:50%;
-
-    top:10px;
-
-    transform:translateX(-50%);
-
-    margin:0;
-
-}
-
-    /* Logo */
+    /* LOGO */
 
     .logo-header{
 
@@ -1271,7 +1450,7 @@ body{
 
     }
 
-    /* Botón hamburguesa */
+    /* HAMBURGUESA */
 
     .navbar-toggler{
 
@@ -1279,7 +1458,7 @@ body{
 
         left:0;
 
-        top:20px;    
+        top:20px;
 
         border:none;
 
@@ -1289,11 +1468,11 @@ body{
 
     }
 
-.navbar-toggler-icon{
+    .navbar-toggler-icon{
 
-    opacity:1;
+        opacity:1;
 
-}
+    }
 
     .navbar-toggler:focus{
 
@@ -1301,7 +1480,7 @@ body{
 
     }
 
-    /* Menú desplegable */
+    /* MENU DESPLEGABLE */
 
     .navbar-collapse{
 
@@ -1314,47 +1493,11 @@ body{
         padding:20px;
 
         box-shadow:
-        0 15px 40px rgba(0,0,0,.08);
+            0 15px 40px rgba(0,0,0,.08);
 
     }
 
-    /* Menús */
-
-    .navbar-nav{
-
-        text-align:left;
-
-    }
-
-    .navbar-nav .nav-item{
-
-        margin-bottom:5px;
-
-    }
-
-    .navbar-nav .nav-link{
-
-        color:var(--primary);
-
-        font-weight:600;
-
-        padding:12px 15px;
-
-        border-radius:10px;
-
-        transition:.3s;
-
-    }
-
-    .navbar-nav .nav-link:hover{
-
-        background:var(--primary);
-
-        color:white !important;
-
-    }
-
-    /* Redes sociales */
+    /* REDES */
 
     .social-icons{
 
