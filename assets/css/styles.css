@@ -48,22 +48,24 @@ section {
 }
 
 .btn-primary {
-    background: linear-gradient(135deg, var(--accent) 0%, #FF9500 100%) !important;
-    border: 0 !important;
+    background: rgba(13, 22, 48, 0.08) !important;
+    border: 2px solid rgba(13, 22, 48, 0.3) !important;
     border-radius: 999px;
-    box-shadow: 0 10px 25px rgba(255, 122, 0, 0.3);
-    color: #ffffff !important;
+    box-shadow: 0 8px 25px rgba(13, 22, 48, 0.1);
+    color: var(--primary) !important;
     font-weight: 700;
     padding: 16px 38px;
     text-decoration: none;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .btn-primary:hover {
-    background: linear-gradient(135deg, #E66A00 0%, var(--accent) 100%) !important;
+    background: var(--primary) !important;
     color: #ffffff !important;
-    transform: translateY(-5px) scale(1.02);
-    box-shadow: 0 15px 35px rgba(255, 122, 0, 0.4);
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(13, 22, 48, 0.25);
 }
 
 .custom-navbar {
@@ -154,7 +156,7 @@ section {
     color: #ffffff;
     padding: 8px 18px;
     border-radius: 50px;
-    margin-bottom: 18px;
+    margin-bottom: 30px;
     font-size: 0.9rem;
     font-weight: 600;
     letter-spacing: 0.08em;
@@ -189,6 +191,27 @@ section {
 }
 
 .btn-outline-light {
+    background: rgba(13, 22, 48, 0.08) !important;
+    border: 2px solid rgba(13, 22, 48, 0.3) !important;
+    border-radius: 999px;
+    box-shadow: 0 8px 25px rgba(13, 22, 48, 0.1);
+    color: var(--primary) !important;
+    font-weight: 700;
+    padding: 16px 38px;
+    text-decoration: none;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.btn-outline-light:hover {
+    background: var(--primary) !important;
+    color: #ffffff !important;
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(13, 22, 48, 0.25);
+}
+
+.btn-outline-accent {
     border: 2px solid var(--primary) !important;
     background: transparent !important;
     color: var(--primary) !important;
@@ -198,9 +221,10 @@ section {
     transition: all 0.3s ease;
 }
 
-.btn-outline-light:hover {
-    background: var(--primary) !important;
-    color: #ffffff !important;
+.btn-outline-accent:hover {
+    background: rgba(255, 122, 0, 0.15) !important;
+    color: var(--accent) !important;
+    border-color: var(--accent) !important;
     transform: translateY(-3px);
 }
 
@@ -1046,10 +1070,34 @@ footer li {
     text-align: center;
 }
 
+.menu-close-btn {
+    display: none;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 36px;
+    height: 36px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(13, 22, 48, 0.08);
+    color: var(--primary);
+    font-size: 1.1rem;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.menu-close-btn:hover {
+    background: var(--accent);
+    color: #fff;
+}
+
 #btnTop {
     position: fixed;
-    right: 30px;
-    bottom: 110px;
+    right: 20px;
+    bottom: 85px;
     width: 50px;
     height: 50px;
     border: none;
@@ -1058,6 +1106,14 @@ footer li {
     color: white;
     display: none;
     z-index: 999;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#btnTop:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(255,122,0,0.3);
 }
 
 #preloader {
@@ -1206,6 +1262,10 @@ footer li {
         border-radius: 10px;
     }
 
+    .menu-close-btn {
+        display: flex;
+    }
+
     .social-icons {
         display: flex;
         justify-content: flex-start;
@@ -1285,6 +1345,10 @@ footer li {
 
     .testimonial-card {
         padding: 28px;
+    }
+
+    .scroll-mouse {
+        display: none;
     }
 }
 
@@ -1431,12 +1495,23 @@ footer li {
         font-size: 14px;
     }
 
+    .scroll-mouse {
+        display: none;
+    }
+
     .whatsapp-float {
         width: 48px;
         height: 48px;
         font-size: 28px;
         right: 15px;
         bottom: 15px;
+    }
+
+    #btnTop {
+        right: 15px;
+        bottom: 75px;
+        width: 48px;
+        height: 48px;
     }
 }
 
