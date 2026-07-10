@@ -6,86 +6,55 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>
-    AZCONSULTING | Consultoría TI e Infraestructura Tecnológica
-    </title>
+    <title>AZCONSULTING | Consultoría TI e Infraestructura Tecnológica</title>
 
-    <link rel="icon"
-      type="image/x-icon"
-      href="assets/img/favicon.ico">
-
-    <meta 
-    name="description"
-    content="Consultoría TI, Infraestructura Tecnológica, Desarrollo Web, Correo Corporativo, Automatización de Servicios y Soporte Técnico Especializado.">
-
-    <meta
-    name="keywords"
-    content="consultoría TI, infraestructura TI, desarrollo web, soporte técnico, automatización de servicios">
-
-    <meta property="og:title" content="AZCONSULTING">
-    <meta property="og:description" content="Transformamos la tecnología en resultados">
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
+    <meta name="description" content="Consultoría TI, Infraestructura Tecnológica, Desarrollo Web, Correo Corporativo, Automatización de Servicios y Soporte Técnico Especializado.">
+    <meta name="keywords" content="consultoría TI, infraestructura TI, desarrollo web, soporte técnico, automatización de servicios">
+    <meta name="robots" content="index,follow">
+    <link rel="canonical" href="https://canguloz.github.io/az-carlos/">
+    <meta property="og:title" content="AZCONSULTING | Consultoría TI e Infraestructura Tecnológica">
+    <meta property="og:description" content="Consultoría TI e Infraestructura Tecnológica para empresas">
     <meta property="og:image" content="assets/img/og-image.jpg">
-    <meta name="author" content="azconsulting">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="theme-color" content="#0066ff">
 
     <!-- Bootstrap -->
-
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- FontAwesome -->
-
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
 
     <!-- AOS -->
-
     <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
 
-    <!-- CSS -->
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
+    <!-- CSS -->
     <link rel="stylesheet" href="assets/css/styles.css">
 
-   <!-- PWA -->
+    <!-- PWA -->
+    <link rel="manifest" href="manifest.json">
 
-<link rel="manifest"
-href="manifest.json">
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
 
-<meta name="theme-color"
-content="#0066ff">
+    <!-- PARTICLES -->
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@3/tsparticles.bundle.min.js"></script>
 
-<!-- GSAP -->
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
-
-<!-- PARTICLES -->
-
-<script src="https://cdn.jsdelivr.net/npm/tsparticles@3/tsparticles.bundle.min.js"></script>
-
-<meta property="og:title"
-content="Consultoría TI Empresarial">
-
-<meta property="og:type"
-content="website">
-
-<meta property="og:image"
-content="assets/img/og-image.jpg">
-
-<meta property="og:description"
-content="Consultoría tecnológica empresarial">
-
-<meta name="twitter:card"
-content="summary_large_image">
-
-<script type="application/ld+json">
-
-{
-"@context":"https://schema.org",
-"@type":"Organization",
-"name":"azconsulting",
-"url":"https://www.azconsulting.com",
-"logo":"logo.png"
-}
-
-</script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "AZCONSULTING",
+      "url": "https://canguloz.github.io/az-carlos/",
+      "logo": "assets/img/logo.png"
+    }
+    </script>
 
 </head>
 
@@ -113,7 +82,9 @@ content="summary_large_image">
 
     <a href="https://wa.me/51924858054?text=Hola,%20quiero%20una%20consultoría"
         class="whatsapp-float"
-        target="_blank">
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Contactar por WhatsApp">
 
         <i class="fab fa-whatsapp"></i>
 
@@ -130,7 +101,8 @@ content="summary_large_image">
             <button class="navbar-toggler"
                 type="button"
                 data-bs-toggle="collapse"
-                data-bs-target="#menu">
+                data-bs-target="#menu"
+                aria-label="Abrir menú de navegación">
 
                 <span class="navbar-toggler-icon"></span>
 
@@ -163,7 +135,7 @@ content="summary_large_image">
                     </li>
 
                     <li class="nav-item">
-                        <a href="#Casos de Éxito" class="nav-link">Casos de Éxito</a>
+                        <a href="#casos-exito" class="nav-link">Casos de Éxito</a>
                     </li>
 
                     <li class="nav-item">
@@ -176,21 +148,21 @@ content="summary_large_image">
 
                 </ul>
 
-                <div class="social-icons ms-4">
+                <div class="social-icons ms-4" aria-label="Redes sociales">
 
-                    <a href="#">
+                    <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
                         <i class="fab fa-facebook-f"></i>
                     </a>
 
-                    <a href="https://www.linkedin.com/in/carlos-angulo-zegarra-046768188/">
+                    <a href="https://www.linkedin.com/in/carlos-angulo-zegarra-046768188/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                         <i class="fab fa-linkedin-in"></i>
                     </a>
 
-                    <a href="#">
+                    <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                         <i class="fab fa-instagram"></i>
                     </a>
 
-                    <a href="#">
+                    <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
                         <i class="fab fa-youtube"></i>
                     </a>
 
@@ -208,9 +180,11 @@ content="summary_large_image">
 
 <section id="inicio" class="hero">
 
+    <div id="particles-js" class="particles-layer" aria-hidden="true"></div>
+
     <div class="container hero-content">
 
-        <div class="row align-items-center min-vh-100">
+        <div class="row align-items-center">
 
             <!-- COLUMNA IZQUIERDA -->
             <div class="col-lg-7">
@@ -218,21 +192,23 @@ content="summary_large_image">
                 <span class="hero-badge">
                     CONSULTORÍA TECNOLÓGICA
                 </span>
-
+                
                 <h1>
-                    Soluciones Tecnológicas que Impulsan
-                    <span>el Crecimiento de tu Empresa</span>
-                </h1>
+                Consultoría TI e Infraestructura Tecnológica para Empresas
+                </h1>           
 
                 <p class="hero-description">
-                    Consultoría TI, Desarrollo Web, Correo Corporativo,
-                    Infraestructura Tecnológica,                    
-                    Automatización de Servicios y Soporte Técnico.
+                    Acompañamos a empresas a modernizar su infraestructura, optimizar procesos y acelerar su crecimiento con soluciones tecnológicas claras, seguras y escalables.
                 </p>
 
-                <a href="#contacto" class="btn btn-primary btn-lg">
-                    Solicitar Consultoría
-                </a>
+                <div class="hero-actions">
+                    <a href="#contacto" class="btn btn-primary btn-lg">
+                        Solicitar Consultoría
+                    </a>
+                    <a href="#servicios" class="btn btn-outline-light btn-lg">
+                        Ver Servicios
+                    </a>
+                </div>
 
             </div>
 
@@ -246,17 +222,17 @@ content="summary_large_image">
                     <div class="team-members">
 
                         <div class="member">
-                            <img src="assets/img/teams1.jpeg" alt="">
-                            <span>Consultor TI</span>
+                            <img src="assets/img/teams1.jpeg" alt="Consultor TI AZCONSULTING" loading="lazy" decoding="async">
+                            <span>Consultor TI AZCONSULTING</span>
                         </div>
 
                         <div class="member">
-                            <img src="assets/img/icon_person.jpg" alt="">
+                            <img src="assets/img/icon_person.jpg" alt="Jefe de proyecto" loading="lazy" decoding="async">
                             <span>Jefe de Proyecto</span>
                         </div>
 
                         <div class="member">
-                            <img src="assets/img/icon_person.jpg" alt="">
+                            <img src="assets/img/icon_person.jpg" alt="Desarrollador web" loading="lazy" decoding="async">
                             <span>Desarrollador Web</span>
                         </div>
 
@@ -278,24 +254,14 @@ content="summary_large_image">
 
     </div>
 
-</section>
-
-
- <!-- Mouse Scroll -->
-
-<div class="scroll-mouse">
-
-    <div class="mouse">
-
-        <div class="wheel"></div>
-
+    <!-- Mouse Scroll -->
+    <div class="scroll-mouse">
+        <div class="mouse">
+            <div class="wheel"></div>
+        </div>
     </div>
 
-</div>
-
-
 </section>
-
 
 
 <!-- ===================================== -->
@@ -306,90 +272,90 @@ content="summary_large_image">
 
     <div class="container">
 
-        <div class="row align-items-start">
+        <div class="row align-items-start g-5">
 
+            <!-- IMAGEN CON DECORACIONES -->
             <div class="col-lg-6" data-aos="fade-right">
 
-                <div class="about-image">
+                <div class="about-img-wrapper">
 
-                        <img src="assets/img/about.jpg"
-                            alt="Consultoría TI"
-                            class="img-fluid">           
+                    <img src="assets/img/about.jpg"
+                        alt="Consultoría TI"
+                        class="about-main-img"
+                        loading="lazy"
+                        decoding="async">
+
+                    <!-- Badge flotante de experiencia -->
+                    <div class="about-badge-float">
+                        <div class="about-badge-inner">
+                            <span class="about-badge-num">10+</span>
+                            <span class="about-badge-label">Años de<br>Experiencia</span>
+                        </div>
+                    </div>
+
+                    <!-- Decorador de borde naranja -->
+                    <div class="about-deco-square"></div>
+
                 </div>
 
             </div>
 
+            <!-- CONTENIDO -->
             <div class="col-lg-6" data-aos="fade-left">
 
-                <span class="section-badge">
-                    Nosotros
-                </span>
+                <span class="section-badge">Nosotros</span>
 
-                <h2 class="section-title">                  
-                 Impulsamos la transformación tecnológica de tu empresa                 
+                <h2 class="section-title mt-3">
+                    Impulsamos la transformación<br>
+                    <span class="title-accent">tecnológica</span> de tu empresa
                 </h2>
 
-                    <p>
-                        En AZCONSULTING ayudamos a empresas y profesionales a 
-                        optimizar sus procesos mediante soluciones tecnológicas seguras, 
-                        escalables y orientadas a resultados.
-                    </p>
+                <p class="about-lead mt-4">
+                    En AZCONSULTING ayudamos a empresas y profesionales a
+                    optimizar sus procesos mediante soluciones tecnológicas seguras,
+                    escalables y orientadas a resultados.
+                </p>
 
-                    <div class="row g-3 mt-4">
+                <!-- Tarjetas Misión / Visión / Valores -->
+                <div class="about-cards-modern mt-5">
 
-                        <div class="col-md-4">
-
-                            <div class="about-card">
-
-                                <i class="fas fa-bullseye"></i>
-
-                                <h3>Misión</h3>
-                                <p>
-                                    Brindar soluciones tecnológicas innovadoras 
-                                    que impulsen la productividad y el crecimiento 
-                                    de nuestros clientes.
-                                </p>
-
-                            </div>
-
+                    <div class="about-card-modern" data-aos="fade-up" data-aos-delay="100">
+                        <div class="acm-icon">
+                            <i class="fas fa-bullseye"></i>
                         </div>
-
-                        <div class="col-md-4">
-
-                            <div class="about-card">
-
-                                <i class="fas fa-eye"></i>
-
-                                <h3>Visión</h3>
-                                <p>
-                                    Ser una consultora tecnológica reconocida por 
-                                    su excelencia, innovación y compromiso con la 
-                                    transformación digital.
-                                </p>
-
-                            </div>
-
+                        <div class="acm-body">
+                            <h4>Misión</h4>
+                            <p>Brindar soluciones tecnológicas innovadoras que impulsen la productividad y el crecimiento de nuestros clientes.</p>
                         </div>
+                    </div>
 
-                        <div class="col-md-4">
-
-                            <div class="about-card">
-
-                                <i class="fas fa-handshake"></i>
-
-                                <h3>Valores</h3>
-                                <p>
-                                    Compromiso, innovación, confianza, 
-                                    calidad y orientación permanente al cliente.
-                                </p>
-
-                            </div>
-
+                    <div class="about-card-modern" data-aos="fade-up" data-aos-delay="200">
+                        <div class="acm-icon">
+                            <i class="fas fa-eye"></i>
                         </div>
+                        <div class="acm-body">
+                            <h4>Visión</h4>
+                            <p>Ser una consultora tecnológica reconocida por su excelencia, innovación y compromiso con la transformación digital.</p>
+                        </div>
+                    </div>
 
+                    <div class="about-card-modern" data-aos="fade-up" data-aos-delay="300">
+                        <div class="acm-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <div class="acm-body">
+                            <h4>Valores</h4>
+                            <p>Compromiso, innovación, confianza, calidad y orientación permanente al cliente.</p>
+                        </div>
                     </div>
 
                 </div>
+
+            </div>
+
+        </div>
+
+    </div>
 
 </section>
 
@@ -401,43 +367,46 @@ content="summary_large_image">
 
     <div class="container">
 
-        <div class="row text-center">
+        <div class="row text-center g-0">
 
             <div class="col-lg-3 col-md-6">
-
                 <div class="counter-box">
-                        <h2>50+</h2>
-                        <p>Proyectos Implementados</p>
+                    <div class="counter-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h2 class="counter" data-target="50" data-suffix="+">50+</h2>
+                    <p>Proyectos Implementados</p>
                 </div>
-
             </div>
 
             <div class="col-lg-3 col-md-6">
-
                 <div class="counter-box">
-                    <h2>30+</h2>
+                    <div class="counter-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h2 class="counter" data-target="30" data-suffix="+">30+</h2>
                     <p>Clientes Atendidos</p>
                 </div>
-
-
             </div>
 
             <div class="col-lg-3 col-md-6">
-
                 <div class="counter-box">
-                    <h2>99%</h2>
+                    <div class="counter-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h2 class="counter" data-target="99" data-suffix="%">99%</h2>
                     <p>Disponibilidad de Servicios</p>
                 </div>
-
             </div>
 
             <div class="col-lg-3 col-md-6">
-
-                <div class="counter-box">
-                    <h2>24/7</h2>
+                <div class="counter-box" style="border-right: none;">
+                    <div class="counter-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h2 class="counter" data-target="24" data-suffix="/7">24/7</h2>
                     <p>Soporte Especializado</p>
                 </div>
-
             </div>
 
         </div>
@@ -469,131 +438,135 @@ content="summary_large_image">
 
         </div>
 
-        <div class="row mt-5">
+        <div class="row mt-3 g-4">
 
-            <div class="col-lg-3 col-md-6">
-
-                <div class="service-card">
-                    <i class="fas fa-user-tie"></i>
+            <!-- Consultoría TI -->
+            <div class="col-lg-4 col-md-6" data-aos="fade" data-aos-delay="100">
+                <div class="service-card-modern">
+                    <div class="service-icon-box">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
                     <h3>Consultoría TI</h3>
                     <p>
                         Asesoramiento estratégico en tecnología para optimizar procesos,
                         reducir costos y acelerar la transformación digital.
                     </p>
+                    <a href="#contacto" class="service-link">
+                        Solicitar información <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
-
             </div>
 
-            <div class="col-lg-3 col-md-6">
-
-                <div class="service-card">
-
-                    <i class="fas fa-server"></i>
-
+            <!-- Infraestructura TI -->
+            <div class="col-lg-4 col-md-6" data-aos="fade" data-aos-delay="200">
+                <div class="service-card-modern">
+                    <div class="service-icon-box">
+                        <i class="fas fa-server"></i>
+                    </div>
                     <h3>Infraestructura TI</h3>
-
                     <p>
                         Implementación y administración de servidores, redes, virtualización y soluciones cloud.
                     </p>
-
+                    <a href="#contacto" class="service-link">
+                        Solicitar información <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
-
             </div>
 
-            <div class="col-lg-3 col-md-6">
-
-                <div class="service-card">
-
-                    <i class="fas fa-code"></i>
-
+            <!-- Desarrollo Web -->
+            <div class="col-lg-4 col-md-6" data-aos="fade" data-aos-delay="300">
+                <div class="service-card-modern">
+                    <div class="service-icon-box">
+                        <i class="fas fa-code"></i>
+                    </div>
                     <h3>Desarrollo Web</h3>
-
                     <p>
                         Diseño y desarrollo de páginas web, sistemas empresariales y plataformas digitales.
                     </p>
-
+                    <a href="#contacto" class="service-link">
+                        Solicitar información <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
-
             </div>
 
-            <div class="col-lg-3 col-md-6">
-
-                <div class="service-card">
-
-                    <i class="fas fa-envelope-open-text"></i>
-
+            <!-- Correo Corporativo -->
+            <div class="col-lg-4 col-md-6" data-aos="fade" data-aos-delay="100">
+                <div class="service-card-modern">
+                    <div class="service-icon-box">
+                        <i class="fas fa-envelope-open-text"></i>
+                    </div>
                     <h3>Correo Corporativo</h3>
-
                     <p>
                         Implementación y soporte de cuentas empresariales con dominio propio y alta disponibilidad.
                     </p>
-
+                    <a href="#contacto" class="service-link">
+                        Solicitar información <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
-
             </div>
 
-            <div class="col-lg-3 col-md-6">
-
-                <div class="service-card">
-
-                    <i class="fas fa-robot"></i>
-
+            <!-- Automatización de Servicios -->
+            <div class="col-lg-4 col-md-6" data-aos="fade" data-aos-delay="200">
+                <div class="service-card-modern">
+                    <div class="service-icon-box">
+                        <i class="fas fa-robot"></i>
+                    </div>
                     <h3>Automatización de Servicios</h3>
-
                     <p>
                         Automatización de tareas repetitivas mediante inteligencia artificial, bots y flujos digitales.
                     </p>
-
+                    <a href="#contacto" class="service-link">
+                        Solicitar información <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
-
             </div>
 
-            <div class="col-lg-3 col-md-6">
-
-                <div class="service-card">
-
-                    <i class="fas fa-globe"></i>
-
-                    <h4>Dominio</h4>
-
+            <!-- Dominio -->
+            <div class="col-lg-4 col-md-6" data-aos="fade" data-aos-delay="300">
+                <div class="service-card-modern">
+                    <div class="service-icon-box">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3>Dominio</h3>
                     <p>
                         Registro y administración de dominios para fortalecer la presencia digital de su empresa.
                     </p>
-
+                    <a href="#contacto" class="service-link">
+                        Solicitar información <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
-
             </div>
 
-            <div class="col-lg-3 col-md-6">
-
-                <div class="service-card">
-
-                    <i class="fas fa-database"></i>
-
-                    <h4>Hosting</h4>
-
+            <!-- Hosting -->
+            <div class="col-lg-4 col-md-6" data-aos="fade" data-aos-delay="100">
+                <div class="service-card-modern">
+                    <div class="service-icon-box">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3>Hosting</h3>
                     <p>
                         Alojamiento web confiable, seguro y optimizado para aplicaciones y sitios corporativos.
                     </p>
-
+                    <a href="#contacto" class="service-link">
+                        Solicitar información <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
-
             </div>
 
-            <div class="col-lg-3 col-md-6">
-
-                <div class="service-card">
-
-                    <i class="fas fa-headset"></i>
-
-                    <h4>Mesa de Ayuda</h4>
-
+            <!-- Mesa de Ayuda -->
+            <div class="col-lg-4 col-md-6" data-aos="fade" data-aos-delay="200">
+                <div class="service-card-modern">
+                    <div class="service-icon-box">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>Mesa de Ayuda</h3>
                     <p>
                         Mesa de Ayuda especializada para equipos, sistemas, redes y servicios tecnológicos.
                     </p>
-
+                    <a href="#contacto" class="service-link">
+                        Solicitar información <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
-
             </div>
 
         </div>
@@ -607,7 +580,7 @@ content="summary_large_image">
 <!-- Casos de Éxito -->
 <!-- ========================================= -->
 
-<section id="Casos de Éxito" class="projects-section">
+<section id="casos-exito" class="projects-section">
 
     <div class="container">
 
@@ -629,7 +602,7 @@ content="summary_large_image">
 
                 <div class="project-card">
 
-                    <img src="assets/img/proyecto1.jpg" alt="ERP">
+                    <img src="assets/img/proyecto1.jpg" alt="ERP" loading="lazy" decoding="async">
 
                     <div class="project-info">
 
@@ -653,7 +626,7 @@ content="summary_large_image">
 
                 <div class="project-card">
 
-                    <img src="assets/img/proyecto2.jpg" alt="CRM">
+                    <img src="assets/img/proyecto2.jpg" alt="CRM" loading="lazy" decoding="async">
 
                     <div class="project-info">
 
@@ -677,7 +650,7 @@ content="summary_large_image">
 
                 <div class="project-card">
 
-                    <img src="assets/img/proyecto3.jpg" alt="APP">
+                    <img src="assets/img/proyecto3.jpg" alt="APP" loading="lazy" decoding="async">
 
                     <div class="project-info">
 
@@ -897,21 +870,21 @@ content="summary_large_image">
 
             <div class="partner-track">
 
-                <img src="assets/img/socios/amazonforetag.png">
-                <img src="assets/img/socios/microsoft.png">
-                <img src="assets/img/socios/aws.png">
-                <img src="assets/img/socios/google.png">
-                <img src="assets/img/socios/oracle.png">
-                <img src="assets/img/socios/cisco.png">
-                <img src="assets/img/socios/dell.png">
+                <img src="assets/img/socios/amazonforetag.png" loading="lazy" decoding="async" alt="Amazon For the Enterprise">
+                <img src="assets/img/socios/microsoft.png" loading="lazy" decoding="async" alt="Microsoft">
+                <img src="assets/img/socios/aws.png" loading="lazy" decoding="async" alt="AWS">
+                <img src="assets/img/socios/google.png" loading="lazy" decoding="async" alt="Google">
+                <img src="assets/img/socios/oracle.png" loading="lazy" decoding="async" alt="Oracle">
+                <img src="assets/img/socios/cisco.png" loading="lazy" decoding="async" alt="Cisco">
+                <img src="assets/img/socios/dell.png" loading="lazy" decoding="async" alt="Dell">
 
-                <img src="assets/img/socios/amazonforetag.png">
-                <img src="assets/img/socios/microsoft.png">
-                <img src="assets/img/socios/aws.png">
-                <img src="assets/img/socios/google.png">
-                <img src="assets/img/socios/oracle.png">
-                <img src="assets/img/socios/cisco.png">
-                <img src="assets/img/socios/dell.png">
+                <img src="assets/img/socios/amazonforetag.png" loading="lazy" decoding="async" alt="Amazon For the Enterprise">
+                <img src="assets/img/socios/microsoft.png" loading="lazy" decoding="async" alt="Microsoft">
+                <img src="assets/img/socios/aws.png" loading="lazy" decoding="async" alt="AWS">
+                <img src="assets/img/socios/google.png" loading="lazy" decoding="async" alt="Google">
+                <img src="assets/img/socios/oracle.png" loading="lazy" decoding="async" alt="Oracle">
+                <img src="assets/img/socios/cisco.png" loading="lazy" decoding="async" alt="Cisco">
+                <img src="assets/img/socios/dell.png" loading="lazy" decoding="async" alt="Dell">
 
             </div>
 
@@ -949,7 +922,7 @@ content="summary_large_image">
 
                 <div class="blog-card">
 
-                    <img src="assets/img/blog1.jpg">
+                    <img src="assets/img/blog1.jpg" loading="lazy" decoding="async" alt="IA empresarial">
 
                     <div class="blog-content">
 
@@ -973,7 +946,7 @@ content="summary_large_image">
 
                 <div class="blog-card">
 
-                    <img src="assets/img/blog2.jpg">
+                    <img src="assets/img/blog2.jpg" loading="lazy" decoding="async" alt="Ciberseguridad">
 
                     <div class="blog-content">
 
@@ -997,7 +970,7 @@ content="summary_large_image">
 
                 <div class="blog-card">
 
-                    <img src="assets/img/blog3.jpg">
+                    <img src="assets/img/blog3.jpg" loading="lazy" decoding="async" alt="Cloud computing">
 
                     <div class="blog-content">
 
@@ -1031,7 +1004,7 @@ content="summary_large_image">
 
     <div class="container">
 
-        <div class="row">
+        <div class="row justify-content-center">
 
             <div class="col-lg-5">
 
@@ -1049,7 +1022,7 @@ content="summary_large_image">
 
                         <i class="fas fa-phone"></i>
 
-                        +51 924 858 054
+                        <a href="tel:+51924858054">+51 924 858 054</a>
 
                     </div>
 
@@ -1057,7 +1030,7 @@ content="summary_large_image">
 
                         <i class="fas fa-envelope"></i>
 
-                        contacto@azconsulting.com
+                        <a href="mailto:contacto@azconsulting.com">contacto@azconsulting.com</a>
 
                     </div>
 
@@ -1075,29 +1048,21 @@ content="summary_large_image">
 
             <div class="col-lg-7">
 
-                <form class="contact-form">
+                <form class="contact-form" novalidate>
 
-                    <input
-                        type="text"
-                        placeholder="Nombre Completo">
+                    <input type="text" name="nombre" placeholder="Nombre Completo" aria-label="Nombre Completo" required>
 
-                    <input
-                        type="email"
-                        placeholder="Correo Electrónico">
+                    <input type="email" name="email" placeholder="Correo Electrónico" aria-label="Correo Electrónico" required>
 
-                    <input
-                        type="text"
-                        placeholder="Empresa">
+                    <input type="text" name="empresa" placeholder="Empresa" aria-label="Empresa">
 
-                    <textarea
-                        rows="5"
-                        placeholder="Mensaje"></textarea>
+                    <textarea name="mensaje" rows="5" placeholder="Mensaje" aria-label="Mensaje" required></textarea>
 
                     <button type="submit">
-
                         Enviar Solicitud
-
                     </button>
+
+                    <p class="form-feedback" id="form-feedback" aria-live="polite"></p>
 
                 </form>
 
@@ -1118,7 +1083,9 @@ content="summary_large_image">
 <iframe
 src="https://www.google.com/maps/embed?pb="
 allowfullscreen=""
-loading="lazy">
+loading="lazy"
+referrerpolicy="no-referrer-when-downgrade"
+title="Ubicación de AZCONSULTING">
 </iframe>
 
 </section>
@@ -1138,7 +1105,7 @@ loading="lazy">
 
                 <img
                     src="assets/img/logo-footer.png"
-                    alt="AZ CONSULTING"
+                    alt="AZCONSULTING"
                     class="logo-footer">
 
             </div>
@@ -1146,21 +1113,21 @@ loading="lazy">
             <!-- REDES -->
             <div class="col-lg-6 col-md-6 footer-right">
 
-                <div class="footer-social">
+                <div class="footer-social" aria-label="Redes sociales del footer">
 
-                    <a href="#">
+                    <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
                         <i class="fab fa-facebook-f"></i>
                     </a>
 
-                    <a href="https://www.linkedin.com/in/carlos-angulo-zegarra-046768188/">
+                    <a href="https://www.linkedin.com/in/carlos-angulo-zegarra-046768188/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                         <i class="fab fa-linkedin-in"></i>
                     </a>
 
-                    <a href="#">
+                    <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                         <i class="fab fa-instagram"></i>
                     </a>
 
-                    <a href="#">
+                    <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
                         <i class="fab fa-youtube"></i>
                     </a>
 
@@ -1202,15 +1169,15 @@ loading="lazy">
 
     <!-- Bootstrap -->
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" defer></script>
 
     <!-- AOS -->
 
-    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js" defer></script>
 
     <!-- JS -->
 
-    <script src="assets/js/main.js"></script>
+    <script src="assets/js/main.js" defer></script>
 
               
     
