@@ -172,6 +172,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 submitButton.textContent = 'Solicitud enviada';
                 if (formFeedback) {
                     formFeedback.textContent = 'Revisa tu correo, te enviamos una copia. Nos contactaremos pronto.';
+                    formFeedback.style.color = '#16a34a';
                 }
                 const msg = encodeURIComponent(`Hola, soy *${data.nombre || ''}* de *${data.empresa || 'mi empresa'}*.\n\nAcabo de enviar una solicitud a través de su formulario web y me gustaría darle seguimiento.\n\n*Servicio solicitado:* ${data.mensaje || ''}\n*Teléfono:* ${data.telefono || ''}\n*Correo:* ${data.email || ''}\n\nQuedo atento a su pronta comunicación.`);
                 setTimeout(() => window.open(`https://wa.me/51924858054?text=${msg}`, '_blank'), 1000);
@@ -179,7 +180,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     submitButton.textContent = 'Enviar Solicitud';
                     submitButton.disabled = false;
                     form.reset();
-                    if (formFeedback) formFeedback.textContent = '';
+                    if (formFeedback) {
+                        formFeedback.textContent = '';
+                        formFeedback.style.color = '';
+                    }
                 }, 6000);
             })
             .catch((err) => {
@@ -188,6 +192,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 console.error('EmailJS error:', err);
                 if (formFeedback) {
                     formFeedback.textContent = 'Error: ' + (err?.text || err?.message || JSON.stringify(err));
+                    formFeedback.style.color = '#dc2626';
                 }
                 const msg = encodeURIComponent(`Hola, soy *${data.nombre || ''}* de *${data.empresa || 'mi empresa'}*.\n\nIntenté enviar una solicitud desde su página web pero tuve un inconveniente técnico. ¿Podrían ayudarme?\n\n*Teléfono:* ${data.telefono || ''}\n*Correo:* ${data.email || ''}\n*Mensaje:* ${data.mensaje || ''}\n\nGracias.`);
                 setTimeout(() => window.open(`https://wa.me/51924858054?text=${msg}`, '_blank'), 1500);

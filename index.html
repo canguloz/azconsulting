@@ -1045,7 +1045,7 @@
 
     <div class="container">
 
-        <div class="section-header text-center">
+        <div class="section-header text-center" data-aos="fade-up">
 
             <span class="section-badge">
                 CONTACTO
@@ -1062,13 +1062,13 @@
 
         </div>
 
-        <div class="row g-5 mt-3 align-items-start">
+        <div class="row g-4 align-items-stretch">
 
-            <div class="col-lg-5">
+            <div class="col-lg-5 d-flex flex-column">
 
                 <div class="contact-info-wrap">
 
-                    <div class="contact-card">
+                    <div class="contact-card" data-aos="fade-right" data-aos-delay="100">
                         <div class="contact-card-icon">
                             <i class="fas fa-phone-alt"></i>
                         </div>
@@ -1079,7 +1079,7 @@
                         </div>
                     </div>
 
-                    <div class="contact-card">
+                    <div class="contact-card" data-aos="fade-right" data-aos-delay="200">
                         <div class="contact-card-icon">
                             <i class="fas fa-envelope"></i>
                         </div>
@@ -1090,7 +1090,7 @@
                         </div>
                     </div>
 
-                    <div class="contact-card">
+                    <div class="contact-card" data-aos="fade-right" data-aos-delay="300">
                         <div class="contact-card-icon">
                             <i class="fas fa-map-marker-alt"></i>
                         </div>
@@ -1101,7 +1101,7 @@
                         </div>
                     </div>
 
-                    <div class="contact-card">
+                    <div class="contact-card" data-aos="fade-right" data-aos-delay="400">
                         <div class="contact-card-icon">
                             <i class="fab fa-whatsapp"></i>
                         </div>
@@ -1116,40 +1116,60 @@
 
             </div>
 
-            <div class="col-lg-7">
+            <div class="col-lg-7 d-flex">
 
-                <form class="contact-form" novalidate>
+                <form class="contact-form" data-aos="fade-left" data-aos-delay="150">
+
+                    <div class="form-header">
+                        <h3>Envíanos un mensaje</h3>
+                        <p>Completa el formulario y te responderemos a la brevedad.</p>
+                    </div>
 
                     <div class="form-row">
                         <div class="form-group">
                             <label for="form-nombre">Nombre Completo</label>
-                            <input type="text" id="form-nombre" name="nombre" placeholder="Ej: Carlos Angulo" required>
+                            <div class="input-wrap">
+                                <i class="fas fa-user"></i>
+                                <input type="text" id="form-nombre" name="nombre" placeholder="Ej: Carlos Angulo" required>
+                            </div>
                         </div>
                         <div class="form-group">
                             <label for="form-email">Correo Electrónico</label>
-                            <input type="email" id="form-email" name="email" placeholder="Ej: carlos@empresa.com" required>
+                            <div class="input-wrap">
+                                <i class="fas fa-envelope"></i>
+                                <input type="email" id="form-email" name="email" placeholder="Ej: carlos@empresa.com" required>
+                            </div>
                         </div>
                     </div>
 
                     <div class="form-row">
                         <div class="form-group">
                             <label for="form-telefono">Número de Celular</label>
-                            <input type="tel" id="form-telefono" name="telefono" placeholder="Ej: +51 999 888 777" required pattern="[0-9+\- ]{7,20}">
+                            <div class="input-wrap">
+                                <i class="fas fa-phone"></i>
+                                <input type="tel" id="form-telefono" name="telefono" placeholder="Ej: +51 999 888 777" required pattern="[0-9+\- ]{7,20}">
+                            </div>
                         </div>
                         <div class="form-group">
                             <label for="form-empresa">Empresa</label>
-                            <input type="text" id="form-empresa" name="empresa" placeholder="Ej: AZCONSULTING">
+                            <div class="input-wrap">
+                                <i class="fas fa-building"></i>
+                                <input type="text" id="form-empresa" name="empresa" placeholder="Ej: AZCONSULTING">
+                            </div>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label for="form-mensaje">Mensaje</label>
-                        <textarea id="form-mensaje" name="mensaje" rows="5" placeholder="Cuéntanos sobre tu proyecto o consulta..." required></textarea>
+                        <div class="input-wrap">
+                            <i class="fas fa-comment-dots"></i>
+                            <textarea id="form-mensaje" name="mensaje" rows="5" placeholder="Cuéntanos sobre tu proyecto o consulta..." required></textarea>
+                        </div>
                     </div>
 
-                    <button type="submit">
+                    <button type="submit" class="contact-submit-btn">
                         <span>Enviar Solicitud</span>
-                        <i class="fas fa-arrow-right"></i>
+                        <i class="fas fa-paper-plane"></i>
                     </button>
 
                     <p class="form-feedback" id="form-feedback" aria-live="polite"></p>
