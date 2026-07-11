@@ -122,6 +122,10 @@ document.addEventListener('DOMContentLoaded', () => {
             publicKey: 'noAekUL_Bc5sR3aKJ'
         };
 
+        if (typeof emailjs !== 'undefined') {
+            emailjs.init(EMAILJS_CONFIG.publicKey);
+        }
+
         contactForm.addEventListener('submit', (event) => {
             event.preventDefault();
 
@@ -132,14 +136,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (typeof emailjs === 'undefined') {
                 if (submitButton) { submitButton.textContent = 'Enviar Solicitud'; submitButton.disabled = false; }
-                if (formFeedback) { formFeedback.textContent = 'Servicio de correo no configurado. Contacta al administrador.'; }
+                if (formFeedback) { formFeedback.textContent = 'Servicio de correo no disponible. Contacta al administrador.'; }
                 return;
             }
 
             submitButton.textContent = 'Enviando...';
             submitButton.disabled = true;
-
-            emailjs.init(EMAILJS_CONFIG.publicKey);
 
             const paramsCliente = {
                 to_email: data.email,
@@ -174,12 +176,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 const msg = encodeURIComponent(`Hola, soy ${data.nombre || ''}. Solicito: ${data.mensaje || ''}. Mi celular: ${data.telefono || ''}.`);
                 setTimeout(() => window.open(`https://wa.me/51924858054?text=${msg}`, '_blank'), 1000);
             })
-            .catch(() => {
+            .catch((err) => {
                 submitButton.textContent = 'Enviar Solicitud';
                 submitButton.disabled = false;
+                console.error('EmailJS error:', err);
                 if (formFeedback) {
-                    formFeedback.textContent = 'Error al enviar. Verifica los datos e intenta de nuevo.';
+                    formFeedback.textContent = 'Error al enviar. Abre WhatsApp para contactarnos directamente.';
                 }
+                const msg = encodeURIComponent(`Hola, soy ${data.nombre || ''}. Intente enviar un formulario pero fallo. Mi celular: ${data.telefono || ''}.`);
+                setTimeout(() => window.open(`https://wa.me/51924858054?text=${msg}`, '_blank'), 1500);
             });
         });
     }
