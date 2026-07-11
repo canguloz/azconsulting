@@ -959,53 +959,181 @@ section {
 
 .success-section {
     padding: 110px 0;
-    background: linear-gradient(135deg, #0d1630 0%, #16284f 50%, #1e3a6d 100%);
+    background: linear-gradient(135deg, #0d1630 0%, #14264d 50%, #1a3068 100%);
     position: relative;
     overflow: hidden;
 }
 
 .success-section::before {
-    content: "";
+    content: '';
+    position: absolute;
+    top: -120px;
+    left: -120px;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(255,122,0,0.08) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.success-section::after {
+    content: '';
+    position: absolute;
+    bottom: -80px;
+    right: -80px;
+    width: 450px;
+    height: 450px;
+    background: radial-gradient(circle, rgba(255,122,0,0.05) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.success-subtitle {
+    color: rgba(255,255,255,0.7);
+    font-size: 1.05rem;
+    margin: 15px 0 0;
+    line-height: 1.7;
+}
+
+.success-card {
+    background: rgba(255,255,255,0.06);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 24px;
+    padding: 40px 30px;
+    text-align: center;
+    color: #ffffff;
+    transition: all 0.45s cubic-bezier(0.165, 0.84, 0.44, 1);
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.success-card::before {
+    content: '';
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: radial-gradient(circle at top right, rgba(245, 158, 11, 0.12), transparent 40%);
-    pointer-events: none;
+    background: linear-gradient(160deg, rgba(255,122,0,0.05) 0%, transparent 50%);
+    opacity: 0;
+    transition: opacity 0.45s ease;
+    z-index: -1;
 }
 
-.success-card {
-    background: rgba(255,255,255,0.08);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-    border: 1px solid rgba(255,255,255,0.12);
-    border-radius: 20px;
-    padding: 40px 30px;
-    text-align: center;
-    color: #ffffff;
-    transition: all 0.35s ease;
-    height: 100%;
-}
-
-.success-card h3 {
-    font-size: 3.5rem;
-    font-weight: 800;
-    color: var(--accent);
-    margin-bottom: 10px;
-}
-
-.success-card p {
-    color: #e2e8f0;
-    font-size: 1rem;
-    margin-bottom: 0;
+.success-card:hover::before {
+    opacity: 1;
 }
 
 .success-card:hover {
     transform: translateY(-8px);
-    background: rgba(255,255,255,0.12);
-    border-color: rgba(245,158,11,0.35);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.20);
+    background: rgba(255,255,255,0.1);
+    border-color: rgba(255,122,0,0.35);
+    box-shadow: 0 24px 48px rgba(0,0,0,0.25);
+}
+
+.success-card-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+.success-icon-wrap {
+    width: 60px;
+    height: 60px;
+    border-radius: 18px;
+    background: rgba(255,122,0,0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: var(--accent);
+    transition: all 0.4s ease;
+    margin-bottom: 4px;
+}
+
+.success-card:hover .success-icon-wrap {
+    background: var(--accent);
+    color: #ffffff;
+    transform: scale(1.08) rotate(-5deg);
+    box-shadow: 0 8px 24px rgba(255,122,0,0.3);
+}
+
+.success-number {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 2px;
+}
+
+.success-num {
+    font-size: 3.8rem;
+    font-weight: 900;
+    background: linear-gradient(135deg, var(--accent) 0%, #ffb347 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+}
+
+.success-suffix {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.4;
+}
+
+.success-bar {
+    width: 80%;
+    height: 4px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 4px;
+    overflow: hidden;
+    margin: 4px 0 8px;
+}
+
+.success-bar span {
+    display: block;
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent), #ffb347);
+    border-radius: 4px;
+    transition: width 1s ease;
+}
+
+.success-card h5 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0;
+}
+
+.success-card p {
+    color: rgba(255,255,255,0.65);
+    font-size: 0.92rem;
+    line-height: 1.6;
+    margin: 0;
+    max-width: 260px;
+}
+
+.success-tag {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--accent);
+    background: rgba(255,122,0,0.12);
+    padding: 4px 14px;
+    border-radius: 999px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+}
+
+.success-card:hover .success-tag {
+    background: rgba(255,122,0,0.2);
 }
 
 .testimonial-card {
