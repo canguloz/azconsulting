@@ -154,7 +154,7 @@ document.addEventListener('DOMContentLoaded', () => {
             };
 
             const paramsEmpresa = {
-                to_email: 'contacto@azconsulting.com',
+                to_email: 'carlosangulozegarra@gmail.com',
                 to_name: 'Equipo AZCONSULTING',
                 from_name: data.nombre,
                 from_email: data.email,
