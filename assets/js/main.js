@@ -173,7 +173,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (formFeedback) {
                     formFeedback.textContent = 'Revisa tu correo, te enviamos una copia. Nos contactaremos pronto.';
                 }
-                const msg = encodeURIComponent(`Hola, soy ${data.nombre || ''}. Solicito: ${data.mensaje || ''}. Mi celular: ${data.telefono || ''}.`);
+                const msg = encodeURIComponent(`Hola, soy *${data.nombre || ''}* de *${data.empresa || 'mi empresa'}*.\n\nAcabo de enviar una solicitud a través de su formulario web y me gustaría darle seguimiento.\n\n*Servicio solicitado:* ${data.mensaje || ''}\n*Teléfono:* ${data.telefono || ''}\n*Correo:* ${data.email || ''}\n\nQuedo atento a su pronta comunicación.`);
                 setTimeout(() => window.open(`https://wa.me/51924858054?text=${msg}`, '_blank'), 1000);
             })
             .catch((err) => {
@@ -183,7 +183,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (formFeedback) {
                     formFeedback.textContent = 'Error: ' + (err?.text || err?.message || JSON.stringify(err));
                 }
-                const msg = encodeURIComponent(`Hola, soy ${data.nombre || ''}. Intente enviar un formulario pero fallo. Mi celular: ${data.telefono || ''}.`);
+                const msg = encodeURIComponent(`Hola, soy *${data.nombre || ''}* de *${data.empresa || 'mi empresa'}*.\n\nIntenté enviar una solicitud desde su página web pero tuve un inconveniente técnico. ¿Podrían ayudarme?\n\n*Teléfono:* ${data.telefono || ''}\n*Correo:* ${data.email || ''}\n*Mensaje:* ${data.mensaje || ''}\n\nGracias.`);
                 setTimeout(() => window.open(`https://wa.me/51924858054?text=${msg}`, '_blank'), 1500);
             });
         });
