@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (btnTop) {
         window.addEventListener('scroll', () => {
-            btnTop.style.display = window.scrollY > 500 ? 'block' : 'none';
+            btnTop.classList.toggle('visible', window.scrollY > 500);
         }, { passive: true });
 
         btnTop.addEventListener('click', () => {
@@ -84,9 +84,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const menuCollapse = document.getElementById('menu');
     const menuCloseBtn = document.querySelector('.menu-close-btn');
+    const navbarToggler = document.querySelector('.navbar-toggler');
 
     if (menuCollapse && menuCloseBtn && window.bootstrap) {
         const bsCollapse = bootstrap.Collapse.getOrCreateInstance(menuCollapse, { toggle: false });
+
+        // Rotar hamburguesa al abrir/cerrar menú
+        menuCollapse.addEventListener('show.bs.collapse', () => {
+            if (navbarToggler) navbarToggler.classList.add('rotated');
+        });
+        menuCollapse.addEventListener('hide.bs.collapse', () => {
+            if (navbarToggler) navbarToggler.classList.remove('rotated');
+            if (menuCollapse) menuCollapse.classList.add('menu-exit');
+        });
+        menuCollapse.addEventListener('hidden.bs.collapse', () => {
+            if (menuCollapse) menuCollapse.classList.remove('menu-exit');
+        });
 
         menuCloseBtn.addEventListener('click', () => bsCollapse.hide());
 

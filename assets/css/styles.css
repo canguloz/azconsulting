@@ -76,6 +76,15 @@ section {
     transition: box-shadow 0.3s ease, padding 0.3s ease;
 }
 
+/* Hamburguesa: rotación suave al abrir/cerrar menú */
+.navbar-toggler {
+    transition: transform 0.4s ease;
+}
+
+.navbar-toggler.rotated {
+    transform: rotate(90deg);
+}
+
 .navbar-brand {
     font-size: 1.6rem;
 }
@@ -2258,16 +2267,29 @@ footer li {
     border-radius: 50%;
     background: var(--accent);
     color: white;
-    display: none;
     z-index: 999;
     box-shadow: 0 4px 15px rgba(0,0,0,0.15);
     cursor: pointer;
-    transition: all 0.3s ease;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease, box-shadow 0.3s ease;
+}
+
+#btnTop.visible {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
 }
 
 #btnTop:hover {
-    transform: translateY(-3px);
     box-shadow: 0 6px 20px rgba(255,122,0,0.3);
+}
+
+#btnTop.visible:hover {
+    transform: translateY(-3px);
 }
 
 #preloader {
@@ -2407,6 +2429,16 @@ footer li {
         border-radius: 16px;
         padding: 20px;
         box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+    }
+
+    /* Animación de salida del menú mobile: se desvanece */
+    .navbar-collapse.menu-exit {
+        animation: menuFadeOut 0.35s ease forwards;
+    }
+
+    @keyframes menuFadeOut {
+        0% { opacity: 1; }
+        100% { opacity: 0; }
     }
 
     .navbar-nav {
