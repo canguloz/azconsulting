@@ -181,7 +181,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 submitButton.disabled = false;
                 console.error('EmailJS error:', err);
                 if (formFeedback) {
-                    formFeedback.textContent = 'Error al enviar. Abre WhatsApp para contactarnos directamente.';
+                    formFeedback.textContent = 'Error: ' + (err?.text || err?.message || JSON.stringify(err));
                 }
                 const msg = encodeURIComponent(`Hola, soy ${data.nombre || ''}. Intente enviar un formulario pero fallo. Mi celular: ${data.telefono || ''}.`);
                 setTimeout(() => window.open(`https://wa.me/51924858054?text=${msg}`, '_blank'), 1500);
