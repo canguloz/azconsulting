@@ -123,7 +123,7 @@ section {
     position: relative;
     min-height: 100vh;
     overflow: hidden;
-    padding: 95px 0 80px;
+    padding: 80px 0 70px;
     display: flex;
     align-items: center;
 }
@@ -1299,7 +1299,7 @@ footer li {
 @media (max-width: 1199px) {
     .hero {
         min-height: auto;
-        padding: 55px 0 30px;
+        padding: 45px 0 25px;
     }
 
     .hero h1 {
@@ -1389,7 +1389,7 @@ footer li {
     }
 
     .hero {
-        padding: 45px 0 28px;
+        padding: 35px 0 20px;
     }
 
     .hero h1 {
@@ -1485,7 +1485,7 @@ footer li {
 
     .hero {
         min-height: auto;
-        padding: 30px 0 40px;
+        padding: 25px 0 30px;
     }
 
     .hero-badge {
