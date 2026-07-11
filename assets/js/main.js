@@ -111,8 +111,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (typeof gsap !== 'undefined') {
-        gsap.from('.hero h1', { y: 80, opacity: 0, duration: 1.5 });
-        gsap.from('.hero p', { y: 40, opacity: 0, duration: 2 });
+        gsap.from('.hero h1', { y: 60, duration: 1.2 });
+        gsap.from('.hero p', { y: 60, opacity: 0, duration: 1.8, ease: 'power3.out' });
     }
 
     if (document.getElementById('particles-js') && typeof tsParticles !== 'undefined') {
@@ -218,6 +218,23 @@ document.addEventListener('DOMContentLoaded', () => {
             // Se ignora si el registro falla en entornos locales sin HTTPS
         });
     }
+
+    /* ─── Toggle forms with exit animation ─── */
+    window.toggleForm = (btn) => {
+        const form = btn.nextElementSibling;
+        const isOpen = form.classList.contains('open');
+        if (isOpen) {
+            form.classList.remove('open');
+            form.classList.add('closing');
+            btn.classList.remove('active');
+            form.addEventListener('animationend', () => {
+                form.classList.remove('closing');
+            }, { once: true });
+        } else {
+            form.classList.add('open');
+            btn.classList.add('active');
+        }
+    };
 
     /* ─── Testimonial star rating ─── */
     const ratingContainer = document.getElementById('ratingStars');

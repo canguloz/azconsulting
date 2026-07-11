@@ -5,7 +5,7 @@ const urlsToCache = [
 
 '/',
 '/index.html',
-'/assets/css/style.css',
+'/assets/css/styles.css',
 '/assets/js/main.js'
 
 ];

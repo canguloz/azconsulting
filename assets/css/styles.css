@@ -19,6 +19,7 @@
 
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 body {
@@ -1428,6 +1429,11 @@ section {
     animation: fadeSlideUp 0.4s ease;
 }
 
+.testimonial-submit-form.closing {
+    display: block;
+    animation: fadeSlideDown 0.4s ease;
+}
+
 @keyframes fadeSlideUp {
     from {
         opacity: 0;
@@ -1436,6 +1442,17 @@ section {
     to {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+@keyframes fadeSlideDown {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(16px);
     }
 }
 
@@ -1831,6 +1848,11 @@ section {
 .blog-trend-form.open {
     display: block;
     animation: fadeSlideUp 0.4s ease;
+}
+
+.blog-trend-form.closing {
+    display: block;
+    animation: fadeSlideDown 0.4s ease;
 }
 
 .trend-form-header {
@@ -2369,7 +2391,7 @@ footer li {
 @media (max-width: 1199px) {
     .hero {
         min-height: auto;
-        padding: 45px 0 25px;
+        padding: 120px 0 25px;
         align-items: flex-start;
     }
 
@@ -2404,15 +2426,19 @@ footer li {
 
     .custom-navbar {
         background: #f5f7fa !important;
+        min-height: 90px;
         border-bottom: 1px solid rgba(13, 22, 48, 0.08);
         padding: 10px 0;
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
     }
 
     .navbar-brand {
         position: absolute;
         left: 50%;
         top: 10px;
-        transform: translateX(-50%);
+        -webkit-transform: translate3d(-50%, 0, 0);
+        transform: translate3d(-50%, 0, 0);
         margin: 0;
     }
 
@@ -2423,6 +2449,8 @@ footer li {
         border: none;
         background: transparent;
         box-shadow: none;
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
     }
 
     .navbar-toggler:focus {
@@ -2471,7 +2499,7 @@ footer li {
 
     .hero {
         min-height: auto;
-        padding: 35px 0 20px;
+        padding: 120px 0 20px;
         align-items: flex-start;
     }
 
@@ -2568,7 +2596,7 @@ footer li {
 
     .hero {
         min-height: auto;
-        padding: 25px 0 30px;
+        padding: 110px 0 30px;
         align-items: flex-start;
     }
 
@@ -2581,6 +2609,9 @@ footer li {
         line-height: 1.35;
         margin-bottom: 14px;
         text-align: center;
+        opacity: 1 !important;
+        visibility: visible !important;
+        color: #0d1630 !important;
     }
 
     .hero p {
@@ -2735,13 +2766,16 @@ footer li {
 
 @media (max-width: 576px) {
     .hero {
-        padding: 20px 0 35px;
+        padding: 100px 0 35px;
         align-items: flex-start;
     }
 
     .hero h1 {
         font-size: 1.35rem !important;
         line-height: 1.35;
+        opacity: 1 !important;
+        visibility: visible !important;
+        color: #0d1630 !important;
     }
 
     .hero p {
