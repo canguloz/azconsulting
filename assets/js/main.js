@@ -116,10 +116,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (contactForm) {
         const EMAILJS_CONFIG = {
-            serviceId: 'TU_SERVICE_ID',
-            templateIdCliente: 'TU_TEMPLATE_CLIENTE',
-            templateIdEmpresa: 'TU_TEMPLATE_EMPRESA',
-            publicKey: 'TU_PUBLIC_KEY'
+            serviceId: 'service_yk21t5f',
+            templateIdCliente: 'template_cliente',
+            templateIdEmpresa: 'template_empresa',
+            publicKey: 'noAekUL_Bc5sR3aKJ'
         };
 
         contactForm.addEventListener('submit', (event) => {
