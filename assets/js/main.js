@@ -205,4 +205,90 @@ document.addEventListener('DOMContentLoaded', () => {
             // Se ignora si el registro falla en entornos locales sin HTTPS
         });
     }
+
+    /* ─── Testimonial star rating ─── */
+    const ratingContainer = document.getElementById('ratingStars');
+    const ratingInput = document.getElementById('ratingInput');
+    if (ratingContainer && ratingInput) {
+        const stars = ratingContainer.querySelectorAll('i');
+        stars.forEach((star) => {
+            star.addEventListener('mouseenter', () => {
+                const val = parseInt(star.dataset.value);
+                stars.forEach((s) => {
+                    s.classList.toggle('hover', parseInt(s.dataset.value) <= val);
+                });
+            });
+            ratingContainer.addEventListener('mouseleave', () => {
+                stars.forEach((s) => s.classList.remove('hover'));
+            });
+            star.addEventListener('click', () => {
+                const val = parseInt(star.dataset.value);
+                ratingInput.value = val;
+                stars.forEach((s) => {
+                    s.classList.toggle('active', parseInt(s.dataset.value) <= val);
+                    s.className = parseInt(s.dataset.value) <= val ? 'fas fa-star active' : 'far fa-star';
+                });
+            });
+        });
+    }
+
+    /* ─── Testimonial form submit ─── */
+    const testimonialForm = document.getElementById('testimonialForm');
+    if (testimonialForm) {
+        testimonialForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const fb = document.getElementById('tform-feedback');
+            const btn = testimonialForm.querySelector('.tform-submit');
+            const rating = parseInt(document.getElementById('ratingInput')?.value || '0');
+
+            if (rating === 0) {
+                if (fb) { fb.textContent = 'Por favor selecciona un nivel de satisfacción.'; fb.style.color = '#dc2626'; }
+                return;
+            }
+
+            const data = {
+                nombre: testimonialForm.querySelector('[name="t-nombre"]').value,
+                email: testimonialForm.querySelector('[name="t-email"]').value,
+                rol: testimonialForm.querySelector('[name="t-rol"]').value,
+                empresa: testimonialForm.querySelector('[name="t-empresa"]').value,
+                mensaje: testimonialForm.querySelector('[name="t-mensaje"]').value,
+                rating: rating
+            };
+
+            if (typeof emailjs !== 'undefined') {
+                btn.textContent = 'Enviando...';
+                btn.disabled = true;
+
+                const fecha = new Date().toLocaleString('es-PE', { timeZone: 'America/Lima' });
+
+                emailjs.send(EMAILJS_CONFIG.serviceId, EMAILJS_CONFIG.templateIdEmpresa, {
+                    to_email: 'carlosangulozegarra@gmail.com',
+                    to_name: 'Equipo AZCONSULTING',
+                    from_name: data.nombre,
+                    from_email: data.email,
+                    message: `Valoración: ${data.rating}/5 estrellas\nCargo: ${data.rol || 'No especificado'}\nEmpresa: ${data.empresa || 'No especificada'}\n\n${data.mensaje}`,
+                    telefono: '',
+                    empresa: data.empresa || 'No especificada',
+                    fecha: fecha
+                })
+                .then(() => {
+                    if (fb) { fb.textContent = '¡Gracias por tu opinión! La revisaremos y publicaremos pronto.'; fb.style.color = '#16a34a'; }
+                    btn.textContent = 'Enviar opinión';
+                    btn.disabled = false;
+                    testimonialForm.reset();
+                    ratingInput.value = '0';
+                    const allStars = ratingContainer.querySelectorAll('i');
+                    allStars.forEach(s => { s.className = 'far fa-star'; s.classList.remove('active'); });
+                    setTimeout(() => { if (fb) { fb.textContent = ''; fb.style.color = ''; } }, 5000);
+                })
+                .catch((err) => {
+                    if (fb) { fb.textContent = 'Error al enviar. Intenta de nuevo.'; fb.style.color = '#dc2626'; }
+                    btn.textContent = 'Enviar opinión';
+                    btn.disabled = false;
+                });
+            } else {
+                if (fb) { fb.textContent = 'Servicio no disponible. Intenta más tarde.'; fb.style.color = '#dc2626'; }
+            }
+        });
+    }
 });
