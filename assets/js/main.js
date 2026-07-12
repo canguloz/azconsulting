@@ -12,6 +12,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const navLinks = Array.from(document.querySelectorAll('.navbar-nav .nav-link'));
     const sections = Array.from(document.querySelectorAll('section[id]'));
 
+    /* ─── Security helpers ─── */
+    const lastSubmit = {};
+    const isBot = (form) => form && form.querySelector('input[name="_website"]')?.value?.trim() !== '';
+    const isRateLimited = (key) => {
+        const now = Date.now();
+        if (lastSubmit[key] && now - lastSubmit[key] < 15000) return true;
+        lastSubmit[key] = now;
+        return false;
+    };
+
     const updateNavbar = () => {
         if (!navbar) return;
 
@@ -142,6 +152,14 @@ document.addEventListener('DOMContentLoaded', () => {
         contactForm.addEventListener('submit', (event) => {
             event.preventDefault();
 
+            if (isBot(contactForm)) return;
+
+            if (isRateLimited('contact')) {
+                if (formFeedback) { formFeedback.textContent = 'Por favor espera unos segundos antes de enviar.'; formFeedback.style.color = '#dc2626'; }
+                setTimeout(() => { if (formFeedback) { formFeedback.textContent = ''; formFeedback.style.color = ''; } }, 3000);
+                return;
+            }
+
             const submitButton = contactForm.querySelector('button[type="submit"]');
             const formData = new FormData(contactForm);
             const data = Object.fromEntries(formData);
@@ -267,6 +285,13 @@ document.addEventListener('DOMContentLoaded', () => {
     if (testimonialForm) {
         testimonialForm.addEventListener('submit', (e) => {
             e.preventDefault();
+            if (isBot(testimonialForm)) return;
+            if (isRateLimited('testimonial')) {
+                const fb = document.getElementById('tform-feedback');
+                if (fb) { fb.textContent = 'Por favor espera unos segundos.'; fb.style.color = '#dc2626'; }
+                setTimeout(() => { if (fb) { fb.textContent = ''; fb.style.color = ''; } }, 3000);
+                return;
+            }
             const fb = document.getElementById('tform-feedback');
             const btn = testimonialForm.querySelector('.tform-submit');
             const rating = parseInt(document.getElementById('ratingInput')?.value || '0');
@@ -327,10 +352,15 @@ document.addEventListener('DOMContentLoaded', () => {
     if (trendForm) {
         trendForm.addEventListener('submit', (e) => {
             e.preventDefault();
+            if (isBot(trendForm)) return;
+            if (isRateLimited('trend')) {
+                const fb = document.getElementById('trend-feedback');
+                if (fb) { fb.textContent = 'Por favor espera unos segundos.'; fb.style.color = '#dc2626'; }
+                setTimeout(() => { if (fb) { fb.textContent = ''; fb.style.color = ''; } }, 3000);
+                return;
+            }
             const fb = document.getElementById('trend-feedback');
             const btn = trendForm.querySelector('.tform-submit');
-
-            const data = {
                 nombre: trendForm.querySelector('[name="trend-nombre"]').value,
                 email: trendForm.querySelector('[name="trend-email"]').value,
                 titulo: trendForm.querySelector('[name="trend-titulo"]').value,

@@ -19,6 +19,16 @@
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="theme-color" content="#0066ff">
+    <meta http-equiv="Content-Security-Policy" content="
+        default-src 'self';
+        script-src 'self' cdn.jsdelivr.net cdnjs.cloudflare.com unpkg.com 'unsafe-inline';
+        style-src 'self' cdn.jsdelivr.net cdnjs.cloudflare.com unpkg.com fonts.googleapis.com 'unsafe-inline';
+        font-src fonts.gstatic.com cdnjs.cloudflare.com;
+        connect-src 'self' api.emailjs.com;
+        img-src 'self' data:;
+        frame-src www.google.com;
+        base-uri 'self';
+    ">
 
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -973,12 +983,16 @@
                 <div class="tform-group">
                     <label for="t-mensaje">Tu opinión</label>
                     <textarea id="t-mensaje" name="t-mensaje" rows="4" placeholder="Cuéntanos tu experiencia con nuestros servicios..." required></textarea>
-                </div>
+				</div>
 
-                <button type="submit" class="tform-submit">
-                    <span>Enviar opinión</span>
-                    <i class="fas fa-paper-plane"></i>
-                </button>
+				<div style="position:absolute;left:-9999px" aria-hidden="true">
+					<input type="text" name="_website" tabindex="-1" autocomplete="off">
+				</div>
+
+				<button type="submit" class="tform-submit">
+					<span>Enviar opinión</span>
+					<i class="fas fa-paper-plane"></i>
+				</button>
 
                 <p class="tform-feedback" id="tform-feedback"></p>
             </form>
@@ -1185,6 +1199,10 @@
                     <textarea id="trend-descripcion" name="trend-descripcion" rows="4" placeholder="Describe la tendencia, su impacto y por qué es relevante..." required></textarea>
                 </div>
 
+                    <div style="position:absolute;left:-9999px" aria-hidden="true">
+                        <input type="text" name="_website" tabindex="-1" autocomplete="off">
+                    </div>
+
                 <button type="submit" class="tform-submit">
                     <span>Enviar tendencia</span>
                     <i class="fas fa-rocket"></i>
@@ -1328,6 +1346,10 @@
                         </div>
                     </div>
 
+                    <div style="position:absolute;left:-9999px" aria-hidden="true">
+                        <input type="text" name="_website" tabindex="-1" autocomplete="off">
+                    </div>
+
                     <button type="submit" class="contact-submit-btn">
                         <span>Enviar Solicitud</span>
                         <i class="fas fa-paper-plane"></i>
@@ -1412,7 +1434,7 @@ title="Ubicación de AZCONSULTING">
 
         <div class="copyright">
 
-            © 2026 AZCONSULTING PERÚ
+            © 2026 AZCONSULTING PERÚ. Todos los derechos reservados. Prohibida la copia o reproducción no autorizada.
 
         </div>
 
