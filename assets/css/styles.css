@@ -723,19 +723,20 @@ section {
 
 .counter-section {
     padding: 80px 0;
+    background: linear-gradient(135deg, #0d1630 0%, #14264d 100%);
     position: relative;
     overflow: hidden;
-    background: #f8fafc;
 }
 
+/* Subtle animated blob in background */
 .counter-section::before {
     content: '';
     position: absolute;
-    top: -80px;
-    right: -80px;
-    width: 400px;
-    height: 400px;
-    background: radial-gradient(circle, rgba(255,122,0,0.04) 0%, transparent 70%);
+    top: -100px;
+    left: -100px;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(255, 122, 0, 0.08) 0%, transparent 70%);
     border-radius: 50%;
     pointer-events: none;
 }
@@ -743,90 +744,87 @@ section {
 .counter-section::after {
     content: '';
     position: absolute;
-    bottom: -60px;
-    left: -60px;
-    width: 300px;
-    height: 300px;
-    background: radial-gradient(circle, rgba(255,122,0,0.03) 0%, transparent 70%);
+    bottom: -80px;
+    right: -80px;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(255, 122, 0, 0.06) 0%, transparent 70%);
     border-radius: 50%;
     pointer-events: none;
 }
 
-.counter-card {
+.counter-box {
     text-align: center;
-    background: var(--glass-bg);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: var(--glass-border);
-    border-radius: 24px;
-    padding: 36px 20px 32px;
-    box-shadow: var(--glass-shadow);
-    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    color: #ffffff;
+    padding: 40px 20px;
+    transition: all 0.3s ease;
+    border-right: 1px solid rgba(255,255,255,0.08);
     position: relative;
     z-index: 1;
-    height: 100%;
 }
 
-.counter-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 16px 40px rgba(13,22,48,0.08);
-    border-color: rgba(255,122,0,0.2);
+.counter-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 3px;
+    background: var(--accent);
+    border-radius: 0 0 3px 3px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
-.counter-icon-wrap {
+.counter-box:hover::before {
+    opacity: 1;
+}
+
+.counter-icon {
     width: 56px;
     height: 56px;
+    background: rgba(255, 122, 0, 0.12);
+    border: 1px solid rgba(255, 122, 0, 0.25);
     border-radius: 16px;
-    background: rgba(255,122,0,0.08);
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0 auto 18px;
+    margin: 0 auto 20px;
     color: var(--accent);
     font-size: 1.4rem;
-    transition: all 0.4s ease;
+    transition: all 0.3s ease;
 }
 
-.counter-card:hover .counter-icon-wrap {
+.counter-box:hover .counter-icon {
     background: var(--accent);
     color: #ffffff;
-    transform: scale(1.1) rotate(-5deg);
-    box-shadow: 0 8px 24px rgba(255,122,0,0.3);
+    transform: scale(1.1);
+    box-shadow: 0 8px 25px rgba(255, 122, 0, 0.3);
 }
 
-.counter-card h2 {
+.counter-box:hover {
+    transform: translateY(-5px);
+}
+
+.counter-box h2 {
     font-size: 3.2rem;
-    font-weight: 900;
-    background: linear-gradient(135deg, var(--accent) 0%, #ffb347 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    font-weight: 800;
+    color: var(--accent);
     margin-bottom: 8px;
     line-height: 1;
 }
 
-.counter-card p {
+.counter-box p {
     margin: 0;
-    font-size: 0.95rem;
-    font-weight: 600;
-    color: var(--text);
+    font-size: 1rem;
+    font-weight: 500;
+    color: rgba(255,255,255,0.7);
     letter-spacing: 0.02em;
 }
 
-.counter-line {
-    display: block;
-    width: 40px;
-    height: 3px;
-    background: linear-gradient(90deg, var(--accent), #ffb347);
-    border-radius: 3px;
-    margin: 14px auto 0;
-    opacity: 0;
-    transition: all 0.4s ease;
-}
-
-.counter-card:hover .counter-line {
-    opacity: 1;
-    width: 60px;
+.counter-box:last-child {
+    border-right: none;
 }
 
 .services-section {
@@ -2561,7 +2559,7 @@ footer li {
         padding: 72px 0;
     }
 
-    .counter-card h2 {
+    .counter-box h2 {
         font-size: 3.2rem;
     }
 
@@ -2669,19 +2667,21 @@ footer li {
         padding: 64px 0;
     }
 
-	.counter-card {
-		padding: 28px 16px;
-	}
+    .counter-box {
+        border-right: none;
+        border-bottom: 1px solid rgba(255,255,255,0.10);
+        padding: 22px 0;
+    }
 
-	.counter-card h2 {
-		font-size: 2.6rem;
-	}
+    .counter-box:last-child {
+        border-bottom: none;
+    }
 
-	.counter-section {
-		padding: 64px 0;
-	}
+    .counter-box h2 {
+        font-size: 2.6rem;
+    }
 
-	.project-img-wrap img,
+    .project-img-wrap img,
     .blog-img-wrap img {
         height: 180px;
     }
@@ -2795,7 +2795,7 @@ footer li {
         padding: 14px 24px;
     }
 
-    .counter-card h2 {
+    .counter-box h2 {
         font-size: 2.2rem;
     }
 
