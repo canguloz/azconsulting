@@ -530,6 +530,14 @@ section {
     margin: 15px 0 0;
 }
 
+.section-subtitle {
+    color: var(--text-light);
+    font-size: 1.05rem;
+    margin: 12px auto 0;
+    max-width: 560px;
+    line-height: 1.7;
+}
+
 .about-section,
 .projects-section,
 .testimonial-section,
@@ -722,92 +730,72 @@ section {
 }
 
 .counter-section {
-    padding: 80px 0;
-    background: linear-gradient(135deg, #0d1630 0%, #14264d 100%);
+    padding: 110px 0;
+    position: relative;
+    background: #f8fbff;
+}
+
+.counter-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: var(--glass-border);
+    border-radius: 24px;
+    padding: 40px 28px;
+    text-align: center;
+    height: 100%;
+    box-shadow: var(--glass-shadow);
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
     position: relative;
     overflow: hidden;
-}
-
-/* Subtle animated blob in background */
-.counter-section::before {
-    content: '';
-    position: absolute;
-    top: -100px;
-    left: -100px;
-    width: 500px;
-    height: 500px;
-    background: radial-gradient(circle, rgba(255, 122, 0, 0.08) 0%, transparent 70%);
-    border-radius: 50%;
-    pointer-events: none;
-}
-
-.counter-section::after {
-    content: '';
-    position: absolute;
-    bottom: -80px;
-    right: -80px;
-    width: 400px;
-    height: 400px;
-    background: radial-gradient(circle, rgba(255, 122, 0, 0.06) 0%, transparent 70%);
-    border-radius: 50%;
-    pointer-events: none;
-}
-
-.counter-box {
-    text-align: center;
-    color: #ffffff;
-    padding: 40px 20px;
-    transition: all 0.3s ease;
-    border-right: 1px solid rgba(255,255,255,0.08);
-    position: relative;
     z-index: 1;
 }
 
-.counter-box::before {
+.counter-card::before {
     content: '';
     position: absolute;
     top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 50px;
-    height: 3px;
-    background: var(--accent);
-    border-radius: 0 0 3px 3px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255, 122, 0, 0.04) 0%, rgba(13, 22, 48, 0.02) 100%);
     opacity: 0;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.4s ease;
+    z-index: -1;
 }
 
-.counter-box:hover::before {
+.counter-card:hover::before {
     opacity: 1;
 }
 
-.counter-icon {
-    width: 56px;
-    height: 56px;
-    background: rgba(255, 122, 0, 0.12);
-    border: 1px solid rgba(255, 122, 0, 0.25);
-    border-radius: 16px;
+.counter-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(13, 22, 48, 0.08);
+    border-color: rgba(255, 122, 0, 0.3);
+}
+
+.counter-card-icon {
+    width: 64px;
+    height: 64px;
+    background: rgba(255, 122, 0, 0.1);
+    border-radius: 18px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0 auto 20px;
+    margin: 0 auto 22px;
     color: var(--accent);
-    font-size: 1.4rem;
-    transition: all 0.3s ease;
+    font-size: 1.6rem;
+    transition: all 0.4s ease;
 }
 
-.counter-box:hover .counter-icon {
+.counter-card:hover .counter-card-icon {
     background: var(--accent);
     color: #ffffff;
-    transform: scale(1.1);
+    transform: scale(1.1) rotate(5deg);
     box-shadow: 0 8px 25px rgba(255, 122, 0, 0.3);
 }
 
-.counter-box:hover {
-    transform: translateY(-5px);
-}
-
-.counter-box h2 {
+.counter-card h2 {
     font-size: 3.2rem;
     font-weight: 800;
     color: var(--accent);
@@ -815,16 +803,19 @@ section {
     line-height: 1;
 }
 
-.counter-box p {
-    margin: 0;
+.counter-card p {
+    margin: 0 0 4px;
     font-size: 1rem;
-    font-weight: 500;
-    color: rgba(255,255,255,0.7);
+    font-weight: 600;
+    color: var(--primary);
     letter-spacing: 0.02em;
 }
 
-.counter-box:last-child {
-    border-right: none;
+.counter-card-label {
+    display: inline-block;
+    font-size: 0.85rem;
+    color: var(--text-light);
+    font-weight: 500;
 }
 
 .services-section {
@@ -2559,7 +2550,7 @@ footer li {
         padding: 72px 0;
     }
 
-    .counter-box h2 {
+    .counter-card h2 {
         font-size: 3.2rem;
     }
 
@@ -2667,17 +2658,11 @@ footer li {
         padding: 64px 0;
     }
 
-    .counter-box {
-        border-right: none;
-        border-bottom: 1px solid rgba(255,255,255,0.10);
-        padding: 22px 0;
+    .counter-card {
+        padding: 28px 20px;
     }
 
-    .counter-box:last-child {
-        border-bottom: none;
-    }
-
-    .counter-box h2 {
+    .counter-card h2 {
         font-size: 2.6rem;
     }
 
@@ -2795,8 +2780,18 @@ footer li {
         padding: 14px 24px;
     }
 
-    .counter-box h2 {
+    .counter-card h2 {
         font-size: 2.2rem;
+    }
+
+    .counter-card-icon {
+        width: 52px;
+        height: 52px;
+        font-size: 1.3rem;
+    }
+
+    .counter-card-label {
+        font-size: 0.8rem;
     }
 
     .project-info {
