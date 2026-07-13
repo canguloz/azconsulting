@@ -17,15 +17,39 @@
 }
 
 .blog-hero-ia::before {
-    background-image: linear-gradient(rgba(248, 250, 252, 0.55), rgba(248, 250, 252, 0.35)), url('../img/bg-ia.jpg');
+    background-image:
+        linear-gradient(rgba(248, 250, 252, 0.55), rgba(248, 250, 252, 0.35)),
+        url('../img/bg-ia.jpg');
+    background-image:
+        linear-gradient(rgba(248, 250, 252, 0.55), rgba(248, 250, 252, 0.35)),
+        image-set(
+            url('../img/bg-ia.avif') type('image/avif'),
+            url('../img/bg-ia.webp') type('image/webp')
+        );
 }
 
 .blog-hero-ciber::before {
-    background-image: linear-gradient(rgba(248, 250, 252, 0.55), rgba(248, 250, 252, 0.35)), url('../img/bg-ciber.jpg');
+    background-image:
+        linear-gradient(rgba(248, 250, 252, 0.55), rgba(248, 250, 252, 0.35)),
+        url('../img/bg-ciber.jpg');
+    background-image:
+        linear-gradient(rgba(248, 250, 252, 0.55), rgba(248, 250, 252, 0.35)),
+        image-set(
+            url('../img/bg-ciber.avif') type('image/avif'),
+            url('../img/bg-ciber.webp') type('image/webp')
+        );
 }
 
 .blog-hero-nube::before {
-    background-image: linear-gradient(rgba(248, 250, 252, 0.55), rgba(248, 250, 252, 0.35)), url('../img/bg-nube.jpg');
+    background-image:
+        linear-gradient(rgba(248, 250, 252, 0.55), rgba(248, 250, 252, 0.35)),
+        url('../img/bg-nube.jpg');
+    background-image:
+        linear-gradient(rgba(248, 250, 252, 0.55), rgba(248, 250, 252, 0.35)),
+        image-set(
+            url('../img/bg-nube.avif') type('image/avif'),
+            url('../img/bg-nube.webp') type('image/webp')
+        );
 }
 
 #btnTop {

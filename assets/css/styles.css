@@ -178,11 +178,51 @@ section {
     background:
         linear-gradient(rgba(245, 247, 250, 0.55), rgba(245, 247, 250, 0.35)),
         url('../img/hero-consultoria.png');
+    background:
+        linear-gradient(rgba(245, 247, 250, 0.55), rgba(245, 247, 250, 0.35)),
+        -webkit-image-set(
+            url('../img/hero-consultoria.avif') type('image/avif'),
+            url('../img/hero-consultoria.webp') type('image/webp')
+        );
+    background:
+        linear-gradient(rgba(245, 247, 250, 0.55), rgba(245, 247, 250, 0.35)),
+        image-set(
+            url('../img/hero-consultoria.avif') type('image/avif'),
+            url('../img/hero-consultoria.webp') type('image/webp')
+        );
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     animation: heroZoom 20s ease-in-out infinite alternate;
     z-index: 0;
+}
+
+@media (max-width: 768px) {
+    .hero::before {
+        background:
+            linear-gradient(rgba(245, 247, 250, 0.55), rgba(245, 247, 250, 0.35)),
+            url('../img/hero-consultoria-768w.webp');
+        background:
+            linear-gradient(rgba(245, 247, 250, 0.55), rgba(245, 247, 250, 0.35)),
+            image-set(
+                url('../img/hero-consultoria-768w.avif') type('image/avif'),
+                url('../img/hero-consultoria-768w.webp') type('image/webp')
+            );
+    }
+}
+
+@media (max-width: 480px) {
+    .hero::before {
+        background:
+            linear-gradient(rgba(245, 247, 250, 0.55), rgba(245, 247, 250, 0.35)),
+            url('../img/hero-consultoria-480w.webp');
+        background:
+            linear-gradient(rgba(245, 247, 250, 0.55), rgba(245, 247, 250, 0.35)),
+            image-set(
+                url('../img/hero-consultoria-480w.avif') type('image/avif'),
+                url('../img/hero-consultoria-480w.webp') type('image/webp')
+            );
+    }
 }
 
 .hero-content {
