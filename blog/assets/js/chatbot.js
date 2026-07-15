@@ -51,9 +51,7 @@ REGLAS:
       transform: scale(1.08);
       box-shadow: 0 8px 30px rgba(13,22,48,0.35);
     }
-    .az-chatbot-btn .close-icon { display: none; }
-    .az-chatbot-btn.open .chat-icon { display: none; }
-    .az-chatbot-btn.open .close-icon { display: inline; }
+
     .az-chatbot-panel {
       position: fixed;
       right: 85px;
@@ -89,6 +87,18 @@ REGLAS:
       gap: 10px;
     }
     .az-chatbot-header i { color: #FF7A00; font-size: 1.1rem; }
+    .az-chatbot-close {
+      margin-left: auto;
+      background: none;
+      border: none;
+      color: rgba(255,255,255,0.6);
+      font-size: 1.1rem;
+      cursor: pointer;
+      padding: 0 4px;
+      line-height: 1;
+      transition: color 0.2s;
+    }
+    .az-chatbot-close:hover { color: #fff; }
     .az-chatbot-messages {
       flex: 1;
       padding: 16px;
@@ -231,7 +241,7 @@ REGLAS:
 
   const btn = document.createElement('button');
   btn.className = 'az-chatbot-btn';
-  btn.innerHTML = '<span class="chat-icon"><i class="fas fa-robot"></i></span><span class="close-icon"><i class="fas fa-times"></i></span>';
+  btn.innerHTML = '<i class="fas fa-robot"></i>';
   btn.setAttribute('aria-label', 'Abrir chat IA');
   document.body.appendChild(btn);
 
@@ -240,6 +250,7 @@ REGLAS:
   panel.innerHTML = `
     <div class="az-chatbot-header">
       <i class="fas fa-robot"></i> Asistente AZCONSULTING
+      <button class="az-chatbot-close" id="azChatClose" aria-label="Cerrar chat"><i class="fas fa-times"></i></button>
     </div>
     <div class="az-chatbot-messages" id="azChatMessages">
       <div class="az-chatbot-msg bot">
@@ -391,9 +402,12 @@ REGLAS:
   }
 
   btn.addEventListener('click', () => {
-    btn.classList.toggle('open');
-    panel.classList.toggle('open');
-    if (panel.classList.contains('open')) inputEl.focus();
+    panel.classList.add('open');
+    inputEl.focus();
+  });
+
+  document.getElementById('azChatClose').addEventListener('click', () => {
+    panel.classList.remove('open');
   });
 
   async function handleSend() {
