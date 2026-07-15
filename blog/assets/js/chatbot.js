@@ -63,12 +63,20 @@ REGLAS:
       border-radius: 20px;
       box-shadow: 0 10px 50px rgba(13,22,48,0.15);
       z-index: 9997;
-      display: none;
       overflow: hidden;
       flex-direction: column;
       border: 1px solid rgba(13,22,48,0.06);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(12px) scale(0.97);
+      transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
     }
-    .az-chatbot-panel.open { display: flex; }
+    .az-chatbot-panel.open {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0) scale(1);
+    }
     .az-chatbot-header {
       background: #0d1630;
       color: #fff;
