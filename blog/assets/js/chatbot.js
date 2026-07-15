@@ -211,8 +211,12 @@ REGLAS:
       background: #0d1630;
       color: #fff;
     }
-    .az-emoji {
-      font-family: 'Noto Color Emoji', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif;
+    .az-emoji img {
+      display: inline;
+      width: 1.1em;
+      height: 1.1em;
+      vertical-align: -0.15em;
+      margin: 0 0.04em;
     }
     @media (max-width: 480px) {
       .az-chatbot-panel { width: calc(100vw - 40px); right: 20px; }
@@ -255,6 +259,23 @@ REGLAS:
 
   let lastMsgTime = 0;
 
+  function loadTwemoji(callback) {
+    if (typeof twemoji !== 'undefined') { callback(); return; }
+    const s = document.createElement('script');
+    s.src = 'https://cdn.jsdelivr.net/npm/@twemoji/api@latest/dist/twemoji.min.js';
+    s.crossOrigin = 'anonymous';
+    s.onload = callback;
+    document.head.appendChild(s);
+  }
+
+  function parseEmojis(el) {
+    if (typeof twemoji !== 'undefined') twemoji.parse(el, { className: 'az-emoji' });
+  }
+
+  loadTwemoji(() => {
+    document.querySelectorAll('.az-chatbot-msg.bot, .az-suggestions').forEach(parseEmojis);
+  });
+
   messagesEl.addEventListener('click', e => {
     const btn = e.target.closest('[data-question]');
     if (btn) {
@@ -267,8 +288,7 @@ REGLAS:
     return text
       .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
       .replace(/(https?:\/\/[^\s<]+)/g, '<a href="$1" target="_blank" rel="noopener noreferrer">$1</a>')
-      .replace(/\n/g, '<br>')
-      .replace(/[\u{1F000}-\u{1FFFF}\u{2600}-\u{26FF}\u{2700}-\u{27BF}]/gu, '<span class="az-emoji">$&</span>');
+      .replace(/\n/g, '<br>');
   }
 
   function addMessage(text, role) {
@@ -280,6 +300,7 @@ REGLAS:
       div.textContent = text;
     }
     messagesEl.appendChild(div);
+    if (role === 'bot') parseEmojis(div);
     messagesEl.scrollTop = messagesEl.scrollHeight;
   }
 
@@ -291,6 +312,7 @@ REGLAS:
       <button data-question="${q2.replace(/"/g, '&quot;')}">${q2}</button>
     `;
     messagesEl.appendChild(wrap);
+    parseEmojis(wrap);
     messagesEl.scrollTop = messagesEl.scrollHeight;
   }
 
