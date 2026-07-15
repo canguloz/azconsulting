@@ -43,6 +43,7 @@ REGLAS:
       align-items: center;
       justify-content: center;
       font-size: 26px;
+      line-height: 1;
       box-shadow: 0 4px 20px rgba(13,22,48,0.25);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
@@ -55,8 +56,8 @@ REGLAS:
     .az-chatbot-btn.open .close-icon { display: inline; }
     .az-chatbot-panel {
       position: fixed;
-      right: 20px;
-      bottom: 195px;
+      right: 85px;
+      bottom: 130px;
       width: 360px;
       max-height: 500px;
       background: #fff;
@@ -187,6 +188,10 @@ REGLAS:
       transition: background 0.3s ease;
     }
     .az-chatbot-input button:hover { background: #FF7A00; }
+    .az-chatbot-input button i {
+      line-height: 1;
+      transform: translateY(1px);
+    }
     .az-suggestions {
       display: flex;
       flex-wrap: wrap;
@@ -218,8 +223,8 @@ REGLAS:
       vertical-align: -0.15em;
       margin: 0 0.04em;
     }
-    @media (max-width: 480px) {
-      .az-chatbot-panel { width: calc(100vw - 40px); right: 20px; }
+    @media (max-width: 640px) {
+      .az-chatbot-panel { width: calc(100vw - 40px); right: 20px; bottom: 195px; }
     }
   `;
   document.head.appendChild(styles);
