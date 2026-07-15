@@ -54,8 +54,8 @@ REGLAS:
 
     .az-chatbot-panel {
       position: fixed;
-      right: 85px;
-      bottom: 130px;
+      right: 20px;
+      bottom: 195px;
       width: 360px;
       max-height: 500px;
       background: #fff;
@@ -234,7 +234,7 @@ REGLAS:
       margin: 0 0.04em;
     }
     @media (max-width: 640px) {
-      .az-chatbot-panel { width: calc(100vw - 40px); right: 20px; bottom: 195px; }
+      .az-chatbot-panel { width: calc(100vw - 40px); }
     }
   `;
   document.head.appendChild(styles);
