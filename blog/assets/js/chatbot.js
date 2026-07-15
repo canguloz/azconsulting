@@ -19,10 +19,11 @@ REGLAS:
 - Respondé SOLO sobre TI y servicios de AZCONSULTING. Si no es TI, decí educadamente que solo ayudás con tecnología.
 - Respondé en el mismo idioma del usuario.
 - Sé **muy breve**: 2 oraciones como máximo. Directo, formal, sin rodeos.
-- Usá **negritas** para resaltar palabras clave (empresa, servicios, datos de contacto).
-- Usá emojis solo cuando aporten (📞 💻 ☁️ 🛡️ ✅).
+- Usá **negritas** para resaltar palabras clave.
+- Usá emojis cuando aporten.
 - Sin código, sin procesos internos.
-- Si preguntan precios, derivá a WhatsApp o email.`;
+- Si preguntan precios, derivá a WhatsApp o email.
+- **IMPORTANTE**: al final de tu respuesta, agregá SIEMPRE una línea con exactamente 2 preguntas de seguimiento separadas por " || ". Ejemplo: ¿Querés saber precios? || ¿Te interesa desarrollo web?`;
 
   const styles = document.createElement('style');
   styles.textContent = `
@@ -88,7 +89,7 @@ REGLAS:
       line-height: 1.6;
     }
     .az-chatbot-msg {
-      margin-bottom: 12px;
+      margin-bottom: 4px;
       padding: 10px 14px;
       border-radius: 14px;
       max-width: 85%;
@@ -178,6 +179,30 @@ REGLAS:
       transition: background 0.3s ease;
     }
     .az-chatbot-input button:hover { background: #FF7A00; }
+    .az-suggestions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin: 6px 0 12px 0;
+      padding: 0 4px;
+      animation: fadeUp 0.3s ease;
+    }
+    .az-suggestions button {
+      background: #fff;
+      border: 1px solid #0d1630;
+      color: #0d1630;
+      border-radius: 18px;
+      padding: 6px 14px;
+      font-size: 0.78rem;
+      cursor: pointer;
+      font-family: inherit;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+    .az-suggestions button:hover {
+      background: #0d1630;
+      color: #fff;
+    }
     @media (max-width: 480px) {
       .az-chatbot-panel { width: calc(100vw - 40px); right: 20px; }
     }
@@ -201,6 +226,10 @@ REGLAS:
         <span class="msg-icon">AZCONSULTING</span>
         ¡Hola! Soy el asistente de <strong>AZCONSULTING</strong> 💻 Preguntame sobre desarrollo web, apps, hosting, ciberseguridad o infraestructura TI.
       </div>
+      <div class="az-suggestions">
+        <button data-question="¿Qué servicios ofrecen?">¿Qué servicios ofrecen?</button>
+        <button data-question="¿Cómo contrato?">¿Cómo contrato?</button>
+      </div>
     </div>
     <div class="az-chatbot-input">
       <input type="text" id="azChatInput" placeholder="Escribe tu consulta..." autocomplete="off">
@@ -215,15 +244,38 @@ REGLAS:
 
   let lastMsgTime = 0;
 
+  messagesEl.addEventListener('click', e => {
+    const btn = e.target.closest('[data-question]');
+    if (btn) {
+      inputEl.value = btn.dataset.question;
+      handleSend();
+    }
+  });
+
+  function formatText(text) {
+    return text.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>').replace(/\n/g, '<br>');
+  }
+
   function addMessage(text, role) {
     const div = document.createElement('div');
     div.className = `az-chatbot-msg ${role}`;
     if (role === 'bot') {
-      div.innerHTML = `<span class="msg-icon">AZCONSULTING</span>${text.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')}`;
+      div.innerHTML = `<span class="msg-icon">AZCONSULTING</span>${formatText(text)}`;
     } else {
       div.textContent = text;
     }
     messagesEl.appendChild(div);
+    messagesEl.scrollTop = messagesEl.scrollHeight;
+  }
+
+  function addSuggestions(q1, q2) {
+    const wrap = document.createElement('div');
+    wrap.className = 'az-suggestions';
+    wrap.innerHTML = `
+      <button data-question="${q1.replace(/"/g, '&quot;')}">${q1}</button>
+      <button data-question="${q2.replace(/"/g, '&quot;')}">${q2}</button>
+    `;
+    messagesEl.appendChild(wrap);
     messagesEl.scrollTop = messagesEl.scrollHeight;
   }
 
@@ -300,9 +352,16 @@ REGLAS:
         if (m.classList.contains('bot')) history.push({ role: 'assistant', content: m.textContent.replace(/^AZCONSULTING/, '').trim() });
       });
       history.push({ role: 'user', content: text });
-      const reply = await askGroq(history);
+      const raw = await askGroq(history);
       hideTyping();
+
+      const parts = raw.split('||').map(s => s.trim());
+      const reply = parts[0];
+      const q1 = parts[1] || null;
+      const q2 = parts[2] || null;
+
       addMessage(reply, 'bot');
+      if (q1 && q2) addSuggestions(q1, q2);
     } catch (err) {
       hideTyping();
       if (err.type === 'network') {
