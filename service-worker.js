@@ -1,13 +1,13 @@
 const CACHE_NAME = 'azconsulting-v3';
 
 const urlsToCache = [
-  '/',
-  '/index.html',
-  '/assets/css/styles.css',
-  '/assets/js/main.js',
-  '/blog/blog-ia.html',
-  '/blog/blog-ciberseguridad.html',
-  '/blog/blog-nube.html'
+  '/azconsulting/',
+  '/azconsulting/index.html',
+  '/azconsulting/assets/css/styles.css',
+  '/azconsulting/assets/js/main.js',
+  '/azconsulting/blog/blog-ia.html',
+  '/azconsulting/blog/blog-ciberseguridad.html',
+  '/azconsulting/blog/blog-nube.html'
 ];
 
 self.addEventListener('install', event => {

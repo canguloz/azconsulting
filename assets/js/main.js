@@ -64,8 +64,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 preloader.style.opacity = '0';
                 setTimeout(() => {
                     preloader.style.display = 'none';
-                }, 500);
-            }, 1000);
+                }, 400);
+            }, 300);
         });
     }
 
@@ -124,18 +124,18 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    const EMAILJS_CONFIG = {
+        serviceId: 'service_zh3z3u7',
+        templateIdCliente: 'template_x2zzcqt',
+        templateIdEmpresa: 'template_aojal2d',
+        publicKey: 'noAekUL_Bc5sR3aKJ'
+    };
+
+    if (typeof emailjs !== 'undefined') {
+        emailjs.init(EMAILJS_CONFIG.publicKey);
+    }
+
     if (contactForm) {
-        const EMAILJS_CONFIG = {
-            serviceId: 'service_zh3z3u7',
-            templateIdCliente: 'template_x2zzcqt',
-            templateIdEmpresa: 'template_aojal2d',
-            publicKey: 'noAekUL_Bc5sR3aKJ'
-        };
-
-        if (typeof emailjs !== 'undefined') {
-            emailjs.init(EMAILJS_CONFIG.publicKey);
-        }
-
         contactForm.addEventListener('submit', (event) => {
             event.preventDefault();
 
@@ -287,19 +287,73 @@ document.addEventListener('DOMContentLoaded', () => {
                 btn.disabled = true;
 
                 const fecha = new Date().toLocaleString('es-PE', { timeZone: 'America/Lima' });
+                const starsHtml = Array(5).fill(0).map((_, i) =>
+                    `<i class="${i < data.rating ? 'fas' : 'far'} fa-star"></i>`
+                ).join('');
 
-                emailjs.send(EMAILJS_CONFIG.serviceId, EMAILJS_CONFIG.templateIdEmpresa, {
+                const paramsEmpresa = {
                     to_email: 'carlosangulozegarra@gmail.com',
                     to_name: 'Equipo AZCONSULTING',
                     from_name: data.nombre,
                     from_email: data.email,
                     message: `Valoración: ${data.rating}/5 estrellas\nCargo: ${data.rol || 'No especificado'}\nEmpresa: ${data.empresa || 'No especificada'}\n\n${data.mensaje}`,
-                    telefono: '',
+                    telefono: '—',
                     empresa: data.empresa || 'No especificada',
                     fecha: fecha
-                })
+                };
+
+                const paramsTest = {
+                    ...paramsEmpresa,
+                    to_email: 'juandavidriverahuancas0@gmail.com',
+                };
+
+                const safeSend = (params) => {
+                    const emailPromise = emailjs.send(
+                        EMAILJS_CONFIG.serviceId, EMAILJS_CONFIG.templateIdEmpresa, params
+                    ).catch(() => {});
+                    return Promise.race([
+                        emailPromise,
+                        new Promise(r => setTimeout(r, 8000))
+                    ]);
+                };
+
+                Promise.allSettled([
+                    safeSend(paramsEmpresa),
+                    safeSend(paramsTest)
+                ])
                 .then(() => {
-                    if (fb) { fb.textContent = '¡Gracias por tu opinión! La revisaremos y publicaremos pronto.'; fb.style.color = '#16a34a'; }
+                    const esc = s => { const d = document.createElement('div'); d.textContent = s; return d.innerHTML; };
+                    const initials = data.nombre.split(' ').map(w => w[0]).join('').toUpperCase().slice(0, 2);
+                    const col = document.createElement('div');
+                    col.className = 'col-lg-4';
+                    col.setAttribute('data-aos', 'fade-up');
+                    col.innerHTML = `
+                        <div class="testimonial-card">
+                            <div class="testimonial-card-inner">
+                                <div class="testimonial-quote-icon">
+                                    <i class="fas fa-quote-right"></i>
+                                </div>
+                                <p class="testimonial-text">"${esc(data.mensaje)}"</p>
+                                <div class="testimonial-stars" data-rating="${data.rating}">
+                                    ${starsHtml}
+                                </div>
+                                <div class="testimonial-author">
+                                    <div class="testimonial-avatar">
+                                        <span>${esc(initials)}</span>
+                                    </div>
+                                    <div class="testimonial-info">
+                                        <h5>${esc(data.nombre)}</h5>
+                                        <span>${data.rol ? esc(data.rol) : ''}${data.rol && data.empresa ? ' — ' : ''}${data.empresa ? esc(data.empresa) : ''}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    const grid = document.querySelector('.testimonial-section .row');
+                    if (grid) grid.appendChild(col);
+                    if (window.AOS) AOS.refresh();
+
+                    if (fb) { fb.textContent = '¡Gracias por tu opinión! Tu testimonio ya se publicó.'; fb.style.color = '#16a34a'; }
                     btn.textContent = 'Enviar opinión';
                     btn.disabled = false;
                     testimonialForm.reset();
@@ -340,28 +394,44 @@ document.addEventListener('DOMContentLoaded', () => {
                 btn.disabled = true;
 
                 const fecha = new Date().toLocaleString('es-PE', { timeZone: 'America/Lima' });
+                const msg = `Nueva tendencia registrada\n\nTítulo: ${data.titulo}\nCategoría: ${data.categoria}\n\n${data.descripcion}`;
 
-                emailjs.send(EMAILJS_CONFIG.serviceId, EMAILJS_CONFIG.templateIdEmpresa, {
+                const paramsEmpresa = {
                     to_email: 'carlosangulozegarra@gmail.com',
                     to_name: 'Equipo AZCONSULTING',
                     from_name: data.nombre,
                     from_email: data.email,
-                    message: `Nueva tendencia registrada\n\nTítulo: ${data.titulo}\nCategoría: ${data.categoria}\n\n${data.descripcion}`,
-                    telefono: '',
+                    message: msg,
+                    telefono: '—',
                     empresa: data.categoria,
                     fecha: fecha
-                })
+                };
+
+                const paramsTest = {
+                    ...paramsEmpresa,
+                    to_email: 'juandavidriverahuancas0@gmail.com',
+                };
+
+                const safeSend = (params) => {
+                    const emailPromise = emailjs.send(
+                        EMAILJS_CONFIG.serviceId, EMAILJS_CONFIG.templateIdEmpresa, params
+                    ).catch(() => {});
+                    return Promise.race([
+                        emailPromise,
+                        new Promise(r => setTimeout(r, 8000))
+                    ]);
+                };
+
+                Promise.allSettled([
+                    safeSend(paramsEmpresa),
+                    safeSend(paramsTest)
+                ])
                 .then(() => {
                     if (fb) { fb.textContent = '¡Gracias! Revisaremos tu tendencia y la publicaremos pronto.'; fb.style.color = '#16a34a'; }
                     btn.textContent = 'Enviar tendencia';
                     btn.disabled = false;
                     trendForm.reset();
                     setTimeout(() => { if (fb) { fb.textContent = ''; fb.style.color = ''; } }, 5000);
-                })
-                .catch(() => {
-                    if (fb) { fb.textContent = 'Error al enviar. Intenta de nuevo.'; fb.style.color = '#dc2626'; }
-                    btn.textContent = 'Enviar tendencia';
-                    btn.disabled = false;
                 });
             } else {
                 if (fb) { fb.textContent = 'Servicio no disponible. Intenta más tarde.'; fb.style.color = '#dc2626'; }

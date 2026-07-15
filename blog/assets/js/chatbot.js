@@ -1,5 +1,5 @@
 (function () {
-  const API_KEY = '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';
+  const WORKER_URL = 'https://divine-mouse-ebab.juandavidriverahuancas0.workers.dev';
 
   const systemPrompt = `Sos el asistente de **AZCONSULTING**, consultora TI en Trujillo, Perú.
 
@@ -384,20 +384,13 @@ REGLAS:
   async function askGroq(messages) {
     let res;
     try {
-      res = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+      const last = messages.pop() || { content: '' };
+      res = await fetch(WORKER_URL, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${API_KEY}`
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          model: 'groq/compound',
-          messages: [
-            { role: 'system', content: systemPrompt },
-            ...messages
-          ],
-          max_tokens: 300,
-          temperature: 0.5
+          message: last.content,
+          history: messages
         })
       });
     } catch {
@@ -405,8 +398,8 @@ REGLAS:
     }
     const data = await res.json();
     if (res.status === 429) throw { type: 'rate_limit' };
-    if (data.error) throw { type: 'api', detail: data.error.message };
-    return data.choices[0].message.content;
+    if (data.error) throw { type: 'api', detail: data.error };
+    return data.reply;
   }
 
   btn.addEventListener('click', () => {
