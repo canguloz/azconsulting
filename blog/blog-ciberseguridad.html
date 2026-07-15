@@ -60,6 +60,7 @@
       "@type": "BlogPosting",
       "headline": "Protección de Datos en la Era Digital",
       "datePublished": "2026-01-08",
+      "dateModified": "2026-01-08",
       "description": "Estrategias modernas de ciberseguridad para proteger la información de tu empresa. Auditorías y soluciones Zero Trust de AZCONSULTING.",
       "image": "https://canguloz.github.io/azconsulting/assets/img/blog2.jpg",
       "url": "https://canguloz.github.io/azconsulting/blog/blog-ciberseguridad.html",
@@ -77,6 +78,19 @@
           "url": "https://canguloz.github.io/azconsulting/assets/img/logo.png"
         }
       }
+    }
+    </script>
+
+    <!-- Schema BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://canguloz.github.io/azconsulting/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://canguloz.github.io/azconsulting/#blog" },
+        { "@type": "ListItem", "position": 3, "name": "Protección de Datos en la Era Digital", "item": "https://canguloz.github.io/azconsulting/blog/blog-ciberseguridad.html" }
+      ]
     }
     </script>
 
@@ -130,13 +144,14 @@
                     </div>
                     <span class="fw-semibold text-dark">AZCONSULTING</span>
                 </div>
-                <span><i class="far fa-calendar text-primary me-2"></i> 8 Ene 2026</span>
+                <span><i class="far fa-calendar text-primary me-2"></i> <time datetime="2026-01-08">8 Ene 2026</time></span>
                 <span><i class="far fa-clock text-primary me-2"></i> 4 min de lectura</span>
             </div>
             </div>
         </div>
     </header>
 
+    <article>
     <section class="blog-content-section" style="padding: 0 0 100px 0; margin-top: -60px;">
         <div class="container">
             <div class="row justify-content-center">
@@ -171,7 +186,40 @@
             </div>
         </div>
     </section>
+    </article>
 </main>
+
+    <!-- RELATED ARTICLES -->
+    <section class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <hr style="opacity: 0.1; margin: 0 0 40px 0;">
+                <h3 class="fw-bold mb-4 text-center" style="color: var(--primary);">Artículos Relacionados</h3>
+                <div class="row g-4">
+                    <div class="col-md-6">
+                        <div class="card border-0 shadow-sm h-100" style="border-radius: 16px;">
+                            <div class="card-body p-4">
+                                <span class="badge mb-2" style="background-color: var(--primary);">Inteligencia Artificial</span>
+                                <h4 class="fw-bold" style="font-size: 1.1rem;">IA Empresarial en 2026</h4>
+                                <p class="text-muted" style="font-size: 0.9rem;">Automatización de procesos clave con IA generativa.</p>
+                                <a href="blog-ia.html" class="fw-semibold" style="color: var(--accent); text-decoration: none;">Leer más <i class="fas fa-arrow-right ms-1"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card border-0 shadow-sm h-100" style="border-radius: 16px;">
+                            <div class="card-body p-4">
+                                <span class="badge mb-2" style="background-color: var(--primary);">Cloud Computing</span>
+                                <h4 class="fw-bold" style="font-size: 1.1rem;">Infraestructura Escalable Multi-Cloud</h4>
+                                <p class="text-muted" style="font-size: 0.9rem;">Migración segura a la nube con estrategias híbridas.</p>
+                                <a href="blog-nube.html" class="fw-semibold" style="color: var(--accent); text-decoration: none;">Leer más <i class="fas fa-arrow-right ms-1"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
 <!-- ====================================== -->
 <!-- FOOTER -->
