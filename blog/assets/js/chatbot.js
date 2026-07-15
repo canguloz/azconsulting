@@ -1,42 +1,28 @@
 (function () {
   const API_KEY = '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';
 
-  const systemPrompt = `Eres el asistente virtual de AZCONSULTING, una consultora de tecnología con sede en Trujillo, Perú.
+  const systemPrompt = `Sos el asistente de **AZCONSULTING**, consultora TI en Trujillo, Perú.
 
-INFORMACIÓN DE LA EMPRESA:
-- Nombre: AZCONSULTING
-- Teléfono: +51 924 858 054
-- Email: contacto@azconsulting.com
-- Web: canguloz.github.io/azconsulting
-- Horario: Lun-Vie 8am-6pm
-- Cobertura: Trujillo, La Libertad, Perú (soporte remoto y presencial)
+DATOS CLAVE:
+- 📞 +51 924 858 054 | ✉️ contacto@azconsulting.com
+- 🕐 Lun-Vie 8am-6pm | Cobertura: Trujillo, La Libertad
+- Diagnóstico virtual gratuito + visita técnica + monitoreo 24/7
 
 SERVICIOS:
-1. Diseño de páginas web profesionales — sitios responsivos, optimizados para ventas
-2. Desarrollo de aplicaciones web a medida (ERP, CRM, software empresarial)
-3. Automatización de procesos con IA y bots
-4. Correos corporativos con dominio propio, cifrado SSL, antispam
-5. Hosting empresarial y dominios con certificados SSL y soporte 24/7
-6. Infraestructura TI: servidores, redes, soporte técnico especializado
+💻 Páginas web profesionales | 📱 Apps a medida (ERP, CRM)
+🤖 Automatización con IA | 📧 Correos corporativos SSL
+☁️ Hosting y dominios | 🛡️ Infraestructura TI y soporte
 
-EQUIPO:
-- Carlos Angulo — Founder (10+ años de experiencia)
-- Matias Angulo — Full Stack Developer (3+ años)
-- Juan David — Full Stack Developer (1+ años)
-
-METODOLOGÍA:
-1. Diagnóstico virtual gratuito por videollamada
-2. Visita técnica presencial para proyectos de infraestructura
-3. Monitoreo remoto 24/7 de servidores, sitios web y correos
+EQUIPO: Carlos Angulo (10+ años), Matias Angulo (3+), Juan David (1+)
 
 REGLAS:
-- Sos un asistente profesional de una consultora TI. Actuá con respeto y amabilidad siempre.
-- Respondé ÚNICAMENTE sobre tecnología, TI y los servicios de AZCONSULTING.
-- Si la pregunta es sobre otro tema (deportes, política, entretenimiento, etc.), respondé educadamente que solo podés ayudar con temas tecnológicos.
-- Si el usuario insulta o usa lenguaje ofensivo, respondé con respeto pidiendo que mantenga un tono cordial.
-- Respondé en el mismo idioma en que te hablen (español, inglés, etc.).
-- Sé directo, máximo 3 oraciones. No muestres código ni procesos internos.
-- Si preguntan por precios, indicá que contacten por WhatsApp (+51 924 858 054) o email (contacto@azconsulting.com) para un presupuesto personalizado.`;
+- Respondé SOLO sobre TI y servicios de AZCONSULTING. Si no es TI, decí educadamente que solo ayudás con tecnología.
+- Respondé en el mismo idioma del usuario.
+- Sé **muy breve**: 2 oraciones como máximo. Directo, formal, sin rodeos.
+- Usá **negritas** para resaltar palabras clave (empresa, servicios, datos de contacto).
+- Usá emojis solo cuando aporten (📞 💻 ☁️ 🛡️ ✅).
+- Sin código, sin procesos internos.
+- Si preguntan precios, derivá a WhatsApp o email.`;
 
   const styles = document.createElement('style');
   styles.textContent = `
@@ -256,24 +242,30 @@ REGLAS:
   }
 
   async function askGroq(messages) {
-    const res = await fetch('https://api.groq.com/openai/v1/chat/completions', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${API_KEY}`
-      },
-      body: JSON.stringify({
-        model: 'groq/compound',
-        messages: [
-          { role: 'system', content: systemPrompt },
-          ...messages
-        ],
-        max_tokens: 300,
-        temperature: 0.5
-      })
-    });
+    let res;
+    try {
+      res = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${API_KEY}`
+        },
+        body: JSON.stringify({
+          model: 'groq/compound',
+          messages: [
+            { role: 'system', content: systemPrompt },
+            ...messages
+          ],
+          max_tokens: 300,
+          temperature: 0.5
+        })
+      });
+    } catch {
+      throw { type: 'network' };
+    }
     const data = await res.json();
-    if (data.error) throw new Error(data.error.message || 'Error del servicio');
+    if (res.status === 429) throw { type: 'rate_limit' };
+    if (data.error) throw { type: 'api', detail: data.error.message };
     return data.choices[0].message.content;
   }
 
@@ -313,7 +305,15 @@ REGLAS:
       addMessage(reply, 'bot');
     } catch (err) {
       hideTyping();
-      addMessage('Error al conectar con el servicio. Intentá de nuevo más tarde.', 'bot');
+      if (err.type === 'network') {
+        addMessage('Error de conexión. Verificá tu internet y volvé a intentar.', 'bot');
+      } else if (err.type === 'rate_limit') {
+        addMessage('Demasiadas consultas por minuto. Esperá unos segundos.', 'bot');
+      } else if (err.type === 'api') {
+        addMessage('El servicio no procesó la consulta. Reformulá tu mensaje.', 'bot');
+      } else {
+        addMessage('Error inesperado. Intentá de nuevo.', 'bot');
+      }
       console.error(err);
     }
   }
