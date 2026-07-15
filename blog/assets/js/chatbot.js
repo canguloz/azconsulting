@@ -211,7 +211,7 @@ REGLAS:
       background: #0d1630;
       color: #fff;
     }
-    .az-emoji img {
+    img.az-emoji {
       display: inline;
       width: 1.1em;
       height: 1.1em;
