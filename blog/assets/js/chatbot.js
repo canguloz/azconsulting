@@ -23,7 +23,7 @@ REGLAS:
 - Usá emojis cuando aporten.
 - Sin código, sin procesos internos.
 - Si preguntan precios, derivá a WhatsApp o email.
-- **IMPORTANTE**: al final de tu respuesta, agregá SIEMPRE una línea con exactamente 2 preguntas de seguimiento separadas por " || ". Ejemplo: ¿Querés saber precios? || ¿Te interesa desarrollo web?`;
+- **FORMATO OBLIGATORIO**: tu respuesta DEBE terminar con una línea que contenga exactamente 2 preguntas cortas separadas por " || ". No importa el tema de la consulta, incluí SIEMPRE esa línea al final. Ejemplo: HTML es un lenguaje de marcado para crear páginas web. En AZCONSULTING creamos sitios profesionales con HTML, CSS y JS. ¿Querés ver nuestros planes web? || ¿Cuánto cuesta una página?`;
 
   const styles = document.createElement('style');
   styles.textContent = `
@@ -279,6 +279,33 @@ REGLAS:
     messagesEl.scrollTop = messagesEl.scrollHeight;
   }
 
+  function fallbackSuggestions(text) {
+    const kw = text.toLowerCase();
+    if (/html|css|javascript|js|frontend|front-end|maquetac|codigo/.test(kw))
+      return ['¿Desarrollan páginas web?', '¿Cuánto cuesta una web?'];
+    if (/app|aplicacion|movil|mobile|android|ios/.test(kw))
+      return ['¿Hacen apps a medida?', '¿Qué tecnologías usan?'];
+    if (/hosting|dominio|servidor|cloud|nube/.test(kw))
+      return ['¿Ofrecen hosting?', '¿Cuánto cuesta el hosting?'];
+    if (/precio|costo|cuanto|presupuesto|tarifa|valor/.test(kw))
+      return ['¿Cómo contrato?', '¿Incluye soporte técnico?'];
+    if (/email|correo|outlook|gmail|exchange/.test(kw))
+      return ['¿Ofrecen correos corporativos?', '¿Incluye seguridad SSL?'];
+    if (/seguridad|ciberseguridad|hacker|proteccion|vulnerabilidad/.test(kw))
+      return ['¿Ofrecen ciberseguridad?', '¿Incluye monitoreo 24/7?'];
+    if (/ia|inteligencia artificial|chatbot|automatizacion|bot/.test(kw))
+      return ['¿Automatizan procesos con IA?', '¿Qué beneficios tiene?'];
+    if (/seo|posicionamiento|google|busqueda/.test(kw))
+      return ['¿Hacen SEO?', '¿Cuánto cuesta el servicio?'];
+    if (/soporte|mantenimiento|tecnico|reparacion/.test(kw))
+      return ['¿Ofrecen soporte técnico?', '¿Dónde están ubicados?'];
+    if (/contrato|contratar|servicio|planes/.test(kw))
+      return ['¿Qué métodos de pago aceptan?', '¿Incluye visita técnica?'];
+    if (/web|sitio|pagina|ecommerce|tienda/.test(kw))
+      return ['¿Hacen páginas web?', '¿Cuánto tiempo toma?'];
+    return ['¿Qué servicios ofrecen?', '¿Cómo contrato?'];
+  }
+
   function showTyping() {
     const div = document.createElement('div');
     div.className = 'az-chatbot-typing';
@@ -361,7 +388,12 @@ REGLAS:
       const q2 = parts[2] || null;
 
       addMessage(reply, 'bot');
-      if (q1 && q2) addSuggestions(q1, q2);
+      if (q1 && q2 && q1.length > 3 && q2.length > 3) {
+        addSuggestions(q1, q2);
+      } else {
+        const [f1, f2] = fallbackSuggestions(text + ' ' + reply);
+        addSuggestions(f1, f2);
+      }
     } catch (err) {
       hideTyping();
       if (err.type === 'network') {
