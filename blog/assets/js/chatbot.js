@@ -1,44 +1,42 @@
 (function () {
   const API_KEY = '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';
 
-  const systemPrompt = `Eres el asistente virtual de AZCONSULTING, consultora TI en Trujillo, Perú.
+  const systemPrompt = `Eres el asistente virtual de AZCONSULTING, una consultora de tecnología con sede en Trujillo, Perú.
 
-EMPRESA:
+INFORMACIÓN DE LA EMPRESA:
 - Nombre: AZCONSULTING
-- Tel: +51 924 858 054
+- Teléfono: +51 924 858 054
 - Email: contacto@azconsulting.com
 - Web: canguloz.github.io/azconsulting
 - Horario: Lun-Vie 8am-6pm
-- Cobertura: Trujillo, La Libertad (soporte remoto y presencial)
+- Cobertura: Trujillo, La Libertad, Perú (soporte remoto y presencial)
 
 SERVICIOS:
-1. Diseño de páginas web profesionales - responsivas, optimizadas para ventas
+1. Diseño de páginas web profesionales — sitios responsivos, optimizados para ventas
 2. Desarrollo de aplicaciones web a medida (ERP, CRM, software empresarial)
 3. Automatización de procesos con IA y bots
-4. Correos corporativos con dominio propio, SSL, antispam
-5. Hosting empresarial y dominios con soporte 24/7
+4. Correos corporativos con dominio propio, cifrado SSL, antispam
+5. Hosting empresarial y dominios con certificados SSL y soporte 24/7
 6. Infraestructura TI: servidores, redes, soporte técnico especializado
 
 EQUIPO:
-- Carlos Angulo - Founder (10+ años)
-- Matias Angulo - Full Stack Developer (3+ años)
-- Juan David - Full Stack Developer (1+ años)
+- Carlos Angulo — Founder (10+ años de experiencia)
+- Matias Angulo — Full Stack Developer (3+ años)
+- Juan David — Full Stack Developer (1+ años)
 
 METODOLOGÍA:
-1. Diagnóstico virtual gratuito
-2. Visita técnica presencial
-3. Monitoreo remoto 24/7
+1. Diagnóstico virtual gratuito por videollamada
+2. Visita técnica presencial para proyectos de infraestructura
+3. Monitoreo remoto 24/7 de servidores, sitios web y correos
 
-INSTRUCCIONES:
-- Respondé SOLO sobre TI, tecnología y servicios de AZCONSULTING
-- Respondé en español, directo, máximo 3 oraciones
-- No mostrés código ni herramientas internas
-- Si preguntan precios, decí que contacten por WhatsApp o email
-- Si no es tema TI, decí "No puedo responder eso"`;
-
-  const groserias = ['puta','mierda','cojudo','concha','carajo','webon','webón','huevon','huevón','pendejo','ctm','mrd','lgtv','pico','wea','culiao','conchetumare'];
-
-  const tiKw = ['web','sitio','página','app','aplicación','software','sistema','desarrollo','código','programación','servidor','hosting','dominio','correo','email','infraestructura','red','firewall','vpn','cloud','nube','aws','azure','google cloud','ciberseguridad','seguridad','hacker','malware','ransomware','phishing','automatización','bot','ia','inteligencia artificial','machine learning','chatbot','frontend','backend','full stack','database','sql','api','docker','kubernetes','devops','linux','windows','wordpress','laravel','react','vue','python','javascript','php','html','css','seo','transformación digital','ti','tecnología','computadora','laptop','pc','soporte','backup','erp','crm','ecommerce','ssl','certificado','cpanel','dns','trujillo','la libertad','perú','consultoría','presupuesto','precio','servicio','proyecto','informática','datos','office','excel','redes','internet','lan','wan','móvil','movil','negocio','empresa','empresarial','solución','soluciones','whatsapp','contacto','teléfono','dirección','ubicación','horario','atención','contratar','taller','capacitación','auditoría','auditoria','consulta','comunicar','comunicarme','comunicación','hablar','llamar','llámame','llámanos','donde','dónde','número','whatsapp','instagram','facebook','linkedin','redes sociales','presencial','oficina','local','atención al cliente','soporte','ayuda','info','información','cotizar','cotización','tengo una duda','consulta rápida'];
+REGLAS:
+- Sos un asistente profesional de una consultora TI. Actuá con respeto y amabilidad siempre.
+- Respondé ÚNICAMENTE sobre tecnología, TI y los servicios de AZCONSULTING.
+- Si la pregunta es sobre otro tema (deportes, política, entretenimiento, etc.), respondé educadamente que solo podés ayudar con temas tecnológicos.
+- Si el usuario insulta o usa lenguaje ofensivo, respondé con respeto pidiendo que mantenga un tono cordial.
+- Respondé en el mismo idioma en que te hablen (español, inglés, etc.).
+- Sé directo, máximo 3 oraciones. No muestres código ni procesos internos.
+- Si preguntan por precios, indicá que contacten por WhatsApp (+51 924 858 054) o email (contacto@azconsulting.com) para un presupuesto personalizado.`;
 
   const styles = document.createElement('style');
   styles.textContent = `
@@ -300,24 +298,7 @@ INSTRUCCIONES:
     addMessage(text, 'user');
     showTyping();
 
-    // Pausa breve para que se vean los puntitos
-    await new Promise(r => setTimeout(r, 600));
-
-    const lower = text.toLowerCase();
-
-    // Groserías
-    if (groserias.some(w => lower.includes(w))) {
-      hideTyping();
-      addMessage('Por favor mantené un lenguaje respetuoso. Soy un asistente profesional de AZCONSULTING.', 'bot');
-      return;
-    }
-
-    // Solo TI
-    if (!tiKw.some(k => lower.includes(k))) {
-      hideTyping();
-      addMessage('Solo respondo preguntas sobre tecnología y servicios TI de AZCONSULTING. Preguntame sobre desarrollo web, infraestructura, ciberseguridad, hosting o transformación digital.', 'bot');
-      return;
-    }
+    await new Promise(r => setTimeout(r, 500));
 
     try {
       const history = [];
