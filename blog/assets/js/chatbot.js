@@ -38,7 +38,7 @@ INSTRUCCIONES:
 
   const groserias = ['puta','mierda','cojudo','concha','carajo','webon','webón','huevon','huevón','pendejo','ctm','mrd','lgtv','pico','wea','culiao','conchetumare'];
 
-  const tiKw = ['web','sitio','página','app','aplicación','software','sistema','desarrollo','código','programación','servidor','hosting','dominio','correo','email','infraestructura','red','firewall','vpn','cloud','nube','aws','azure','google cloud','ciberseguridad','seguridad','hacker','malware','ransomware','phishing','automatización','bot','ia','inteligencia artificial','machine learning','chatbot','frontend','backend','full stack','database','sql','api','docker','kubernetes','devops','linux','windows','wordpress','laravel','react','vue','python','javascript','php','html','css','seo','transformación digital','ti','tecnología','computadora','laptop','pc','soporte','backup','erp','crm','ecommerce','ssl','certificado','cpanel','dns','trujillo','la libertad','perú','consultoría','presupuesto','precio','servicio','proyecto','informática','datos','office','excel','redes','internet','lan','wan','móvil','movil','negocio','empresa','empresarial','solución','soluciones','whatsapp','contacto','teléfono','dirección','ubicación','horario','atención','contratar','taller','capacitación','auditoría','auditoria','consulta'];
+  const tiKw = ['web','sitio','página','app','aplicación','software','sistema','desarrollo','código','programación','servidor','hosting','dominio','correo','email','infraestructura','red','firewall','vpn','cloud','nube','aws','azure','google cloud','ciberseguridad','seguridad','hacker','malware','ransomware','phishing','automatización','bot','ia','inteligencia artificial','machine learning','chatbot','frontend','backend','full stack','database','sql','api','docker','kubernetes','devops','linux','windows','wordpress','laravel','react','vue','python','javascript','php','html','css','seo','transformación digital','ti','tecnología','computadora','laptop','pc','soporte','backup','erp','crm','ecommerce','ssl','certificado','cpanel','dns','trujillo','la libertad','perú','consultoría','presupuesto','precio','servicio','proyecto','informática','datos','office','excel','redes','internet','lan','wan','móvil','movil','negocio','empresa','empresarial','solución','soluciones','whatsapp','contacto','teléfono','dirección','ubicación','horario','atención','contratar','taller','capacitación','auditoría','auditoria','consulta','comunicar','comunicarme','comunicación','hablar','llamar','llámame','llámanos','donde','dónde','número','whatsapp','instagram','facebook','linkedin','redes sociales','presencial','oficina','local','atención al cliente','soporte','ayuda','info','información','cotizar','cotización','tengo una duda','consulta rápida'];
 
   const styles = document.createElement('style');
   styles.textContent = `
@@ -289,33 +289,35 @@ INSTRUCCIONES:
     const text = inputEl.value.trim();
     if (!text) return;
 
-    // Rate limit client-side
     const now = Date.now();
     if (now - lastMsgTime < 3000) {
       addMessage('Esperá unos segundos antes de enviar otro mensaje.', 'bot');
       return;
     }
+    lastMsgTime = now;
+
+    inputEl.value = '';
+    addMessage(text, 'user');
+    showTyping();
+
+    // Pausa breve para que se vean los puntitos
+    await new Promise(r => setTimeout(r, 600));
+
+    const lower = text.toLowerCase();
 
     // Groserías
-    if (groserias.some(w => text.toLowerCase().includes(w))) {
-      inputEl.value = '';
-      addMessage(text, 'user');
+    if (groserias.some(w => lower.includes(w))) {
+      hideTyping();
       addMessage('Por favor mantené un lenguaje respetuoso. Soy un asistente profesional de AZCONSULTING.', 'bot');
       return;
     }
 
     // Solo TI
-    if (!tiKw.some(k => text.toLowerCase().includes(k))) {
-      inputEl.value = '';
-      addMessage(text, 'user');
+    if (!tiKw.some(k => lower.includes(k))) {
+      hideTyping();
       addMessage('Solo respondo preguntas sobre tecnología y servicios TI de AZCONSULTING. Preguntame sobre desarrollo web, infraestructura, ciberseguridad, hosting o transformación digital.', 'bot');
       return;
     }
-
-    lastMsgTime = now;
-    inputEl.value = '';
-    addMessage(text, 'user');
-    showTyping();
 
     try {
       const history = [];
