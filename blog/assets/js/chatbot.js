@@ -55,7 +55,7 @@ REGLAS:
     .az-chatbot-panel {
       position: fixed;
       right: 20px;
-      bottom: 195px;
+      bottom: 130px;
       width: 360px;
       max-height: 500px;
       background: #fff;
@@ -67,7 +67,8 @@ REGLAS:
       border: 1px solid rgba(13,22,48,0.06);
       opacity: 0;
       visibility: hidden;
-      transform: translateY(12px) scale(0.97);
+      transform: translateY(10px) scale(0.95);
+      transform-origin: bottom right;
       transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
     }
@@ -403,11 +404,13 @@ REGLAS:
 
   btn.addEventListener('click', () => {
     panel.classList.add('open');
+    btn.style.display = 'none';
     inputEl.focus();
   });
 
   document.getElementById('azChatClose').addEventListener('click', () => {
     panel.classList.remove('open');
+    btn.style.display = 'flex';
   });
 
   async function handleSend() {
