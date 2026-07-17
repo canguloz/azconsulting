@@ -371,6 +371,21 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    /* Cerrar menú al redimensionar a >991px (Bootstrap lg breakpoint) */
+    let resizeMenuTimer = null;
+    window.addEventListener('resize', () => {
+        if (resizeMenuTimer) clearTimeout(resizeMenuTimer);
+        resizeMenuTimer = setTimeout(() => {
+            if (window.innerWidth >= 992) {
+                const menu = document.getElementById('menu');
+                if (menu) {
+                    menu.classList.remove('show', 'menu-exit');
+                }
+                document.body.classList.remove('menu-open');
+            }
+        }, 100);
+    });
+
     /* ==========================================
         7. FAQ TEXT LIFT ON HOVER
         ========================================== */
