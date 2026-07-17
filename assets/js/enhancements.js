@@ -22,22 +22,41 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (darkModeBtn) {
-        darkModeBtn.addEventListener('click', () => {
-            body.classList.add('theme-transitioning');
-            body.classList.toggle('dark-mode');
-            const isDark = body.classList.contains('dark-mode');
-            
+        let transitionTimer;
+
+        const setTheme = (isDark) => {
             if (isDark) {
+                body.classList.add('dark-mode');
                 localStorage.setItem('theme', 'dark');
-                icon.classList.remove('fa-moon');
-                icon.classList.add('fa-sun');
+                if (icon) {
+                    icon.classList.remove('fa-moon');
+                    icon.classList.add('fa-sun');
+                }
             } else {
+                body.classList.remove('dark-mode');
                 localStorage.setItem('theme', 'light');
-                icon.classList.remove('fa-sun');
-                icon.classList.add('fa-moon');
+                if (icon) {
+                    icon.classList.remove('fa-sun');
+                    icon.classList.add('fa-moon');
+                }
             }
-            
-            setTimeout(() => body.classList.remove('theme-transitioning'), 400);
+        };
+
+        darkModeBtn.addEventListener('click', () => {
+            const isDark = !body.classList.contains('dark-mode');
+
+            // View Transitions: crossfade de TODA la página a la vez (suave y simultáneo).
+            if (document.startViewTransition) {
+                document.startViewTransition(() => setTheme(isDark));
+            } else {
+                // Fallback para navegadores sin soporte.
+                body.classList.add('theme-transitioning');
+                requestAnimationFrame(() => {
+                    requestAnimationFrame(() => setTheme(isDark));
+                });
+                clearTimeout(transitionTimer);
+                transitionTimer = setTimeout(() => body.classList.remove('theme-transitioning'), 500);
+            }
         });
     }
 

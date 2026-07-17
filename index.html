@@ -105,6 +105,17 @@
 
 <body>
 
+    <!-- Aplica el tema guardado antes de pintar para evitar destello -->
+    <script>
+        (function () {
+            try {
+                if (localStorage.getItem('theme') === 'dark') {
+                    document.body.classList.add('dark-mode');
+                }
+            } catch (e) {}
+        })();
+    </script>
+
     <!-- PRELOADER -->
 
 <div id="preloader">
