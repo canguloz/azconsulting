@@ -28,7 +28,13 @@ body {
     font-family: 'Outfit', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     line-height: 1.6;
     overflow-x: hidden;
-    transition: background 0.5s ease, color 0.5s ease;
+}
+
+body.theme-transitioning,
+body.theme-transitioning *,
+body.theme-transitioning *::before,
+body.theme-transitioning *::after {
+    transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease !important;
 }
 
 /* Transiciones base para dark mode (ida y vuelta) */
@@ -4113,12 +4119,7 @@ body.dark-mode .badge[style*="var(--primary)"] {
     color: #fff !important;
 }
 
-/* Avatar AZ en blog hero */
-body.dark-mode .blog-hero .bg-secondary {
-    background-color: var(--accent) !important;
-}
-
-/* Footer de blog usa mismo footer que index */
+/* Avatar AZ en blog hero *//* Footer de blog usa mismo footer que index */
 body.dark-mode .footer-links a {
     color: #cbd5e1;
 }
@@ -5195,7 +5196,7 @@ body.dark-mode .az-chat-suggestion:hover {
         left: 12px;
         width: auto;
         bottom: 160px;
-        height: 320px;
+        height: 380px;
     }
 }
 

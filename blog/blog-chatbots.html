@@ -123,7 +123,7 @@
     <nav class="navbar fixed-top custom-navbar">
         <div class="container d-flex align-items-center justify-content-between px-3">
             <a href="../index.html#blog" class="text-decoration-none fw-semibold d-flex align-items-center" style="color: var(--primary); gap: 8px; font-size: 1.05rem; padding: 8px 16px; border-radius: 8px; transition: color 0.3s ease, background 0.3s ease;" onmouseover="this.style.color='var(--accent)'; this.style.background='rgba(255,122,0,0.06)'" onmouseout="this.style.color='var(--primary)'; this.style.background='transparent'">
-                <i class="fas fa-arrow-left"></i> Volver al Blog
+                <i class="fas fa-arrow-left"></i> Volver
             </a>
             <div class="d-flex align-items-center gap-3">
                 <button id="darkModeToggle" class="nav-dark-toggle" title="Cambiar tema" aria-label="Cambiar modo oscuro/claro" style="background:transparent; color:var(--primary); border:none; font-size:1.1rem;">
@@ -140,11 +140,11 @@
     <!-- HERO DE BLOG PREMIUM -->
     <header class="blog-hero blog-hero-ia">
         <div class="container text-center px-3 position-relative" style="z-index: 1;">
-            <span data-aos="fade-down" data-aos-duration="600" class="badge mb-3 py-2 px-4 rounded-pill" style="background-color: var(--primary); font-weight: 600; letter-spacing: 1px; text-transform: uppercase; font-size: 0.85rem; box-shadow: 0 4px 15px rgba(13, 22, 48,0.25);">Inteligencia Artificial</span>
+            <span data-aos="fade-down" data-aos-duration="600" class="badge mb-3 py-2 px-4 rounded-pill" style="background-color: #0d1630 !important; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; font-size: 0.85rem; box-shadow: 0 4px 15px rgba(13, 22, 48,0.25);">Inteligencia Artificial</span>
             <h1 data-aos="fade-up" data-aos-duration="800" data-aos-delay="100" class="display-4 fw-bolder mb-4 text-dark" style="letter-spacing: -1px;">ChatBots con IA para empresas</h1>
             <div data-aos="fade-up" data-aos-duration="600" data-aos-delay="200" class="d-flex flex-wrap justify-content-center align-items-center text-muted gap-4" style="font-size: 1.05rem;">
                 <div class="d-flex align-items-center gap-2">
-                    <div class="rounded-circle bg-secondary d-flex justify-content-center align-items-center text-white fw-bold" style="width: 40px; height: 40px; background-color: var(--primary) !important;">
+                    <div class="rounded-circle d-flex justify-content-center align-items-center text-white fw-bold" style="width: 40px; height: 40px; background-color: #0d1630 !important;">
                         AZ
                     </div>
                     <span class="fw-semibold text-dark">AZCONSULTING</span>
@@ -207,7 +207,7 @@
                     <div class="col-md-6">
                         <div class="card border-0 shadow-sm h-100 related-card" style="border-radius: 16px;">
                             <div class="card-body p-4">
-                                <span class="badge mb-2" style="background-color: var(--primary);">Ciberseguridad</span>
+                                <span class="badge mb-2" style="background-color: #0d1630 !important;">Ciberseguridad</span>
                                 <h4 class="fw-bold" style="font-size: 1.1rem;">Protección de Datos en la Era Digital</h4>
                                 <p class="text-muted" style="font-size: 0.9rem;">Estrategias modernas de ciberseguridad para proteger tu negocio.</p>
                                 <a href="blog-ciberseguridad.html" class="fw-semibold related-link" style="color: var(--accent); text-decoration: none;">Leer más <i class="fas fa-arrow-right ms-1"></i></a>
@@ -217,7 +217,7 @@
                     <div class="col-md-6">
                         <div class="card border-0 shadow-sm h-100 related-card" style="border-radius: 16px;">
                             <div class="card-body p-4">
-                                <span class="badge mb-2" style="background-color: var(--primary);">Cloud Computing</span>
+                                <span class="badge mb-2" style="background-color: #0d1630 !important;">Cloud Computing</span>
                                 <h4 class="fw-bold" style="font-size: 1.1rem;">Infraestructura Escalable Multi-Cloud</h4>
                                 <p class="text-muted" style="font-size: 0.9rem;">Migración segura a la nube con estrategias híbridas.</p>
                                 <a href="blog-nube.html" class="fw-semibold related-link" style="color: var(--accent); text-decoration: none;">Leer más <i class="fas fa-arrow-right ms-1"></i></a>
@@ -347,9 +347,38 @@
     <script src="../assets/js/main.js" defer></script>
     <script src="../assets/js/enhancements.js" defer></script>
     <script>document.addEventListener("DOMContentLoaded", function(){ AOS.init({ once: true, easing: "ease-out-cubic" }); var p; window.addEventListener("resize",function(){ if(!p) p=window.scrollY/(document.documentElement.scrollHeight-window.innerHeight); clearTimeout(window._rt); window._rt=setTimeout(function(){ if(window.AOS) AOS.refresh(); if(p>0) window.scrollTo({top:p*(document.documentElement.scrollHeight-window.innerHeight),behavior:"auto"}); p=null; },300); }); });</script>
-    <script src="assets/js/chatbot.js" defer></script>
                
     
+<!-- Chatbot FAB -->
+<button class="az-chat-fab" id="azChatFab" title="Asistente virtual AZCONSULTING" aria-label="Abrir chat">
+    <i class="fas fa-robot"></i>
+    <span class="chat-fab-badge"></span>
+</button>
+
+<!-- Chatbot Panel -->
+<div class="az-chat-panel" id="azChatPanel">
+    <div class="az-chat-header">
+        <div class="az-chat-header-avatar">AZ</div>
+        <div class="az-chat-header-info">
+            <h5>Asistente AZCONSULTING</h5>
+            <span>En línea — responde en segundos</span>
+        </div>
+        <button class="az-chat-close" id="azChatClose" aria-label="Cerrar chat"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="az-chat-messages" id="azChatMessages">
+        <div class="az-chat-msg bot">👋 ¡Hola! Soy el asistente virtual de <strong>AZCONSULTING</strong>. ¿En qué puedo ayudarte hoy?</div>
+    </div>
+    <div class="az-chat-suggestions" id="azChatSuggestions">
+        <button class="az-chat-suggestion">¿Qué servicios ofrecen?</button>
+        <button class="az-chat-suggestion">¿Cuánto cuesta una web?</button>
+        <button class="az-chat-suggestion">Quiero una cotización</button>
+    </div>
+    <div class="az-chat-footer">
+        <input type="text" class="az-chat-input" id="azChatInput" placeholder="Escribe tu consulta..." autocomplete="off">
+        <button class="az-chat-send" id="azChatSend" aria-label="Enviar mensaje"><i class="fas fa-paper-plane"></i></button>
+    </div>
+</div>
+
 </body>
 
 </html>

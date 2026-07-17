@@ -23,6 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (darkModeBtn) {
         darkModeBtn.addEventListener('click', () => {
+            body.classList.add('theme-transitioning');
             body.classList.toggle('dark-mode');
             const isDark = body.classList.contains('dark-mode');
             
@@ -35,6 +36,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 icon.classList.remove('fa-sun');
                 icon.classList.add('fa-moon');
             }
+            
+            setTimeout(() => body.classList.remove('theme-transitioning'), 400);
         });
     }
 
