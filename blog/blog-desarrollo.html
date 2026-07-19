@@ -49,7 +49,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="../assets/css/styles.css?v=3">
+    <link rel="stylesheet" href="../assets/css/styles.css?v=4">
     <link rel="stylesheet" href="assets/css/blog.css?v=3">
 
     <!-- PWA -->
@@ -345,40 +345,10 @@
     <!-- JS -->
 
     <script src="../assets/js/main.js?v=2" defer></script>
-    <script src="../assets/js/enhancements.js?v=2" defer></script>
+    <script src="../assets/js/enhancements.js?v=3" defer></script>
     <script>document.addEventListener("DOMContentLoaded", function(){ AOS.init({ once: true, easing: "ease-out-cubic" }); var p; window.addEventListener("resize",function(){ if(!p) p=window.scrollY/(document.documentElement.scrollHeight-window.innerHeight); clearTimeout(window._rt); window._rt=setTimeout(function(){ if(window.AOS) AOS.refresh(); if(p>0) window.scrollTo({top:p*(document.documentElement.scrollHeight-window.innerHeight),behavior:"auto"}); p=null; },300); }); });</script>
                
-    
-<!-- Chatbot FAB -->
-<button class="az-chat-fab" id="azChatFab" title="Asistente virtual AZCONSULTING" aria-label="Abrir chat">
-    <i class="fas fa-robot"></i>
-    <span class="chat-fab-badge"></span>
-</button>
-
-<!-- Chatbot Panel -->
-<div class="az-chat-panel" id="azChatPanel">
-    <div class="az-chat-header">
-        <div class="az-chat-header-avatar">AZ</div>
-        <div class="az-chat-header-info">
-            <h5>Asistente AZCONSULTING</h5>
-            <span>En línea — responde en segundos</span>
-        </div>
-        <button class="az-chat-close" id="azChatClose" aria-label="Cerrar chat"><i class="fas fa-times"></i></button>
-    </div>
-    <div class="az-chat-messages" id="azChatMessages">
-        <div class="az-chat-msg bot">👋 ¡Hola! Soy el asistente virtual de <strong>AZCONSULTING</strong>. ¿En qué puedo ayudarte hoy?</div>
-    </div>
-    <div class="az-chat-suggestions" id="azChatSuggestions">
-        <button class="az-chat-suggestion">¿Qué servicios ofrecen?</button>
-        <button class="az-chat-suggestion">¿Cuánto cuesta una web?</button>
-        <button class="az-chat-suggestion">Quiero una cotización</button>
-    </div>
-    <div class="az-chat-footer">
-        <input type="text" class="az-chat-input" id="azChatInput" placeholder="Escribe tu consulta..." autocomplete="off">
-        <button class="az-chat-send" id="azChatSend" aria-label="Enviar mensaje"><i class="fas fa-paper-plane"></i></button>
-    </div>
-</div>
-
+          
 </body>
 
 </html>

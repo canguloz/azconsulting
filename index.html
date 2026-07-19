@@ -65,7 +65,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="assets/css/styles.css?v=3">
+    <link rel="stylesheet" href="assets/css/styles.css?v=4">
 
     <!-- PWA -->
     <link rel="manifest" href="manifest.json">
@@ -1475,7 +1475,7 @@
             <button class="blog-filter-btn" data-filter="desarrollo"><i class="fas fa-code"></i> Desarrollo</button>
         </div>
 
-        <div class="row g-4 mt-4">
+        <div class="row g-4 mt-4 blog-row">
 
             <div class="col-lg-4 blog-col" data-category="ia">
                 <div class="blog-card" data-aos="fade-up" data-aos-delay="100">
@@ -1595,9 +1595,9 @@
                 <div class="blog-card">
                     <div class="blog-img-wrap">
                         <picture>
-                            <source srcset="assets/img/blog1.avif" type="image/avif">
-                            <source srcset="assets/img/blog1.webp" type="image/webp">
-                            <img src="assets/img/blog1.jpg" loading="lazy" decoding="async" alt="Chatbots con Inteligencia Artificial para atención al cliente empresarial" width="800" height="534">
+                            <source srcset="assets/img/blog4.avif" type="image/avif">
+                            <source srcset="assets/img/blog4.webp" type="image/webp">
+                            <img src="assets/img/blog4.jpg" loading="lazy" decoding="async" alt="Chatbots con Inteligencia Artificial para atención al cliente empresarial" width="800" height="534">
                         </picture>
                         <span class="blog-category">Inteligencia Artificial</span>
                     </div>
@@ -1614,6 +1614,33 @@
                                 <span>AZCONSULTING</span>
                             </div>
                             <a href="blog/blog-chatbots.html" class="blog-read-more">Leer más <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Artículo 6 — UX/UI -->
+            <div class="col-lg-4 blog-col" data-category="desarrollo" data-aos="fade-up" data-aos-delay="300">
+                <div class="blog-card">
+                    <div class="blog-img-wrap">
+                        <picture>
+                            <img src="assets/img/uxui_cover.jpg" loading="lazy" decoding="async" alt="Tendencias UX/UI en 2026" width="800" height="534" style="object-fit: cover; width: 100%; height: 250px;">
+                        </picture>
+                        <span class="blog-category">Desarrollo</span>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span><i class="far fa-calendar"></i> 25 Feb 2026</span>
+                            <span><i class="far fa-clock"></i> 4 min</span>
+                        </div>
+                        <h4>Tendencias UX/UI en 2026</h4>
+                        <p>Descubre cómo el diseño de interfaces está evolucionando hacia experiencias más inmersivas y centradas en el usuario.</p>
+                        <div class="blog-footer">
+                            <div class="blog-author">
+                                <span class="blog-author-avatar">AZ</span>
+                                <span>AZCONSULTING</span>
+                            </div>
+                            <a href="blog/blog-uxui.html" class="blog-read-more">Leer más <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
@@ -2033,36 +2060,6 @@
 </button>
 
 
-
-<!-- Chatbot FAB -->
-<button class="az-chat-fab" id="azChatFab" title="Asistente virtual AZCONSULTING" aria-label="Abrir chat">
-    <i class="fas fa-robot"></i>
-    <span class="chat-fab-badge"></span>
-</button>
-
-<!-- Chatbot Panel -->
-<div class="az-chat-panel" id="azChatPanel">
-    <div class="az-chat-header">
-        <div class="az-chat-header-avatar">AZ</div>
-        <div class="az-chat-header-info">
-            <h5>Asistente AZCONSULTING</h5>
-            <span>En línea — responde en segundos</span>
-        </div>
-        <button class="az-chat-close" id="azChatClose" aria-label="Cerrar chat"><i class="fas fa-times"></i></button>
-    </div>
-    <div class="az-chat-messages" id="azChatMessages">
-        <div class="az-chat-msg bot">👋 ¡Hola! Soy el asistente virtual de <strong>AZCONSULTING</strong>. ¿En qué puedo ayudarte hoy?</div>
-    </div>
-    <div class="az-chat-suggestions" id="azChatSuggestions">
-        <button class="az-chat-suggestion">¿Qué servicios ofrecen?</button>
-        <button class="az-chat-suggestion">¿Cuánto cuesta una web?</button>
-        <button class="az-chat-suggestion">Quiero una cotización</button>
-    </div>
-    <div class="az-chat-footer">
-        <input type="text" class="az-chat-input" id="azChatInput" placeholder="Escribe tu consulta..." autocomplete="off">
-        <button class="az-chat-send" id="azChatSend" aria-label="Enviar mensaje"><i class="fas fa-paper-plane"></i></button>
-    </div>
-</div>
   
 
     <!-- Bootstrap -->
@@ -2073,7 +2070,7 @@
 
     <!-- JS -->
     <script src="assets/js/main.js?v=2" defer></script>
-    <script src="assets/js/enhancements.js?v=2" defer></script>
+    <script src="assets/js/enhancements.js?v=3" defer></script>
 
               
     

@@ -62,6 +62,28 @@ document.addEventListener('DOMContentLoaded', () => {
         sections.forEach((section) => observer.observe(section));
     }
 
+    // Cerrar menú hamburguesa y scroll suave al hacer clic en nav-link
+    navLinks.forEach(link => {
+        link.addEventListener('click', e => {
+            const targetId = link.getAttribute('href');
+            if (!targetId || !targetId.startsWith('#')) return;
+            e.preventDefault();
+
+            const target = document.querySelector(targetId);
+            if (!target) return;
+
+            const menu = document.getElementById('menu');
+            if (menu && menu.classList.contains('show') && window.bootstrap) {
+                const collapse = bootstrap.Collapse.getInstance(menu);
+                if (collapse) collapse.hide();
+            }
+
+            const offset = window.innerWidth < 992 ? 85 : 70;
+            const top = target.getBoundingClientRect().top + window.scrollY - offset;
+            window.scrollTo({ top, behavior: 'smooth' });
+        });
+    });
+
     // Función que anima un contador individual
     function animateCounter(counter) {
         const target = Number(counter.getAttribute('data-target') || 0);
@@ -222,6 +244,8 @@ document.addEventListener('DOMContentLoaded', () => {
         serviceId: 'service_zh3z3u7',
         templateIdCliente: 'template_x2zzcqt',
         templateIdEmpresa: 'template_aojal2d',
+        templateIdTestimonio: 'template_aojal2d',
+        templateIdTendencia: 'template_aojal2d',
         publicKey: 'noAekUL_Bc5sR3aKJ'
     };
 
@@ -403,7 +427,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 const safeSend = (params) => {
                     const emailPromise = emailjs.send(
-                        EMAILJS_CONFIG.serviceId, EMAILJS_CONFIG.templateIdEmpresa, params
+                        EMAILJS_CONFIG.serviceId, EMAILJS_CONFIG.templateIdTestimonio, params
                     ).catch(() => {});
                     return Promise.race([
                         emailPromise,
@@ -508,7 +532,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 const safeSend = (params) => {
                     const emailPromise = emailjs.send(
-                        EMAILJS_CONFIG.serviceId, EMAILJS_CONFIG.templateIdEmpresa, params
+                        EMAILJS_CONFIG.serviceId, EMAILJS_CONFIG.templateIdTendencia, params
                     ).catch(() => {});
                     return Promise.race([
                         emailPromise,

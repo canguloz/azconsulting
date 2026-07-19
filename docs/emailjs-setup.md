@@ -72,6 +72,26 @@
 
 ---
 
+---
+
+### Plantilla: `template_testimonio` (testimonio de clientes)
+
+**Template ID:** `template_testimonio`
+**Asunto:** `Nuevo testimonio de {{from_name}}`
+
+Variables: `from_name`, `from_email`, `message`, `rating`, `rol`, `empresa`, `fecha`
+
+---
+
+### Plantilla: `template_tendencia` (registro de tendencias)
+
+**Template ID:** `template_tendencia`
+**Asunto:** `Nueva tendencia: {{titulo}}`
+
+Variables: `from_name`, `from_email`, `message`, `titulo`, `categoria`, `fecha`
+
+---
+
 ## 4. Reemplaza los valores en `assets/js/main.js`:
 
 ```js
@@ -79,6 +99,8 @@ const EMAILJS_CONFIG = {
     serviceId: 'service_tu_id',
     templateIdCliente: 'template_cliente',
     templateIdEmpresa: 'template_empresa',
+    templateIdTestimonio: 'template_testimonio',
+    templateIdTendencia: 'template_tendencia',
     publicKey: 'tu_public_key'
 };
 ```

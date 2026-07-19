@@ -3,7 +3,51 @@
  * Handles Dark Mode, FAQ Accordion, Blog Filters, and Premium Chatbot Widget
  */
 
+function injectChatbot() {
+    if (document.getElementById('azChatFab')) return;
+
+    const fab = document.createElement('button');
+    fab.className = 'az-chat-fab';
+    fab.id = 'azChatFab';
+    fab.title = 'Asistente virtual AZCONSULTING';
+    fab.setAttribute('aria-label', 'Abrir chat');
+    fab.innerHTML = '<i class="fas fa-comment-dots"></i><span class="chat-fab-badge"></span>';
+
+    const panel = document.createElement('div');
+    panel.className = 'az-chat-panel';
+    panel.id = 'azChatPanel';
+    panel.innerHTML = `
+        <div class="az-chat-header">
+            <div class="az-chat-header-avatar"><i class="fas fa-robot"></i></div>
+            <div class="az-chat-header-info">
+                <h5>Asistente AZCONSULTING</h5>
+                <span>En línea</span>
+            </div>
+            <button class="az-chat-close" id="azChatClose" aria-label="Cerrar chat"><i class="fas fa-xmark"></i></button>
+        </div>
+        <div class="az-chat-messages" id="azChatMessages">
+            <div class="az-chat-msg bot">👋 ¡Hola! Soy el asistente virtual de <strong>AZCONSULTING</strong>. ¿En qué puedo ayudarte hoy?
+                <div class="az-chat-msg-suggestions">
+                    <button class="az-chat-msg-suggestion">¿Qué servicios ofrecen?</button>
+                    <button class="az-chat-msg-suggestion">¿Cuánto cuesta una web?</button>
+                    <button class="az-chat-msg-suggestion">Quiero una cotización</button>
+                </div>
+            </div>
+        </div>
+        <div class="az-chat-suggestions" id="azChatSuggestions"></div>
+        <div class="az-chat-footer">
+            <input type="text" class="az-chat-input" id="azChatInput" placeholder="Escribe tu mensaje..." autocomplete="off">
+            <button class="az-chat-send" id="azChatSend" aria-label="Enviar mensaje"><i class="fas fa-paper-plane"></i></button>
+        </div>
+    `;
+
+    document.body.appendChild(fab);
+    document.body.appendChild(panel);
+}
+
 document.addEventListener('DOMContentLoaded', () => {
+
+    injectChatbot();
 
     /* ==========================================
        1. DARK MODE
@@ -94,24 +138,66 @@ document.addEventListener('DOMContentLoaded', () => {
             btn.classList.add('active');
 
             const filterValue = btn.getAttribute('data-filter');
+            const blogRow = document.querySelector('.blog-row');
+            let visibleCount = 0;
 
+            let delay = 0;
             blogCols.forEach(col => {
                 const category = col.getAttribute('data-category');
                 const card = col.querySelector('.blog-card');
 
                 if (filterValue === 'all' || category === filterValue) {
-                    col.classList.remove('d-none-filter');
                     card.classList.remove('hidden');
-                    card.style.opacity = '';
-                    card.style.transform = '';
+                    col.classList.remove('d-none-filter');
+                    visibleCount++;
                 } else {
                     card.classList.add('hidden');
                     col.classList.add('d-none-filter');
                 }
             });
 
+            blogRow.classList.toggle('blog-row-center', filterValue !== 'all' && visibleCount > 0 && visibleCount < 3);
+
+            requestAnimationFrame(() => {
+                blogCols.forEach(col => {
+                    const category = col.getAttribute('data-category');
+                    const card = col.querySelector('.blog-card');
+                    if (filterValue === 'all' || category === filterValue) {
+                        card.style.opacity = '0';
+                        card.style.transform = 'translateY(20px)';
+                        card.style.transition = 'none';
+                    }
+                });
+
+                requestAnimationFrame(() => {
+                    blogCols.forEach(col => {
+                        const category = col.getAttribute('data-category');
+                        const card = col.querySelector('.blog-card');
+                        if (filterValue === 'all' || category === filterValue) {
+                            card.style.transition = `opacity 0.4s ease, transform 0.4s ease`;
+                            card.style.transitionDelay = `${delay}s`;
+                            card.style.opacity = '1';
+                            card.style.transform = 'translateY(0)';
+                            delay += 0.08;
+                        }
+                    });
+
+                    setTimeout(() => {
+                        blogCols.forEach(col => {
+                            const card = col.querySelector('.blog-card');
+                            if (!card.classList.contains('hidden')) {
+                                card.style.transition = '';
+                                card.style.transitionDelay = '';
+                                card.style.opacity = '';
+                                card.style.transform = '';
+                            }
+                        });
+                    }, 600);
+                });
+            });
+
             if (window.AOS) {
-                setTimeout(() => AOS.refresh(), 100);
+                setTimeout(() => AOS.refresh(), 800);
             }
         });
     });
@@ -125,7 +211,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const chatMessages = document.getElementById('azChatMessages');
     const chatInput = document.getElementById('azChatInput');
     const chatSend = document.getElementById('azChatSend');
-    const suggestions = document.querySelectorAll('.az-chat-suggestion');
     
     const WORKER_URL = 'https://divine-mouse-ebab.juandavidriverahuancas0.workers.dev';
     let isTyping = false;
@@ -181,13 +266,13 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Suggestions click
-    suggestions.forEach(btn => {
-        btn.addEventListener('click', () => {
-            const text = btn.textContent;
-            chatInput.value = text;
+    // Delegación: clicks en sugerencias
+    chatMessages.addEventListener('click', (e) => {
+        const btn = e.target.closest('.az-chat-msg-suggestion');
+        if (btn && !btn.classList.contains('used')) {
+            chatInput.value = btn.dataset.q || btn.textContent;
             sendMessage();
-        });
+        }
     });
 
     // Send Message Event
@@ -198,51 +283,63 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    function linkify(text) {
+        return text.replace(/(https?:\/\/[^\s<]+)/g, '<a href="$1" target="_blank" rel="noopener noreferrer">$1</a>');
+    }
+
+    function escHtml(s) {
+        const d = document.createElement('div');
+        d.textContent = s;
+        return d.innerHTML;
+    }
+
+    function grayOutPreviousSuggestions() {
+        const botMsgs = chatMessages.querySelectorAll('.az-chat-msg.bot');
+        for (let i = 0; i < botMsgs.length - 1; i++) {
+            const btns = botMsgs[i].querySelectorAll('.az-chat-msg-suggestion');
+            btns.forEach(b => b.classList.add('used'));
+        }
+    }
+
+    function stripHtml(s) {
+        return s.replace(/<[^>]*>/g, '');
+    }
+
     function appendMessage(sender, text) {
         const msgDiv = document.createElement('div');
         msgDiv.className = `az-chat-msg ${sender}`;
         
         if (sender === 'bot') {
-            let cleanText = text;
+            const rawText = text;
             text = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+            text = linkify(text);
             
             if (text.includes('||')) {
                 const parts = text.split('||');
-                text = parts[0].trim().replace(/\n/g, '<br>');
-                const suggestionText = parts.slice(1).join('||');
-                if (suggestionText.trim()) {
-                    updateSuggestions(suggestionText);
+                const mainText = parts[0].trim().replace(/\n/g, '<br>');
+                const questions = parts.slice(1).map(q => q.trim()).filter(q => q);
+                
+                let html = mainText;
+                if (questions.length > 0) {
+                    html += '<div class="az-chat-msg-suggestions">';
+                    questions.forEach(q => {
+                        html += `<button class="az-chat-msg-suggestion" data-q="${escHtml(q)}">${escHtml(q)}</button>`;
+                    });
+                    html += '</div>';
                 }
-                cleanText = parts[0].trim();
+                msgDiv.innerHTML = html;
+                msgDiv.dataset.clean = stripHtml(parts[0].trim());
             } else {
-                text = text.replace(/\n/g, '<br>');
+                msgDiv.innerHTML = text.replace(/\n/g, '<br>');
+                msgDiv.dataset.clean = stripHtml(text);
             }
-            
-            // Store clean version (without ||) in history
-            msgDiv.dataset.clean = cleanText;
+        } else {
+            msgDiv.innerHTML = text;
         }
         
-        msgDiv.innerHTML = text;
         chatMessages.appendChild(msgDiv);
+        grayOutPreviousSuggestions();
         scrollToBottom();
-    }
-    
-    function updateSuggestions(rawString) {
-        const questions = rawString.split('||').map(q => q.trim()).filter(q => q);
-        const suggContainer = document.getElementById('azChatSuggestions');
-        if(!suggContainer || questions.length === 0) return;
-        
-        suggContainer.innerHTML = '';
-        questions.forEach(q => {
-            const btn = document.createElement('button');
-            btn.className = 'az-chat-suggestion';
-            btn.textContent = q;
-            btn.addEventListener('click', () => {
-                chatInput.value = q;
-                sendMessage();
-            });
-            suggContainer.appendChild(btn);
-        });
     }
 
     function showTyping() {
