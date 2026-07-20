@@ -12,6 +12,7 @@ const PRECACHE_URLS = [
   '/azconsulting/blog/blog-nube.html',
   '/azconsulting/blog/blog-chatbots.html',
   '/azconsulting/blog/blog-desarrollo.html',
+  '/azconsulting/blog/blog-uxui.html',
 ];
 
 // ─── INSTALL: Pre-cachear recursos del shell ───
