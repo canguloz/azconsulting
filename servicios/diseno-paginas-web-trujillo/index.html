@@ -40,8 +40,8 @@
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"></noscript>
 
     <!-- AOS -->
-    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" media="print" onload="this.media='all'">
-    <noscript><link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet"></noscript>
+    <link href="../../assets/vendor/aos/aos.css" rel="stylesheet">
+    
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -192,7 +192,7 @@
     <main>
 
         <!-- HERO -->
-        <section class="hero" style="background-image: linear-gradient(rgba(13, 22, 48, 0.8), rgba(20, 38, 77, 0.8)), url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1920&auto=format&fit=crop'); background-size: cover; background-position: center; background-attachment: fixed; min-height:70vh; padding-top:120px; padding-bottom:60px;">
+        <section class="hero" style="background-image: linear-gradient(rgba(13, 22, 48, 0.8), rgba(20, 38, 77, 0.8)), url('../../assets/img/hero.jpg'); background-size: cover; background-position: center; background-attachment: fixed; min-height:70vh; padding-top:120px; padding-bottom:60px;">
             <div id="particles-js" class="particles-layer" aria-hidden="true"></div>
             <div class="container hero-content">
                 <div class="row align-items-center">
@@ -273,6 +273,15 @@
 
         
         <!-- STACK TECNOLÓGICO -->
+
+        <!-- HIGHLIGHT PARALLAX -->
+        <section class="parallax-highlight" style="background-image: linear-gradient(rgba(13, 22, 48, 0.8), rgba(20, 38, 77, 0.8)), url('../../assets/img/parallax_middle.jpg'); background-size: cover; background-position: center; background-attachment: fixed; padding: 120px 0; text-align: center; color: white;">
+            <div class="container" data-aos="fade-up">
+                <h2 style="color: white; font-size: 2.5rem; font-weight: 700; margin-bottom: 20px;">Tecnología que redefine tu negocio</h2>
+                <p style="font-size: 1.15rem; opacity: 0.9; max-width: 650px; margin: 0 auto; line-height: 1.7;">Integramos innovación, diseño y estrategia para llevar tu modelo operativo al siguiente nivel de eficiencia.</p>
+            </div>
+        </section>
+
         <section class="tech-stack-section" style="padding:80px 0;">
             <div class="container">
                 <div class="section-header text-center" data-aos="fade-up">
@@ -433,7 +442,7 @@
         
 
         <!-- CTA FINAL -->
-        <section class="cta-section" style="background-image: linear-gradient(rgba(13, 22, 48, 0.85), rgba(26, 48, 96, 0.85)), url('https://images.unsplash.com/photo-1507238691740-14c27dba2b6b?q=80&w=1920&auto=format&fit=crop'); background-size: cover; background-position: center; background-attachment: fixed;">
+        <section class="cta-section" style="background-image: linear-gradient(rgba(13, 22, 48, 0.85), rgba(26, 48, 96, 0.85)), url('../../assets/img/contact_bg.jpg'); background-size: cover; background-position: center; background-attachment: fixed;">
             <div class="cta-particles">
                 <span style="top:15%;left:10%;animation-delay:0s;"></span>
                 <span style="top:70%;left:20%;animation-delay:1s;"></span>
@@ -553,13 +562,13 @@
     <button id="btnTop"><i class="fas fa-arrow-up"></i></button>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" defer></script>
-    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js" defer></script>
+    <script src="../../assets/vendor/aos/aos.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js" defer></script>
     <script src="../../assets/js/main.js?v=2" defer></script>
     <script src="../../assets/js/enhancements.js?v=3" defer></script>
     <script>
         document.addEventListener("DOMContentLoaded", function(){
-            AOS.init({ once: true, easing: "ease-out-cubic" });
+            if(window.AOS){AOS.init({duration:700,once:true,offset:60,easing:"ease-out-cubic"});}
         });
     </script>
 
