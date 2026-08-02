@@ -31,7 +31,7 @@ const CHUNKS = [
   {id:"portafolio",t:"portafolio proyectos",c:"Portafolio: Sistema Integral de Gestión (ERP) con Laravel, MySQL, AWS. Automatización Comercial (CRM) con PHP, Power BI, API REST. Plataforma Multiservicios (App Móvil) con Flutter, Firebase, Node.js."},
   {id:"resultados",t:"resultados metricas",c:"Resultados comprobados: 35% reducción de costos operativos mediante automatización, 80% de procesos digitalizados, 45% incremento de productividad."},
   {id:"testimonios",t:"testimonios",c:"Testimonios: 'Excelente servicio de consultoría' - María García, TechCorp. 'Implementación de ERP impecable' - Carlos Rivera, DataSys. 'Profesionalismo y cumplimiento' - Ana López, InnovaGroup."},
-  {id:"contacto",t:"contacto",c:"Contacto: Teléfono +51 924 858 054, Email contacto@azconsulting.com, WhatsApp +51 924 858 054, Ubicación Trujillo - Perú. Horario Lun-Vie 8am-6pm. Respondemos en máximo 24 horas."},
+  {id:"contacto",t:"contacto",c:"Contacto: Teléfono +51 924 858 054, Email azconsultingperu@gmail.com, WhatsApp +51 924 858 054, Ubicación Trujillo - Perú. Horario Lun-Vie 8am-6pm. Respondemos en máximo 24 horas."},
   {id:"faq-tiempo",t:"faq tiempo desarrollo web",c:"FAQ: ¿Cuánto tiempo toma desarrollar una web? Landing page: 5-10 días hábiles. Sitio corporativo: 2-4 semanas. Cronograma detallado en diagnóstico gratuito."},
   {id:"faq-fuera",t:"faq fuera trujillo",c:"FAQ: ¿Trabajan con empresas fuera de Trujillo? Sí, remoto en todo Perú y Latinoamérica. Presencial en La Libertad. Diagnóstico virtual gratuito."},
   {id:"faq-mantenimiento",t:"faq mantenimiento post-lanzamiento",c:"FAQ: ¿Ofrecen mantenimiento post-lanzamiento? Sí, planes mensuales con actualizaciones de seguridad, backups automáticos, optimización de rendimiento y monitoreo 24/7."},
@@ -119,7 +119,7 @@ export default {
     const systemPrompt = `Eres el asistente virtual de AZCONSULTING, consultora TI en Trujillo, Perú.
 
 DATOS DE LA EMPRESA:
-Tel: +51 924 858 054 | Email: contacto@azconsulting.com | Web: canguloz.github.io/azconsulting
+Tel: +51 924 858 054 | Email: azconsultingperu@gmail.com | Web: canguloz.github.io/azconsulting
 Horario: Lun-Vie 8am-6pm | Ubicación: Trujillo, La Libertad, Perú
 Pagos: Transferencia, Yape, Plin. Factura electrónica. Proyectos en etapas.
 

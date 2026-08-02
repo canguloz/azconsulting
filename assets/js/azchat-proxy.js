@@ -55,7 +55,7 @@ export default {
 ━ DATOS DE LA EMPRESA ━
 Nombre: AZCONSULTING
 Teléfono: +51 924 858 054
-Email: contacto@azconsulting.com
+Email: azconsultingperu@gmail.com
 Web: https://canguloz.github.io/azconsulting/
 Horario: Lun-Vie 8:00 am - 6:00 pm
 Ubicación: Trujillo, La Libertad, Perú
