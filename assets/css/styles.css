@@ -1500,6 +1500,9 @@ body.dark-mode .service-card p {
     transition: transform 0.3s ease;
 }
 .card:hover .related-service-link {
+    color: var(--primary);
+}
+body.dark-mode .card:hover .related-service-link {
     color: #fff;
 }
 .card:hover .related-service-link i {
