@@ -2,7 +2,7 @@
   "name": "AZCONSULTING",
   "short_name": "AZC",
   "description": "Consultoría TI en Trujillo, La Libertad. Desarrollo web, infraestructura y transformación digital.",
-  "start_url": "/azconsulting/",
+  "start_url": "/",
   "display": "standalone",
   "background_color": "#081120",
   "theme_color": "#0d1630",
@@ -13,13 +13,13 @@
     {
       "name": "Solicitar cotización",
       "short_name": "Cotizar",
-      "url": "/azconsulting/#contacto",
+      "url": "/#contacto",
       "description": "Contacta al equipo de AZCONSULTING"
     },
     {
       "name": "Servicios",
       "short_name": "Servicios",
-      "url": "/azconsulting/#servicios",
+      "url": "/#servicios",
       "description": "Ver servicios TI"
     }
   ],

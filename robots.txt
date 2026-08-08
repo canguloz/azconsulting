@@ -4,4 +4,4 @@ Allow: /
 Disallow: /workers/
 Disallow: /docs/
 
-Sitemap: https://canguloz.github.io/azconsulting/sitemap.xml
+Sitemap: https://azconsultingperu.com/sitemap.xml

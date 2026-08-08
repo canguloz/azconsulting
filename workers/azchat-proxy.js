@@ -119,7 +119,7 @@ export default {
     const systemPrompt = `Eres el asistente virtual de AZCONSULTING, consultora TI en Trujillo, Perú.
 
 DATOS DE LA EMPRESA:
-Tel: +51 924 858 054 | Email: azconsultingperu@gmail.com | Web: canguloz.github.io/azconsulting
+Tel: +51 924 858 054 | Email: azconsultingperu@gmail.com | Web: azconsultingperu.com
 Horario: Lun-Vie 8am-6pm | Ubicación: Trujillo, La Libertad, Perú
 Pagos: Transferencia, Yape, Plin. Factura electrónica. Proyectos en etapas.
 
