@@ -50,6 +50,23 @@ document.addEventListener('DOMContentLoaded', () => {
     injectChatbot();
 
     /* ==========================================
+       0. NAVBAR HEIGHT → CSS variable --navbar-h
+       Calcula la altura real del navbar y la expone como variable CSS.
+       Soluciona el choque del panel del chatbot con el navbar en Firefox
+       (modo fullscreen / ventana redimensionada) donde top: 86px fijo falla.
+       ========================================== */
+    function updateNavbarHeight() {
+        const navbar = document.querySelector('.custom-navbar');
+        if (navbar) {
+            const h = navbar.getBoundingClientRect().height;
+            // +8px de margen de seguridad para evitar contacto visual
+            document.documentElement.style.setProperty('--navbar-h', (h + 8) + 'px');
+        }
+    }
+    updateNavbarHeight();
+    window.addEventListener('resize', updateNavbarHeight);
+
+    /* ==========================================
        1. DARK MODE
        ========================================== */
     const darkModeBtn = document.getElementById('darkModeToggle');

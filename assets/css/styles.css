@@ -5046,7 +5046,7 @@ body.dark-mode .blog-filter-btn.active {
     color: #fff;
     border: none;
     cursor: pointer;
-    z-index: 9998;
+    z-index: 10049;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -5076,16 +5076,17 @@ body.dark-mode .blog-filter-btn.active {
     position: fixed;
     right: 20px;
     bottom: 160px;
+    top: var(--navbar-h, 86px); /* Dinámica: calculada por JS para compatibilidad cross-browser */
     width: 345px;
-    height: 405px;
-    max-height: calc(100vh - 190px);
+    height: auto;
+    max-height: none;
     background: #fff;
     border-radius: 20px;
     box-shadow: 0 25px 80px rgba(13,22,48,0.3), 0 0 0 1px rgba(13,22,48,0.06);
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    z-index: 9999;
+    z-index: 10050;
     opacity: 0;
     transform: translateY(16px) scale(0.96);
     pointer-events: none;
@@ -5497,9 +5498,10 @@ body.dark-mode .az-chat-send:hover {
     .az-chat-panel {
         right: 16px;
         width: 300px;
-        max-height: calc(100vh - 200px);
-        height: 380px;
+        max-height: none;
+        height: auto;
         bottom: 160px;
+        top: var(--navbar-h, 86px); /* Dinámica: calculada por JS para compatibilidad cross-browser */
         border-radius: 16px;
     }
 
