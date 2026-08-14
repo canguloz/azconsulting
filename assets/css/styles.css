@@ -2355,6 +2355,15 @@ body.dark-mode .card:hover .related-service-link {
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
+    overflow: hidden;
+}
+
+.blog-author-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    display: block;
 }
 
 .blog-author span:last-child {
