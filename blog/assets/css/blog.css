@@ -112,3 +112,21 @@
         linear-gradient(rgba(248, 250, 252, 0.55), rgba(248, 250, 252, 0.35)),
         url('../img/bg-chatbots.jpg');
 }
+
+.blog-hero-erp::before {
+    background-image:
+        linear-gradient(rgba(248, 250, 252, 0.55), rgba(248, 250, 252, 0.35)),
+        url('../img/bg-desarrollo.jpg');
+}
+
+.blog-hero-hosting::before {
+    background-image:
+        linear-gradient(rgba(248, 250, 252, 0.55), rgba(248, 250, 252, 0.35)),
+        url('../img/bg-nube.jpg');
+}
+
+.blog-hero-correo::before {
+    background-image:
+        linear-gradient(rgba(248, 250, 252, 0.55), rgba(248, 250, 252, 0.35)),
+        url('../img/bg-ciber.jpg');
+}
