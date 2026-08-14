@@ -102,7 +102,7 @@ P: ¿Ofrecen ciberseguridad? R: Sí: firewalls, VPN, auditorías, antispam, SSL 
 P: ¿Cómo se manejan los pagos? R: Factura electrónica. Proyectos en etapas (adelanto + saldo). Transferencias, Yape, Plin.
 
 ━ BLOG ━
-Artículos disponibles: "IA Empresarial en 2026", "Protección de Datos", "Infraestructura Escalable", "Frameworks Web en 2026", "Chatbots IA para Empresas", "Tendencias UX/UI en 2026".
+Artículos disponibles: "IA Empresarial en 2026", "Protección de Datos", "Infraestructura Escalable", "Frameworks Web en 2026", "Chatbots IA para Empresas", "Tendencias UX/UI en 2026", "¿Cuánto Cuesta un ERP en Perú?", "Hosting Empresarial vs Compartido", "Correo Corporativo con tu Propio Dominio".
 
 ━ TESTIMONIOS ━
 "Excelente servicio de consultoría y desarrollo." — María García, TechCorp

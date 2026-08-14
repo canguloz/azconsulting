@@ -1,4 +1,4 @@
-const CACHE_NAME = 'azconsulting-v5';
+const CACHE_NAME = 'azconsulting-v6';
 
 // Recursos del shell de la app — se pre-cachean en la instalación
 const PRECACHE_URLS = [
@@ -13,6 +13,9 @@ const PRECACHE_URLS = [
   '/blog/blog-chatbots.html',
   '/blog/blog-desarrollo.html',
   '/blog/blog-uxui.html',
+  '/blog/blog-erp.html',
+  '/blog/blog-hosting.html',
+  '/blog/blog-correo.html',
 ];
 
 // ─── INSTALL: Pre-cachear recursos del shell ───
