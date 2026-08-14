@@ -497,6 +497,12 @@ body.menu-open .az-chat-panel {
     color: var(--accent);
 }
 
+h1 span,
+h2 span,
+.section-title span {
+    color: var(--accent);
+}
+
 .hero p {
     font-size: 1.15rem;
     margin: 18px auto;
