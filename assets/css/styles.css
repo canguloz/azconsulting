@@ -2347,7 +2347,7 @@ body.dark-mode .card:hover .related-service-link {
     width: 28px;
     height: 28px;
     border-radius: 50%;
-    background: linear-gradient(135deg, var(--accent), #ff9a3e);
+    background: transparent;
     color: #ffffff;
     font-size: 0.65rem;
     font-weight: 700;
