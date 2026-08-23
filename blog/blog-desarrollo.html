@@ -48,10 +48,10 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="../assets/css/styles.css?v=4">
+    <link rel="stylesheet" href="../assets/css/styles.css?v=6">
     <link rel="stylesheet" href="assets/css/blog.css?v=3">
 
     <!-- PWA -->
@@ -82,11 +82,11 @@
         "name": "AZCONSULTING",
       "sameAs": ["https://www.facebook.com/azconsulting.trujillo","https://www.linkedin.com/in/carlos-angulo-zegarra-046768188/","https://www.instagram.com/azconsulting"],
         "logo": {
-      "mainEntityOfPage": "https://azconsultingperu.com/blog/blog-desarrollo.html",
           "@type": "ImageObject",
           "url": "https://azconsultingperu.com/assets/img/png/logo.png"
         }
-      }
+      },
+      "mainEntityOfPage": "https://azconsultingperu.com/blog/blog-desarrollo.html"
     }
     </script>
 
@@ -186,6 +186,26 @@
                             <h3 class="fw-bold mt-5 mb-3 text-dark">La Revolución de Astro y el Server-First</h3>
                             <p style="color: #4b5563;">Astro ha cambiado las reglas del juego priorizando el contenido estático y enviando JavaScript al cliente solo cuando es estrictamente necesario ("Islands Architecture"). Esto se traduce en sitios web extremadamente rápidos con una puntuación de rendimiento perfecta.</p>
                             
+                            
+                            <h2 class="mt-5 mb-4 fw-bold text-dark" style="font-size: 1.7rem;">Comparativa real: React vs Vue vs Astro en 2026</h2>
+                            <p class="mb-4">No existe el "mejor", existe el adecuado para tu proyecto en Trujillo:</p>
+                            <table class="table table-bordered mb-4" style="font-size:0.95rem;">
+                                <thead style="background:#0d1630;color:#fff;"><tr><th>Framework</th><th>Ideal para</th><th>Rendimiento</th><th>Curva</th></tr></thead>
+                                <tbody><tr><td><strong>React</strong></td><td>ERP, dashboards, apps complejas</td><td>Excelente con Next.js</td><td>Media</td></tr><tr><td><strong>Vue</strong></td><td>Pymes, paneles admin rápidos</td><td>Muy bueno</td><td>Baja</td></tr><tr><td><strong>Astro</strong></td><td>Webs corporativas ultra rápidas</td><td>100/100 Lighthouse</td><td>Baja</td></tr></tbody>
+                            </table>
+                            <p class="mb-4">En AZCONSULTING elegimos así: si tu web debe cargar en <1.5s en 4G y rankear en Google Trujillo, usamos <strong>Astro</strong>. Si es un sistema con roles, permisos y reportes, <strong>React + Laravel</strong>. Si necesitas lanzar en 3 semanas con presupuesto ajustado, <strong>Vue + Firebase</strong>.</p>
+                            <h3 class="mt-4 mb-3 fw-bold text-dark" style="font-size: 1.25rem;">Stack que usamos y por qué</h3>
+                            <ul class="mb-4" style="padding-left:1.2rem;">
+                                <li><strong>Frontend:</strong> Astro/React con Tailwind, sin Bootstrap pesado</li>
+                                <li><strong>Backend:</strong> Laravel o Node.js + MySQL/PostgreSQL</li>
+                                <li><strong>Deploy:</strong> Vercel/AWS con CI/CD y preview por rama</li>
+                                <li><strong>Performance:</strong> imágenes AVIF, lazy, y sin preloader (aprendimos la lección)</li>
+                            </ul>
+                            <h2 class="mt-5 mb-4 fw-bold text-dark" style="font-size: 1.7rem;">Errores caros que evitamos</h2>
+                            <p class="mb-4">Vimos 3 fracasos típicos en La Libertad: 1) contratar en Lima sin soporte local y esperar 5 días por un cambio, 2) usar WordPress con 20 plugins que se rompe al actualizar, 3) no pensar en SEO desde el día 1 y luego pagar doble para rehacer. Nuestro proceso incluye SEO técnico desde el Figma.</p>
+                            <p class="mb-4">¿Quieres comparar? Agenda demo y te mostramos 2 webs idénticas en React vs Astro con métricas reales. Ver <a href="../servicios/desarrollo-web-trujillo/" style="color:var(--accent);font-weight:600;">Desarrollo Web en Trujillo</a>.</p>
+
+                            <p class="mb-4">Intentamos rankear para "desarrollo web Trujillo" y "frameworks React Vue Astro" con comparativa local y no solo definiciones. Por eso incluimos tabla, stack y errores reales de La Libertad.</p>
                             <hr style="opacity: 0.1; margin: 60px 0;">
                             
                             <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="100" class="p-5 text-center position-relative overflow-hidden" style="background: #ffffff; color: var(--text); border-radius: 20px; border: 1px solid rgba(13,22,48,0.08); box-shadow: 0 8px 30px rgba(13, 22, 48, 0.07);">
@@ -356,7 +376,7 @@
 
     <!-- JS -->
 
-    <script src="../assets/js/main.js?v=2" defer></script>
+    <script src="../assets/js/main.js?v=6" defer></script>
     <script src="../assets/js/enhancements.js?v=3" defer></script>
     <script>document.addEventListener("DOMContentLoaded", function(){ AOS.init({ once: true, easing: "ease-out-cubic" }); var p; window.addEventListener("resize",function(){ if(!p) p=window.scrollY/(document.documentElement.scrollHeight-window.innerHeight); clearTimeout(window._rt); window._rt=setTimeout(function(){ if(window.AOS) AOS.refresh(); if(p>0) window.scrollTo({top:p*(document.documentElement.scrollHeight-window.innerHeight),behavior:"auto"}); p=null; },300); }); });</script>
                

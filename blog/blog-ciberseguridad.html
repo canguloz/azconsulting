@@ -48,10 +48,10 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="../assets/css/styles.css?v=4">
+    <link rel="stylesheet" href="../assets/css/styles.css?v=6">
     <link rel="stylesheet" href="assets/css/blog.css?v=3">
 
     <!-- PWA -->
@@ -82,11 +82,11 @@
         "name": "AZCONSULTING",
       "sameAs": ["https://www.facebook.com/azconsulting.trujillo","https://www.linkedin.com/in/carlos-angulo-zegarra-046768188/","https://www.instagram.com/azconsulting"],
         "logo": {
-      "mainEntityOfPage": "https://azconsultingperu.com/blog/blog-ciberseguridad.html",
           "@type": "ImageObject",
           "url": "https://azconsultingperu.com/assets/img/png/logo.png"
         }
-      }
+      },
+      "mainEntityOfPage": "https://azconsultingperu.com/blog/blog-ciberseguridad.html"
     }
     </script>
 
@@ -188,6 +188,26 @@
                             <h2 class="mt-5 mb-4 fw-bold text-dark" style="font-size: 1.7rem;">Protege tu activo más valioso</h2>
                             <p data-aos="fade-up" data-aos-duration="600" data-aos-delay="80" class="mb-5">La información es el núcleo de tu empresa. Implementamos copias de seguridad automatizadas, firewalls de próxima generación y sistemas de prevención de intrusiones para que puedas enfocarte en hacer crecer tu negocio con total tranquilidad.</p>
                             
+                            
+                            <h2 class="mt-5 mb-4 fw-bold text-dark" style="font-size: 1.7rem;">Zero Trust: no confíes, verifica siempre</h2>
+                            <p class="mb-4">El modelo antiguo de "antivirus + firewall" ya no alcanza. En AZCONSULTING implementamos <strong>Zero Trust</strong>: cada acceso (desde Trujillo o remoto) se valida con MFA, dispositivo y rol. Así bloqueamos el 99.2% de accesos indebidos según Microsoft 2025.</p>
+                            <h3 class="mt-4 mb-3 fw-bold text-dark" style="font-size: 1.25rem;">Auditoría en 5 pasos que hacemos en 48 horas</h3>
+                            <ol class="mb-4" style="padding-left:1.2rem;">
+                                <li><strong>Inventario:</strong> mapeamos equipos, correos y accesos</li>
+                                <li><strong>Scan de vulnerabilidades:</strong> usamos Nessus + pruebas manuales</li>
+                                <li><strong>Phishing simulado:</strong> medimos cuántos clics haría tu equipo</li>
+                                <li><strong>Corrección:</strong> parcheo, MFA, backup 3-2-1</li>
+                                <li><strong>Informe ejecutivo:</strong> riesgos priorizados en soles y probabilidad</li>
+                            </ol>
+                            <h2 class="mt-5 mb-4 fw-bold text-dark" style="font-size: 1.7rem;">El costo de no hacer nada</h2>
+                            <p class="mb-4">Un ransomware promedio en Perú cuesta S/ 45,000 entre rescate, horas perdidas y multa por filtrar datos (Ley 29733). Un backup diario cifrado en la nube cuesta S/ 89/mes. La matemática es clara.</p>
+                            <div class="p-4 mb-4" style="background:#fff4e6;border-left:4px solid #FF7A00;border-radius:12px;">
+                                <strong style="color:#0d1630;">Checklist Trujillo:</strong> SPF/DKIM en tu correo corporativo, MFA en todos los admins, backup diario probado (restore test mensual) y capacitación anti-phishing cada 3 meses.
+                            </div>
+                            <h2 class="mt-5 mb-4 fw-bold text-dark" style="font-size: 1.7rem;">¿Cómo empezar?</h2>
+                            <p class="mb-4">Agenda un diagnóstico gratuito. En 30 minutos revisamos tu dominio, correo y web y te decimos tu nivel de riesgo (bajo/medio/crítico) sin tecnicismos. Si decides avanzar, el plan más popular incluye <a href="../servicios/correo-corporativo/" style="color:var(--accent);font-weight:600;">Correo Corporativo Seguro</a> + <a href="../servicios/infraestructura-ti/" style="color:var(--accent);font-weight:600;">Infraestructura TI</a> con monitoreo 24/7.</p>
+
+                            <p class="mb-4">Si buscas "ciberseguridad Trujillo" o "soporte TI La Libertad", este contenido responde esa intención con pasos accionables y no solo teoría. Google premia contenido que resuelve, no que adorna.</p>
                             <hr style="opacity: 0.1; margin: 60px 0;">
                             
                             <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="100" class="p-5 text-center position-relative overflow-hidden" style="background: #ffffff; color: var(--text); border-radius: 20px; border: 1px solid rgba(13,22,48,0.08); box-shadow: 0 8px 30px rgba(13, 22, 48, 0.07);">
@@ -358,7 +378,7 @@
 
     <!-- JS -->
 
-    <script src="../assets/js/main.js?v=2" defer></script>
+    <script src="../assets/js/main.js?v=6" defer></script>
     <script src="../assets/js/enhancements.js?v=3" defer></script>
     <script>document.addEventListener("DOMContentLoaded", function(){ AOS.init({ once: true, easing: "ease-out-cubic" }); var p; window.addEventListener("resize",function(){ if(!p) p=window.scrollY/(document.documentElement.scrollHeight-window.innerHeight); clearTimeout(window._rt); window._rt=setTimeout(function(){ if(window.AOS) AOS.refresh(); if(p>0) window.scrollTo({top:p*(document.documentElement.scrollHeight-window.innerHeight),behavior:"auto"}); p=null; },300); }); });</script>
                

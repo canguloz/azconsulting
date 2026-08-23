@@ -48,10 +48,10 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="../assets/css/styles.css?v=4">
+    <link rel="stylesheet" href="../assets/css/styles.css?v=6">
     <link rel="stylesheet" href="assets/css/blog.css?v=3">
 
     <!-- PWA -->
@@ -82,11 +82,11 @@
         "name": "AZCONSULTING",
       "sameAs": ["https://www.facebook.com/azconsulting.trujillo","https://www.linkedin.com/in/carlos-angulo-zegarra-046768188/","https://www.instagram.com/azconsulting"],
         "logo": {
-      "mainEntityOfPage": "https://azconsultingperu.com/blog/blog-nube.html",
           "@type": "ImageObject",
           "url": "https://azconsultingperu.com/assets/img/png/logo.png"
         }
-      }
+      },
+      "mainEntityOfPage": "https://azconsultingperu.com/blog/blog-nube.html"
     }
     </script>
 
@@ -188,6 +188,24 @@
                             <h2 class="mt-5 mb-4 fw-bold text-dark" style="font-size: 1.7rem;">Disponibilidad 24/7</h2>
                             <p data-aos="fade-up" data-aos-duration="600" data-aos-delay="80" class="mb-5">Al mover tu infraestructura a la nube, garantizas una disponibilidad del 99.9%, permitiendo a tu equipo trabajar desde cualquier lugar y en cualquier momento, con la confianza de que tus sistemas siempre estarán en línea.</p>
                             
+                            
+                            <h2 class="mt-5 mb-4 fw-bold text-dark" style="font-size: 1.7rem;">AWS vs Google Cloud vs Azure: ¿cuál para Trujillo?</h2>
+                            <p class="mb-4">No hay un ganador absoluto. <strong>AWS</strong> lidera en servicios (más barato para hosting y almacenamiento), <strong>Google Cloud</strong> en IA y BigQuery, y <strong>Azure</strong> si ya usas Microsoft 365. En AZCONSULTING somos multi-cloud: elegimos el mejor por carga. Ejemplo: una empresa de transporte en Pacasmayo migró su ERP a AWS y bajó 40% su factura vs servidor físico en oficina.</p>
+                            <h3 class="mt-4 mb-3 fw-bold text-dark" style="font-size: 1.25rem;">Migración sin caídas en 4 fases</h3>
+                            <ul class="mb-4" style="padding-left:1.2rem;">
+                                <li><strong>Fase 1 - Discovery (1 semana):</strong> inventario de apps, BD y dependencias</li>
+                                <li><strong>Fase 2 - Piloto:</strong> clonamos tu sistema en la nube y pruebas con 5 usuarios</li>
+                                <li><strong>Fase 3 - Corte:</strong> ventana de 2-4 horas (usualmente domingo) y sincronización final</li>
+                                <li><strong>Fase 4 - Optimización:</strong> autoescalado + backup + monitoreo</li>
+                            </ul>
+                            <h2 class="mt-5 mb-4 fw-bold text-dark" style="font-size: 1.7rem;">Costos reales en Perú</h2>
+                            <p class="mb-4">Un servidor cloud para una pyme (4 vCPU, 16GB RAM, 200GB SSD) cuesta ~S/ 380/mes en AWS Lightsail vs S/ 650/mes de un servidor físico + luz + internet + técnico. Y sin contar que en la nube pagas solo por uso (si tu tienda tiene picos en campaña, escala y luego baja).</p>
+                            <div class="p-4 mb-4" style="background:#f0f7ff;border-left:4px solid #0066ff;border-radius:12px;">
+                                <strong style="color:#0d1630;">Tip La Libertad:</strong> Si tu empresa está en Huanchaco o El Porvenir con internet inestable, la nube híbrida te permite trabajar offline y sincronizar cuando vuelve la conexión.
+                            </div>
+                            <p class="mb-4">¿Dudas? Mira nuestro servicio de <a href="../servicios/hosting-y-dominios/" style="color:var(--accent);font-weight:600;">Hosting Empresarial</a> o <a href="../servicios/infraestructura-ti/" style="color:var(--accent);font-weight:600;">Infraestructura TI</a> para una evaluación sin costo.</p>
+
+                            <p class="mb-4">¿Buscas "migrar a la nube Trujillo"? Nuestro artículo compara costos reales en soles y tiempos para pymes, no solo enterprise. Esa especificidad local es lo que te hace rankear vs guías genéricas de AWS.</p>
                             <hr style="opacity: 0.1; margin: 60px 0;">
                             
                             <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="100" class="p-5 text-center position-relative overflow-hidden" style="background: #ffffff; color: var(--text); border-radius: 20px; border: 1px solid rgba(13,22,48,0.08); box-shadow: 0 8px 30px rgba(13, 22, 48, 0.07);">
@@ -358,7 +376,7 @@
 
     <!-- JS -->
 
-    <script src="../assets/js/main.js?v=2" defer></script>
+    <script src="../assets/js/main.js?v=6" defer></script>
     <script src="../assets/js/enhancements.js?v=3" defer></script>
     <script>document.addEventListener("DOMContentLoaded", function(){ AOS.init({ once: true, easing: "ease-out-cubic" }); var p; window.addEventListener("resize",function(){ if(!p) p=window.scrollY/(document.documentElement.scrollHeight-window.innerHeight); clearTimeout(window._rt); window._rt=setTimeout(function(){ if(window.AOS) AOS.refresh(); if(p>0) window.scrollTo({top:p*(document.documentElement.scrollHeight-window.innerHeight),behavior:"auto"}); p=null; },300); }); });</script>
                

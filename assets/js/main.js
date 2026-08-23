@@ -1,11 +1,22 @@
 document.addEventListener('DOMContentLoaded', () => {
-    if (window.AOS) {
+    const isMobilePerf = window.innerWidth < 768 || /Mobi|Android/i.test(navigator.userAgent) || window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    // Desactivar AOS en móvil - mejora INP y CLS
+    if (window.AOS && !isMobilePerf) {
         AOS.init({
-            duration: 700,      // Reducido de 1200ms → 700ms para animaciones más ágiles
-            once: true,         // Solo anima una vez (mejor rendimiento)
-            offset: 60,         // Dispara antes para que no se vea el salto
-            easing: 'ease-out-cubic'
+            duration: 500,
+            once: true,
+            offset: 60,
+            easing: 'ease-out-cubic',
+            disable: 'mobile'
         });
+    } else if (isMobilePerf) {
+        // En móvil: mostrar todo sin animación para evitar FOIT/CLS
+        document.querySelectorAll('[data-aos]').forEach(el => {
+            el.removeAttribute('data-aos');
+            el.removeAttribute('data-aos-delay');
+            el.removeAttribute('data-aos-duration');
+        });
+        if (document.body) document.body.classList.add('aos-disabled');
     }
 
     // Refresca AOS al redimensionar y mantiene la posición relativa
@@ -136,28 +147,40 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (preloader) {
-        const rings = preloader.querySelectorAll('.ring');
-        let angle = 0;
-        let lastTs = performance.now();
-        let fadingOut = false;
-        let rafId = requestAnimationFrame(function spin(ts) {
-            const dt = ts - lastTs;
-            lastTs = ts;
-            angle = (angle + dt * 0.25) % 360;
-            rings.forEach((r, i) => { r.style.transform = `rotate(${angle + i * 40}deg)`; });
-            rafId = requestAnimationFrame(spin);
-        });
+        // En móvil: eliminar preloader inmediatamente - mejora LCP 800ms
+        const isMobile = window.innerWidth < 768 || /Mobi|Android/i.test(navigator.userAgent);
+        if (isMobile) {
+            preloader.style.display = 'none';
+        } else {
+            const rings = preloader.querySelectorAll('.ring');
+            let angle = 0;
+            let lastTs = performance.now();
+            let rafId = requestAnimationFrame(function spin(ts) {
+                const dt = ts - lastTs;
+                lastTs = ts;
+                angle = (angle + dt * 0.25) % 360;
+                rings.forEach((r, i) => { r.style.transform = `rotate(${angle + i * 40}deg)`; });
+                rafId = requestAnimationFrame(spin);
+            });
 
-        window.addEventListener('load', () => {
-            setTimeout(() => {
-                fadingOut = true;
+            const hidePreloader = () => {
                 preloader.style.opacity = '0';
                 setTimeout(() => {
                     cancelAnimationFrame(rafId);
                     preloader.style.display = 'none';
-                }, 500);
-            }, 800);
-        });
+                }, 300);
+            };
+
+            if (document.readyState === 'complete') {
+                setTimeout(hidePreloader, 150);
+            } else {
+                window.addEventListener('load', () => setTimeout(hidePreloader, 150), { once: true });
+                // Fallback: si load no dispara en 2.5s, ocultar igual
+                setTimeout(() => {
+                    if (preloader.style.display !== 'none') hidePreloader();
+                }, 2500);
+            }
+        }
     }
 
     if (btnTop) {
@@ -198,9 +221,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    if (typeof gsap !== 'undefined') {
-        gsap.from('.hero h1', { y: 60, duration: 1.0, ease: 'power3.out' });
-        gsap.from('.hero p', { y: 40, opacity: 0, duration: 1.2, delay: 0.2, ease: 'power3.out' });
+    if (typeof gsap !== 'undefined' && !isMobilePerf) {
+        gsap.from('.hero h1', { y: 40, duration: 0.8, ease: 'power3.out' });
+        gsap.from('.hero p', { y: 20, opacity: 0, duration: 0.8, delay: 0.15, ease: 'power3.out' });
     }
 
     // tsParticles: carga dinámica post window.load para no bloquear el hilo principal
