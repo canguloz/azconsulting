@@ -59,7 +59,8 @@
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"></noscript>
 
     <!-- AOS -->
-    <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+    <link rel="preload" href="assets/vendor/aos/aos.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="assets/vendor/aos/aos.css"></noscript>
     
 
     <!-- Google Fonts - display=swap evita FOIT -->
@@ -263,7 +264,7 @@
 
 <div class="ring"></div>
 
-<img src="assets/img/png/logo.png" alt="AZCONSULTING" class="loader-logo">
+<picture><source srcset="assets/img/webp/logo.webp" type="image/webp"><img src="assets/img/png/logo.png" alt="AZCONSULTING" class="loader-logo" width="530" height="100"></picture>
 
 </div>
 
@@ -308,10 +309,10 @@
 
             <a class="navbar-brand" href="#inicio">
 
-                <img
+                <picture><source srcset="assets/img/webp/logo.webp" type="image/webp"><img
                     src="assets/img/png/logo.png"
                     alt="AZCONSULTING - Consultoría TI e Infraestructura Tecnológica"
-                    class="logo-header">
+                    class="logo-header" width="530" height="100"></picture>
 
             </a>
             
@@ -430,10 +431,10 @@
                         <div class="member">
                             <div class="member-img-wrap">
                                 <picture>
-                                    <source srcset="assets/img/avif/teams1.avif" type="image/avif">
-                                    <source srcset="assets/img/webp/teams1.webp" type="image/webp">
+                                    <source srcset="assets/img/avif/teams1-360w.avif 360w, assets/img/avif/teams1-720w.avif 720w" sizes="(max-width: 768px) 140px, 100px" type="image/avif">
+                                    <source srcset="assets/img/webp/teams1-360w.webp 360w, assets/img/webp/teams1-720w.webp 720w" sizes="(max-width: 768px) 140px, 100px" type="image/webp">
                                     <!-- fetchpriority=high + sin lazy: imagen crítica above-the-fold (LCP) -->
-                                    <img src="assets/img/jpeg/teams1.jpeg" alt="Carlos Angulo, Consultor TI AZCONSULTING Trujillo" width="777" height="996" fetchpriority="high" decoding="async">
+                                    <img src="assets/img/jpeg/teams1-720w.jpeg" alt="Carlos Angulo, Consultor TI AZCONSULTING Trujillo" width="777" height="996" fetchpriority="high" decoding="async">
                                 </picture>
                                 <div class="member-social">
                                     <a href="https://www.linkedin.com/in/carlos-angulo-zegarra-046768188/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Carlos">
@@ -450,7 +451,11 @@
 
                         <div class="member">
                             <div class="member-img-wrap">
-                                <img src="assets/img/jpg/matias-angulo.jpg" alt="Matias Angulo, Full Stack Developer AZCONSULTING" width="1000" height="1000" loading="lazy" decoding="async">
+                                <picture>
+                                    <source srcset="assets/img/avif/matias-angulo-360w.avif 360w, assets/img/avif/matias-angulo-720w.avif 720w" sizes="(max-width: 768px) 140px, 100px" type="image/avif">
+                                    <source srcset="assets/img/webp/matias-angulo-360w.webp 360w, assets/img/webp/matias-angulo-720w.webp 720w" sizes="(max-width: 768px) 140px, 100px" type="image/webp">
+                                    <img src="assets/img/jpg/matias-angulo-720w.jpg" alt="Matias Angulo, Full Stack Developer AZCONSULTING" width="864" height="1184" loading="lazy" decoding="async">
+                                </picture>
                                 <div class="member-social">
                                     <a href="#" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Matias">
                                         <i class="fab fa-linkedin-in"></i>
@@ -532,9 +537,9 @@
                 <div class="about-img-wrapper">
 
                     <picture>
-                        <source srcset="assets/img/avif/about.avif" type="image/avif">
-                        <source srcset="assets/img/webp/about.webp" type="image/webp">
-                        <img src="assets/img/jpg/about.jpg"
+                        <source srcset="assets/img/avif/about-360w.avif 360w, assets/img/avif/about-720w.avif 720w, assets/img/avif/about.avif 856w" sizes="(max-width: 768px) 564px, 468px" type="image/avif">
+                        <source srcset="assets/img/webp/about-360w.webp 360w, assets/img/webp/about-720w.webp 720w, assets/img/webp/about.webp 856w" sizes="(max-width: 768px) 564px, 468px" type="image/webp">
+                        <img src="assets/img/jpg/about-720w.jpg"
                             alt="Consultoría TI"
                             width="856" height="642"
                             class="about-main-img"
@@ -581,7 +586,7 @@
                             <i class="fas fa-bullseye"></i>
                         </div>
                         <div class="acm-body">
-                            <h4>Misión</h4>
+                            <h3>Misión</h3>
                             <p>Brindar soluciones tecnológicas innovadoras que impulsen la productividad y el crecimiento de nuestros clientes.</p>
                         </div>
                     </div>
@@ -591,7 +596,7 @@
                             <i class="fas fa-eye"></i>
                         </div>
                         <div class="acm-body">
-                            <h4>Visión</h4>
+                            <h3>Visión</h3>
                             <p>Ser una consultora tecnológica reconocida por su excelencia, innovación y compromiso con la transformación digital.</p>
                         </div>
                     </div>
@@ -601,7 +606,7 @@
                             <i class="fas fa-handshake"></i>
                         </div>
                         <div class="acm-body">
-                            <h4>Valores</h4>
+                            <h3>Valores</h3>
                             <p>Compromiso, innovación, confianza, calidad y orientación permanente al cliente.</p>
                         </div>
                     </div>
@@ -741,7 +746,7 @@
                             <i class="fas fa-city"></i>
                         </div>
                         <div class="zone-info">
-                            <h4>Trujillo Metropolitano</h4>
+                            <h3>Trujillo Metropolitano</h3>
                             <p>Trujillo, Víctor Larco Herrera, Huanchaco, El Porvenir, Laredo</p>
                         </div>
                     </div>
@@ -751,7 +756,7 @@
                             <i class="fas fa-location-arrow"></i>
                         </div>
                         <div class="zone-info">
-                            <h4>Zona Norte</h4>
+                            <h3>Zona Norte</h3>
                             <p>Pacasmayo y Chepén</p>
                         </div>
                     </div>
@@ -761,7 +766,7 @@
                             <i class="fas fa-location-arrow"></i>
                         </div>
                         <div class="zone-info">
-                            <h4>Zona Sur</h4>
+                            <h3>Zona Sur</h3>
                             <p>Virú y Chao</p>
                         </div>
                     </div>
@@ -771,7 +776,7 @@
                             <i class="fas fa-mountain"></i>
                         </div>
                         <div class="zone-info">
-                            <h4>Zona Sierra</h4>
+                            <h3>Zona Sierra</h3>
                             <p>Huamachuco y Otuzco</p>
                         </div>
                     </div>
@@ -786,7 +791,7 @@
                         <i class="fas fa-map-location-dot" style="font-size:3rem;color:var(--primary);margin-bottom:16px;display:block;"></i>
                         <p style="font-weight:700;color:var(--primary);margin-bottom:8px;">Ver cobertura en La Libertad</p>
                         <p style="font-size:0.9rem;color:var(--text-light);margin-bottom:16px;">Haz clic para cargar el mapa</p>
-                        <span style="display:inline-block;background:var(--accent);color:#fff;padding:10px 24px;border-radius:999px;font-weight:600;font-size:0.9rem;"><i class="fas fa-map me-2"></i>Cargar mapa</span>
+                        <span style="display:inline-block;background:var(--accent-strong);color:#fff;padding:10px 24px;border-radius:999px;font-weight:600;font-size:0.9rem;"><i class="fas fa-map me-2"></i>Cargar mapa</span>
                     </div>
                 </div>
                 <script>
@@ -821,7 +826,7 @@
                     <div class="step-icon">
                         <i class="fas fa-video"></i>
                     </div>
-                    <h4>Diagnóstico Virtual</h4>
+                    <h3>Diagnóstico Virtual</h3>
                     <p>Evaluación por videollamada sin costo para entender tus necesidades técnicas.</p>
                 </div>
 
@@ -830,7 +835,7 @@
                     <div class="step-icon">
                         <i class="fas fa-tools"></i>
                     </div>
-                    <h4>Visita Técnica</h4>
+                    <h3>Visita Técnica</h3>
                     <p>Desplazamiento presencial para proyectos de infraestructura o soporte físico.</p>
                 </div>
 
@@ -839,7 +844,7 @@
                     <div class="step-icon">
                         <i class="fas fa-shield-halved"></i>
                     </div>
-                    <h4>Monitoreo Remoto 24/7</h4>
+                    <h3>Monitoreo Remoto 24/7</h3>
                     <p>Supervisión digital constante de servidores, web y correos corporativos.</p>
                 </div>
 
@@ -1106,7 +1111,7 @@
                     </div>
                     <div class="project-info">
                         <span class="project-category">ERP Empresarial</span>
-                        <h4>Sistema Integral de Gestión</h4>
+                        <h3>Sistema Integral de Gestión</h3>
                         <p>Plataforma modular que optimiza procesos administrativos, financieros y logísticos.</p>
                         <a href="#" class="project-link">Ver proyecto <i class="fas fa-arrow-right"></i></a>
                     </div>
@@ -1131,7 +1136,7 @@
                     </div>
                     <div class="project-info">
                         <span class="project-category">CRM Corporativo</span>
-                        <h4>Automatización Comercial</h4>
+                        <h3>Automatización Comercial</h3>
                         <p>Sistema de gestión de clientes con dashboards interactivos y reportes inteligentes.</p>
                         <a href="#" class="project-link">Ver proyecto <i class="fas fa-arrow-right"></i></a>
                     </div>
@@ -1156,7 +1161,7 @@
                     </div>
                     <div class="project-info">
                         <span class="project-category">App Móvil</span>
-                        <h4>Plataforma Multiservicios</h4>
+                        <h3>Plataforma Multiservicios</h3>
                         <p>Aplicación cross-platform con geolocalización, pagos integrados y notificaciones push.</p>
                         <a href="#" class="project-link">Ver proyecto <i class="fas fa-arrow-right"></i></a>
                     </div>
@@ -1208,7 +1213,7 @@
                         <div class="success-bar">
                             <span style="width: 35%;"></span>
                         </div>
-                        <h5>Reducción de Costos</h5>
+                        <h3>Reducción de Costos</h3>
                         <p>Optimización operativa mediante automatización de procesos clave.</p>
                         <span class="success-tag">Resultado comprobado</span>
                     </div>
@@ -1228,7 +1233,7 @@
                         <div class="success-bar">
                             <span style="width: 80%;"></span>
                         </div>
-                        <h5>Digitalización</h5>
+                        <h3>Digitalización</h3>
                         <p>Procesos empresariales modernizados con tecnología de punta.</p>
                         <span class="success-tag">Transformación digital</span>
                     </div>
@@ -1248,7 +1253,7 @@
                         <div class="success-bar">
                             <span style="width: 45%;"></span>
                         </div>
-                        <h5>Productividad</h5>
+                        <h3>Productividad</h3>
                         <p>Incremento medible del rendimiento en todas las áreas operativas.</p>
                         <span class="success-tag">Mejora continua</span>
                     </div>
@@ -1308,7 +1313,7 @@
                                 <img src="assets/img/png/MariaGarciaColaboradora.png" alt="María García" width="50" height="50" loading="lazy" decoding="async">
                             </div>
                             <div class="testimonial-info">
-                                <h5>María García</h5>
+                                <h3>María García</h3>
                                 <span>Gerente General — TechCorp</span>
                             </div>
                         </div>
@@ -1337,7 +1342,7 @@
                                 <img src="assets/img/jpg/CarlosRiveraColaborador.jpg" alt="Carlos Rivera" width="50" height="50" loading="lazy" decoding="async">
                             </div>
                             <div class="testimonial-info">
-                                <h5>Carlos Rivera</h5>
+                                <h3>Carlos Rivera</h3>
                                 <span>Director TI — DataSys</span>
                             </div>
                         </div>
@@ -1366,7 +1371,7 @@
                                 <img src="assets/img/jpg/AnnaColaboradora.jpg" alt="Ana López" width="50" height="50" loading="lazy" decoding="async">
                             </div>
                             <div class="testimonial-info">
-                                <h5>Ana López</h5>
+                                <h3>Ana López</h3>
                                 <span>CEO — InnovaGroup</span>
                             </div>
                         </div>
@@ -1385,7 +1390,7 @@
 
             <form class="testimonial-submit-form" id="testimonialForm">
                 <div class="testimonial-form-header">
-                    <h4>Cuéntanos tu experiencia</h4>
+                    <h3>Cuéntanos tu experiencia</h3>
                     <p>Tu opinión nos ayuda a seguir mejorando.</p>
                 </div>
 
@@ -1539,7 +1544,7 @@
                             <span><i class="far fa-calendar"></i> 15 Ene 2026</span>
                             <span><i class="far fa-clock"></i> 5 min</span>
                         </div>
-                        <h4>IA Empresarial en 2026</h4>
+                        <h3>IA Empresarial en 2026</h3>
                         <p>Cómo las empresas están automatizando procesos clave con inteligencia artificial generativa.</p>
                         <div class="blog-footer">
                             <div class="blog-author">
@@ -1567,7 +1572,7 @@
                             <span><i class="far fa-calendar"></i> 8 Ene 2026</span>
                             <span><i class="far fa-clock"></i> 4 min</span>
                         </div>
-                        <h4>Protección de Datos</h4>
+                        <h3>Protección de Datos</h3>
                         <p>Estrategias modernas de seguridad digital para proteger tu negocio en la nube.</p>
                         <div class="blog-footer">
                             <div class="blog-author">
@@ -1595,7 +1600,7 @@
                             <span><i class="far fa-calendar"></i> 2 Ene 2026</span>
                             <span><i class="far fa-clock"></i> 6 min</span>
                         </div>
-                        <h4>Infraestructura Escalable</h4>
+                        <h3>Infraestructura Escalable</h3>
                         <p>Migración empresarial hacia la nube con estrategias híbridas y multi-cloud.</p>
                         <div class="blog-footer">
                             <div class="blog-author">
@@ -1624,7 +1629,7 @@
                             <span><i class="far fa-calendar"></i> 5 Feb 2026</span>
                             <span><i class="far fa-clock"></i> 4 min</span>
                         </div>
-                        <h4>Frameworks Web en 2026</h4>
+                        <h3>Frameworks Web en 2026</h3>
                         <p>Por qué React, Vue y Astro dominan el desarrollo frontend y cómo elegir el stack correcto para tu proyecto.</p>
                         <div class="blog-footer">
                             <div class="blog-author">
@@ -1653,7 +1658,7 @@
                             <span><i class="far fa-calendar"></i> 20 Feb 2026</span>
                             <span><i class="far fa-clock"></i> 5 min</span>
                         </div>
-                        <h4>Chatbots IA para Empresas</h4>
+                        <h3>Chatbots IA para Empresas</h3>
                         <p>Cómo implementar asistentes virtuales inteligentes que automaticen la atención al cliente y reduzcan costos operativos.</p>
                         <div class="blog-footer">
                             <div class="blog-author">
@@ -1680,7 +1685,7 @@
                             <span><i class="far fa-calendar"></i> 25 Feb 2026</span>
                             <span><i class="far fa-clock"></i> 4 min</span>
                         </div>
-                        <h4>Tendencias UX/UI en 2026</h4>
+                        <h3>Tendencias UX/UI en 2026</h3>
                         <p>Descubre cómo el diseño de interfaces está evolucionando hacia experiencias más inmersivas y centradas en el usuario.</p>
                         <div class="blog-footer">
                             <div class="blog-author">
@@ -1709,7 +1714,7 @@
                             <span><i class="far fa-calendar"></i> 13 Ago 2026</span>
                             <span><i class="far fa-clock"></i> 7 min</span>
                         </div>
-                        <h4>¿Cuánto Cuesta un ERP en Perú?</h4>
+                        <h3>¿Cuánto Cuesta un ERP en Perú?</h3>
                         <p>Guía de precios y factores que determinan el costo de un sistema ERP para empresas en Trujillo y La Libertad.</p>
                         <div class="blog-footer">
                             <div class="blog-author">
@@ -1738,7 +1743,7 @@
                             <span><i class="far fa-calendar"></i> 13 Ago 2026</span>
                             <span><i class="far fa-clock"></i> 6 min</span>
                         </div>
-                        <h4>Hosting Empresarial vs Compartido</h4>
+                        <h3>Hosting Empresarial vs Compartido</h3>
                         <p>Diferencias de rendimiento, seguridad y precio para elegir el alojamiento web correcto para tu empresa.</p>
                         <div class="blog-footer">
                             <div class="blog-author">
@@ -1756,9 +1761,9 @@
                 <div class="blog-card">
                     <div class="blog-img-wrap">
                         <picture>
-                            <source srcset="assets/img/avif/about.avif" type="image/avif">
-                            <source srcset="assets/img/webp/about.webp" type="image/webp">
-                            <img src="assets/img/jpg/about.jpg" loading="lazy" decoding="async" alt="Correo corporativo con dominio propio para empresas en Perú" width="800" height="534">
+                            <source srcset="assets/img/avif/about-360w.avif 360w, assets/img/avif/about-720w.avif 720w, assets/img/avif/about.avif 856w" sizes="(max-width: 768px) 90vw, 360px" type="image/avif">
+                            <source srcset="assets/img/webp/about-360w.webp 360w, assets/img/webp/about-720w.webp 720w, assets/img/webp/about.webp 856w" sizes="(max-width: 768px) 90vw, 360px" type="image/webp">
+                            <img src="assets/img/jpg/about-720w.jpg" loading="lazy" decoding="async" alt="Correo corporativo con dominio propio para empresas en Perú" width="800" height="534">
                         </picture>
                         <span class="blog-category">Correo Corporativo</span>
                     </div>
@@ -1767,7 +1772,7 @@
                             <span><i class="far fa-calendar"></i> 13 Ago 2026</span>
                             <span><i class="far fa-clock"></i> 6 min</span>
                         </div>
-                        <h4>Correo Corporativo con tu Propio Dominio</h4>
+                        <h3>Correo Corporativo con tu Propio Dominio</h3>
                         <p>Guía completa para migrar tu email a un dominio propio: ventajas, pasos, SPF/DKIM y costos.</p>
                         <div class="blog-footer">
                             <div class="blog-author">
@@ -1791,7 +1796,7 @@
 
             <form class="blog-trend-form" id="trendForm">
                 <div class="trend-form-header">
-                    <h4>Comparte una tendencia digital</h4>
+                    <h3>Comparte una tendencia digital</h3>
                     <p>¿Has identificado una nueva tecnología o innovación? Cuéntanos para compartirla con la comunidad.</p>
                 </div>
 
@@ -1882,7 +1887,7 @@
                             <i class="fas fa-phone-alt"></i>
                         </div>
                         <div class="contact-card-body">
-                            <h4>Llámanos</h4>
+                            <h3>Llámanos</h3>
                             <a href="tel:+51924858054">+51 924 858 054</a>
                             <span>Lun–Vie 8:00 am – 6:00 pm</span>
                         </div>
@@ -1893,7 +1898,7 @@
                             <i class="fas fa-envelope"></i>
                         </div>
                         <div class="contact-card-body">
-                            <h4>Escríbenos</h4>
+                            <h3>Escríbenos</h3>
                             <a href="mailto:contacto@azconsultingperu.com">contacto@azconsultingperu.com</a>
                             <span>Respondemos en máximo 24 h</span>
                         </div>
@@ -1904,7 +1909,7 @@
                             <i class="fas fa-map-marker-alt"></i>
                         </div>
                         <div class="contact-card-body">
-                            <h4>Ubicación</h4>
+                            <h3>Ubicación</h3>
                             <span>Trujillo – Perú</span>
                             <span>Atención remota y presencial</span>
                         </div>
@@ -1915,7 +1920,7 @@
                             <i class="fab fa-whatsapp"></i>
                         </div>
                         <div class="contact-card-body">
-                            <h4>WhatsApp</h4>
+                            <h3>WhatsApp</h3>
                             <a href="https://wa.me/51924858054" target="_blank">+51 924 858 054</a>
                             <span>Respuesta inmediata</span>
                         </div>
@@ -2109,7 +2114,7 @@
         <div class="footer-grid">
 
             <div class="footer-col footer-brand-col">
-                <img src="assets/img/png/logo-footer.png" alt="AZCONSULTING" class="logo-footer">
+                <picture><source srcset="assets/img/webp/logo-footer.webp" type="image/webp"><img src="assets/img/png/logo-footer.png" alt="AZCONSULTING" class="logo-footer" width="530" height="100"></picture>
                 <p class="footer-desc">
                     Consultoría TI e infraestructura tecnológica para empresas en La Libertad. Transformamos tu negocio con soluciones digitales profesionales.
                 </p>
@@ -2130,7 +2135,7 @@
             </div>
 
             <div class="footer-col">
-                <h5>Enlaces Rápidos</h5>
+                <h3>Enlaces Rápidos</h3>
                 <ul class="footer-links">
                     <li><a href="#inicio">Inicio</a></li>
                     <li><a href="#nosotros">Nosotros</a></li>
@@ -2142,7 +2147,7 @@
             </div>
 
             <div class="footer-col">
-                <h5>Servicios</h5>
+                <h3>Servicios</h3>
                 <ul class="footer-links">
                     <li><a href="#servicios">Diseño Web</a></li>
                     <li><a href="#servicios">Apps a Medida</a></li>
@@ -2154,7 +2159,7 @@
             </div>
 
             <div class="footer-col">
-                <h5>Contacto</h5>
+                <h3>Contacto</h3>
                 <ul class="footer-contact">
                     <li>
                         <i class="fas fa-phone-alt"></i>

@@ -42,7 +42,8 @@
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"></noscript>
 
     <!-- AOS — carga diferida -->
-    <link href="../assets/vendor/aos/aos.css" rel="stylesheet">
+    <link rel="preload" href="../assets/vendor/aos/aos.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="../assets/vendor/aos/aos.css"></noscript>
     
 
     <!-- Google Fonts -->
@@ -107,6 +108,17 @@
 
 <body>
 
+    <!-- Aplica el tema guardado antes de pintar para evitar destello -->
+    <script>
+        (function () {
+            try {
+                if (localStorage.getItem('theme') === 'dark') {
+                    document.body.classList.add('dark-mode');
+                }
+            } catch (e) {}
+        })();
+    </script>
+
     <!-- PRELOADER -->
 
 <div id="preloader">
@@ -119,7 +131,7 @@
 
 <div class="ring"></div>
 
-<img src="../assets/img/png/logo.png" alt="AZCONSULTING" class="loader-logo">
+<picture><source srcset="../assets/img/webp/logo.webp" type="image/webp"><img src="../assets/img/png/logo.png" alt="AZCONSULTING" class="loader-logo" width="530" height="100"></picture>
 
 </div>
 
@@ -141,7 +153,7 @@
                     <i class="fas fa-moon"></i>
                 </button>
                 <a href="../index.html">
-                    <img src="../assets/img/png/logo.png" alt="AZCONSULTING" class="logo-header">
+                    <picture><source srcset="../assets/img/webp/logo.webp" type="image/webp"><img src="../assets/img/png/logo.png" alt="AZCONSULTING" class="logo-header" width="530" height="100"></picture>
                 </a>
             </div>
         </div>
@@ -276,7 +288,7 @@
         <div class="footer-grid">
 
             <div class="footer-col footer-brand-col">
-                <img src="../assets/img/png/logo-footer.png" alt="AZCONSULTING" class="logo-footer">
+                <picture><source srcset="../assets/img/webp/logo-footer.webp" type="image/webp"><img src="../assets/img/png/logo-footer.png" alt="AZCONSULTING" class="logo-footer" width="530" height="100"></picture>
                 <p class="footer-desc">
                     Consultoría TI e infraestructura tecnológica para empresas en La Libertad. Transformamos tu negocio con soluciones digitales profesionales.
                 </p>

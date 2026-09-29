@@ -47,6 +47,11 @@ function injectChatbot() {
 
 document.addEventListener('DOMContentLoaded', () => {
 
+    // Lectura geométrica ANTES de mutar el DOM: leer tras insertar el chatbot
+    // invalida el layout y Lighthouse lo flaggea como redistribución forzada.
+    const navbarEl = document.querySelector('.custom-navbar');
+    const initialNavbarH = navbarEl ? navbarEl.getBoundingClientRect().height : null;
+
     injectChatbot();
 
     /* ==========================================
@@ -55,16 +60,16 @@ document.addEventListener('DOMContentLoaded', () => {
        Soluciona el choque del panel del chatbot con el navbar en Firefox
        (modo fullscreen / ventana redimensionada) donde top: 86px fijo falla.
        ========================================== */
-    function updateNavbarHeight() {
+    function updateNavbarHeight(preReadH = null) {
         const navbar = document.querySelector('.custom-navbar');
         if (navbar) {
-            const h = navbar.getBoundingClientRect().height;
+            const h = preReadH !== null ? preReadH : navbar.getBoundingClientRect().height;
             // +8px de margen de seguridad para evitar contacto visual
             document.documentElement.style.setProperty('--navbar-h', (h + 8) + 'px');
         }
     }
-    updateNavbarHeight();
-    window.addEventListener('resize', updateNavbarHeight);
+    updateNavbarHeight(initialNavbarH);
+    window.addEventListener('resize', () => updateNavbarHeight());
 
     /* ==========================================
        1. DARK MODE

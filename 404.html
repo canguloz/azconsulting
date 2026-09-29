@@ -67,10 +67,40 @@
         .btn-home:hover { background: #FF7A00; color: #fff; }
         .btn-blog { background: transparent; color: #0d1630; border: 2px solid #0d1630; }
         .btn-blog:hover { background: #0d1630; color: #fff; }
+        .theme-toggle {
+            position: fixed; top: 20px; right: 20px; width: 44px; height: 44px;
+            border-radius: 50%; border: 1px solid rgba(13,22,48,0.12); background: #fff;
+            color: #0d1630; font-size: 1.1rem; cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            transition: all 0.3s ease;
+        }
+        .theme-toggle:hover { color: #FF7A00; transform: rotate(20deg); }
+        body.dark-mode { background: #0a0f1e; color: #e2e8f0; }
+        body.dark-mode .error-code { color: #e8edf7; }
+        body.dark-mode .error-title { color: #e2e8f0; }
+        body.dark-mode .error-desc { color: #94a3b8; }
+        body.dark-mode .btn-home { background: #1a2540; color: #fff; }
+        body.dark-mode .btn-home:hover { background: #FF7A00; color: #fff; }
+        body.dark-mode .btn-blog { color: #e2e8f0; border-color: rgba(226,232,240,0.4); }
+        body.dark-mode .btn-blog:hover { background: #e2e8f0; color: #0d1630; }
+        body.dark-mode .theme-toggle { background: #111827; color: #FF7A00; border-color: rgba(255,255,255,0.12); }
     </style>
 </head>
 
 <body>
+    <!-- Aplica el tema guardado antes de pintar para evitar destello -->
+    <script>
+        (function () {
+            try {
+                if (localStorage.getItem('theme') === 'dark') {
+                    document.body.classList.add('dark-mode');
+                }
+            } catch (e) {}
+        })();
+    </script>
+    <button id="darkModeToggle" class="theme-toggle" aria-label="Cambiar modo oscuro/claro">
+        <i class="fas fa-moon"></i>
+    </button>
     <div class="error-wrap">
         <div class="error-code">4<span>0</span>4</div>
         <h1 class="error-title">Página no encontrada</h1>
@@ -80,6 +110,24 @@
             <a href="/#blog" class="btn-blog"><i class="fas fa-newspaper me-2"></i>Ir al blog</a>
         </div>
     </div>
+    <script>
+        (function () {
+            var body = document.body;
+            var btn = document.getElementById('darkModeToggle');
+            function syncIcon() {
+                var dark = body.classList.contains('dark-mode');
+                btn.innerHTML = dark ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+            }
+            syncIcon();
+            btn.addEventListener('click', function () {
+                var dark = body.classList.toggle('dark-mode');
+                try {
+                    localStorage.setItem('theme', dark ? 'dark' : 'light');
+                } catch (e) {}
+                syncIcon();
+            });
+        })();
+    </script>
 </body>
 
 </html>

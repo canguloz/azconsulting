@@ -46,12 +46,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const navLinks = Array.from(document.querySelectorAll('.navbar-nav .nav-link'));
     const sections = Array.from(document.querySelectorAll('section[id]'));
 
+    // Lectura de scrollY agrupada por frame: evita el reflow forzado que
+    // Lighthouse flaggea al leer geometría y mutar clases en el mismo tick.
+    let navbarTicking = false;
     const updateNavbar = () => {
-        if (!navbar) return;
-        navbar.classList.toggle('navbar-scrolled', window.scrollY > 50);
+        if (navbar) navbar.classList.toggle('navbar-scrolled', window.scrollY > 50);
+        navbarTicking = false;
     };
 
-    window.addEventListener('scroll', updateNavbar, { passive: true });
+    window.addEventListener('scroll', () => {
+        if (!navbarTicking) {
+            navbarTicking = true;
+            requestAnimationFrame(updateNavbar);
+        }
+    }, { passive: true });
     updateNavbar();
 
     if (navLinks.length && sections.length && 'IntersectionObserver' in window) {
@@ -227,7 +235,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // tsParticles: carga dinámica post window.load para no bloquear el hilo principal
-    // Se carga el bundle completo solo una vez que la página está completamente lista
+    // Se carga el bundle completo solo una vez que la página está completamente lista.
+    // NOTA: se evaluó el bundle slim, pero @tsparticles/slim es solo un plugin
+    // (requiere el engine por separado y no expone tsParticles.load), por eso se
+    // mantiene el bundle. El guard de tsParticles.load evita errores si el CDN falla.
     const initParticles = () => {
         // No cargar partículas en mobile — mejora de rendimiento significativa
         if (window.innerWidth < 768) return;
@@ -236,7 +247,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const script = document.createElement('script');
             script.src = 'https://cdn.jsdelivr.net/npm/tsparticles@3/tsparticles.bundle.min.js';
             script.onload = () => {
-                if (typeof tsParticles === 'undefined') return;
+                if (typeof tsParticles === 'undefined' || typeof tsParticles.load !== 'function') return;
                 tsParticles.load('particles-js', {
                     background: { color: 'transparent' },
                     fpsLimit: 40,                          // Limitar FPS para reducir lag en móvil
